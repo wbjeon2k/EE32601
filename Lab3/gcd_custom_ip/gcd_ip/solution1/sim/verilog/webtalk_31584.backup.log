@@ -1,0 +1,13 @@
+#-----------------------------------------------------------
+# Webtalk v2020.1.1 (64-bit)
+# SW Build 2960000 on Wed Aug  5 22:57:20 MDT 2020
+# IP Build 2956692 on Thu Aug  6 01:41:30 MDT 2020
+# Start of session at: Thu Mar 24 00:07:51 2022
+# Process ID: 31584
+# Current directory: C:/Xilinx/Vitis/2020.1/gcd_custom_ip/gcd_ip/solution1/sim/verilog
+# Command line: wbtcv.exe -mode batch -source C:/Xilinx/Vitis/2020.1/gcd_custom_ip/gcd_ip/solution1/sim/verilog/xsim.dir/gcd_custom/webtalk/xsim_webtalk.tcl -notrace
+# Log file: C:/Xilinx/Vitis/2020.1/gcd_custom_ip/gcd_ip/solution1/sim/verilog/webtalk.log
+# Journal file: C:/Xilinx/Vitis/2020.1/gcd_custom_ip/gcd_ip/solution1/sim/verilog\webtalk.jou
+#-----------------------------------------------------------
+source C:/Xilinx/Vitis/2020.1/gcd_custom_ip/gcd_ip/solution1/sim/verilog/xsim.dir/gcd_custom/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-206] Exiting Webtalk at Thu Mar 24 00:07:51 2022...

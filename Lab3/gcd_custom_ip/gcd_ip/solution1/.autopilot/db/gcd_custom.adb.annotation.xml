@@ -1,0 +1,9 @@
+<annotationInfo>
+<annotationInfo>
+<item  id="16" filename="gcd_custom.cpp" linenumber="10" name="icmp_ln10" contextFuncName="gcd_custom" contextNormFuncName="gcd_custom" moduleName="gcd_custom" rtlName="icmp_ln10_fu_89_p2" latency="0" BRAM="-1" DSP="-1" FF="0" LUT="18" fileDirectory="C:\Xilinx\Vitis\2020.1\gcd_custom_ip"><\/item>
+<item  id="17" filename="gcd_custom.cpp" linenumber="10" name="select_ln10" contextFuncName="gcd_custom" contextNormFuncName="gcd_custom" moduleName="gcd_custom" rtlName="select_ln10_fu_95_p3" latency="0" BRAM="-1" DSP="-1" FF="0" LUT="32" fileDirectory="C:\Xilinx\Vitis\2020.1\gcd_custom_ip"><\/item>
+<item  id="18" filename="gcd_custom.cpp" linenumber="10" name="select_ln10_1" contextFuncName="gcd_custom" contextNormFuncName="gcd_custom" moduleName="gcd_custom" rtlName="select_ln10_1_fu_103_p3" latency="0" BRAM="-1" DSP="-1" FF="0" LUT="32" fileDirectory="C:\Xilinx\Vitis\2020.1\gcd_custom_ip"><\/item>
+<item  id="24" filename="gcd_custom.cpp" linenumber="18" name="icmp_ln18" contextFuncName="gcd_custom" contextNormFuncName="gcd_custom" moduleName="gcd_custom" rtlName="icmp_ln18_fu_111_p2" latency="0" BRAM="-1" DSP="-1" FF="0" LUT="18" fileDirectory="C:\Xilinx\Vitis\2020.1\gcd_custom_ip"><\/item>
+<item  id="28" filename="gcd_custom.cpp" linenumber="20" name="srem_ln20" contextFuncName="gcd_custom" contextNormFuncName="gcd_custom" moduleName="gcd_custom" rtlName="srem_32ns_32ns_32_36_1_U1" latency="35" BRAM="-1" DSP="-1" FF="-1" LUT="-1" fileDirectory="C:\Xilinx\Vitis\2020.1\gcd_custom_ip"><\/item>
+<\/annotationInfo>
+</annotationInfo>

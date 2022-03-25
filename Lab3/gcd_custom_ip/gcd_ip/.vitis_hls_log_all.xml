@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vivadoHLSLog:LogRoot xmlns:vivadoHLSLog="www.xilinx.com/vivadoHLSLog">
+  <errorLogs>
+    <logs>
+      <synLog/>
+      <simLog/>
+      <mgLog/>
+      <packageLog/>
+      <csimLog/>
+    </logs>
+  </errorLogs>
+  <warningLogs>
+    <logs>
+      <synLog>
+        <logs message="WARNING: [RTGEN 206-101] Design contains AXI ports. Reset is fixed to synchronous and active low." projectName="gcd_ip" solutionName="solution1" date="2022-03-24T00:18:38.707+0900" type="Warning"/>
+        <logs message="WARNING: [HLS 200-880] The II Violation in module 'gcd_custom' (Loop: VITIS_LOOP_18_1): Unable to enforce a carried dependence constraint (II = 35, distance = 1, offset = 1) between 'srem' operation ('b', gcd_custom.cpp:20) and 'icmp' operation ('icmp_ln18', gcd_custom.cpp:18).&#xD;&#xA;Resolution: For help on HLS 200-880 see www.xilinx.com/html_docs/xilinx2020_1/hls-guidance/200-880.html" projectName="gcd_ip" solutionName="solution1" date="2022-03-24T00:18:38.478+0900" type="Warning"/>
+        <logs message="WARNING: [HLS 200-880] The II Violation in module 'gcd_custom' (Loop: VITIS_LOOP_18_1): Unable to enforce a carried dependence constraint (II = 4, distance = 1, offset = 1) between 'srem' operation ('b', gcd_custom.cpp:20) and 'icmp' operation ('icmp_ln18', gcd_custom.cpp:18).&#xD;&#xA;Resolution: For help on HLS 200-880 see www.xilinx.com/html_docs/xilinx2020_1/hls-guidance/200-880.html" projectName="gcd_ip" solutionName="solution1" date="2022-03-24T00:18:38.472+0900" type="Warning"/>
+        <logs message="WARNING: [HLS 200-880] The II Violation in module 'gcd_custom' (Loop: VITIS_LOOP_18_1): Unable to enforce a carried dependence constraint (II = 3, distance = 1, offset = 1) between 'srem' operation ('b', gcd_custom.cpp:20) and 'icmp' operation ('icmp_ln18', gcd_custom.cpp:18).&#xD;&#xA;Resolution: For help on HLS 200-880 see www.xilinx.com/html_docs/xilinx2020_1/hls-guidance/200-880.html" projectName="gcd_ip" solutionName="solution1" date="2022-03-24T00:18:38.466+0900" type="Warning"/>
+        <logs message="WARNING: [HLS 200-880] The II Violation in module 'gcd_custom' (Loop: VITIS_LOOP_18_1): Unable to enforce a carried dependence constraint (II = 2, distance = 1, offset = 1) between 'srem' operation ('b', gcd_custom.cpp:20) and 'icmp' operation ('icmp_ln18', gcd_custom.cpp:18).&#xD;&#xA;Resolution: For help on HLS 200-880 see www.xilinx.com/html_docs/xilinx2020_1/hls-guidance/200-880.html" projectName="gcd_ip" solutionName="solution1" date="2022-03-24T00:18:38.460+0900" type="Warning"/>
+        <logs message="WARNING: [HLS 200-880] The II Violation in module 'gcd_custom' (Loop: VITIS_LOOP_18_1): Unable to enforce a carried dependence constraint (II = 1, distance = 1, offset = 1) between 'srem' operation ('b', gcd_custom.cpp:20) and 'icmp' operation ('icmp_ln18', gcd_custom.cpp:18).&#xD;&#xA;Resolution: For help on HLS 200-880 see www.xilinx.com/html_docs/xilinx2020_1/hls-guidance/200-880.html" projectName="gcd_ip" solutionName="solution1" date="2022-03-24T00:18:38.453+0900" type="Warning"/>
+        <logs message="WARNING: [XFORM 203-803] Dropped interface mode 'ap_auto' on 'gcd' (gcd_custom.cpp:1) as it is incompatible with its interface mode 's_axilite'." projectName="gcd_ip" solutionName="solution1" date="2022-03-24T00:18:38.265+0900" type="Warning"/>
+      </synLog>
+      <simLog/>
+      <mgLog/>
+      <packageLog/>
+      <csimLog/>
+    </logs>
+  </warningLogs>
+</vivadoHLSLog:LogRoot>

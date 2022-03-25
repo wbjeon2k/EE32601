@@ -1,0 +1,15 @@
+{"sourceFile": [{
+      "name": "",
+      "directive": [{
+          "functionName": "gcd_custom",
+          "label": "",
+          "functionLabel": "",
+          "pragma": {
+            "name": "TOP",
+            "option": [{
+                "name": "name",
+                "value": "gcd_custom"
+              }]
+          }
+        }]
+    }]}

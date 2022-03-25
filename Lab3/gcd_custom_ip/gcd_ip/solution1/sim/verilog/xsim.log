@@ -1,0 +1,73 @@
+#-----------------------------------------------------------
+# xsim v2020.1.1 (64-bit)
+# SW Build 2960000 on Wed Aug  5 22:57:20 MDT 2020
+# IP Build 2956692 on Thu Aug  6 01:41:30 MDT 2020
+# Start of session at: Thu Mar 24 00:07:52 2022
+# Process ID: 28760
+# Current directory: C:/Xilinx/Vitis/2020.1/gcd_custom_ip/gcd_ip/solution1/sim/verilog
+# Command line: xsim.exe -source {xsim.dir/gcd_custom/xsim_script.tcl}
+# Log file: C:/Xilinx/Vitis/2020.1/gcd_custom_ip/gcd_ip/solution1/sim/verilog/xsim.log
+# Journal file: C:/Xilinx/Vitis/2020.1/gcd_custom_ip/gcd_ip/solution1/sim/verilog\xsim.jou
+#-----------------------------------------------------------
+start_gui
+source xsim.dir/gcd_custom/xsim_script.tcl
+# set_param project.enableReportConfiguration 0
+# load_feature core
+# current_fileset
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2020.1/data/ip'.
+# xsim {gcd_custom} -view {{gcd_custom_dataflow_ana.wcfg}} -tclbatch {gcd_custom.tcl} -protoinst {gcd_custom.protoinst}
+Vivado Simulator 2020.1.1
+INFO: [Wavedata 42-565] Reading protoinst file gcd_custom.protoinst
+INFO: [Wavedata 42-564]   Found protocol instance at /apatb_gcd_custom_top/AESL_inst_gcd_custom//AESL_inst_gcd_custom_activity
+Time resolution is 1 ps
+open_wave_config gcd_custom_dataflow_ana.wcfg
+source gcd_custom.tcl
+## log_wave [get_objects -filter {type == in_port || type == out_port || type == inout_port || type == port} /apatb_gcd_custom_top/AESL_inst_gcd_custom/*]
+## set designtopgroup [add_wave_group "Design Top Signals"]
+## set cinputgroup [add_wave_group "C Inputs" -into $designtopgroup]
+## set a__b__gcd_group [add_wave_group a__b__gcd(axi_slave) -into $cinputgroup]
+## add_wave /apatb_gcd_custom_top/AESL_inst_gcd_custom/s_axi_control_BRESP -into $a__b__gcd_group -radix hex
+## add_wave /apatb_gcd_custom_top/AESL_inst_gcd_custom/s_axi_control_BREADY -into $a__b__gcd_group -color #ffff00 -radix hex
+## add_wave /apatb_gcd_custom_top/AESL_inst_gcd_custom/s_axi_control_BVALID -into $a__b__gcd_group -color #ffff00 -radix hex
+## add_wave /apatb_gcd_custom_top/AESL_inst_gcd_custom/s_axi_control_RRESP -into $a__b__gcd_group -radix hex
+## add_wave /apatb_gcd_custom_top/AESL_inst_gcd_custom/s_axi_control_RDATA -into $a__b__gcd_group -radix hex
+## add_wave /apatb_gcd_custom_top/AESL_inst_gcd_custom/s_axi_control_RREADY -into $a__b__gcd_group -color #ffff00 -radix hex
+## add_wave /apatb_gcd_custom_top/AESL_inst_gcd_custom/s_axi_control_RVALID -into $a__b__gcd_group -color #ffff00 -radix hex
+## add_wave /apatb_gcd_custom_top/AESL_inst_gcd_custom/s_axi_control_ARREADY -into $a__b__gcd_group -color #ffff00 -radix hex
+## add_wave /apatb_gcd_custom_top/AESL_inst_gcd_custom/s_axi_control_ARVALID -into $a__b__gcd_group -color #ffff00 -radix hex
+## add_wave /apatb_gcd_custom_top/AESL_inst_gcd_custom/s_axi_control_ARADDR -into $a__b__gcd_group -radix hex
+## add_wave /apatb_gcd_custom_top/AESL_inst_gcd_custom/s_axi_control_WSTRB -into $a__b__gcd_group -radix hex
+## add_wave /apatb_gcd_custom_top/AESL_inst_gcd_custom/s_axi_control_WDATA -into $a__b__gcd_group -radix hex
+## add_wave /apatb_gcd_custom_top/AESL_inst_gcd_custom/s_axi_control_WREADY -into $a__b__gcd_group -color #ffff00 -radix hex
+## add_wave /apatb_gcd_custom_top/AESL_inst_gcd_custom/s_axi_control_WVALID -into $a__b__gcd_group -color #ffff00 -radix hex
+## add_wave /apatb_gcd_custom_top/AESL_inst_gcd_custom/s_axi_control_AWREADY -into $a__b__gcd_group -color #ffff00 -radix hex
+## add_wave /apatb_gcd_custom_top/AESL_inst_gcd_custom/s_axi_control_AWVALID -into $a__b__gcd_group -color #ffff00 -radix hex
+## add_wave /apatb_gcd_custom_top/AESL_inst_gcd_custom/s_axi_control_AWADDR -into $a__b__gcd_group -radix hex
+## set blocksiggroup [add_wave_group "Block-level IO Handshake" -into $designtopgroup]
+## add_wave /apatb_gcd_custom_top/AESL_inst_gcd_custom/ap_start -into $blocksiggroup
+## add_wave /apatb_gcd_custom_top/AESL_inst_gcd_custom/ap_done -into $blocksiggroup
+## add_wave /apatb_gcd_custom_top/AESL_inst_gcd_custom/ap_idle -into $blocksiggroup
+## add_wave /apatb_gcd_custom_top/AESL_inst_gcd_custom/ap_ready -into $blocksiggroup
+## set resetgroup [add_wave_group "Reset" -into $designtopgroup]
+## add_wave /apatb_gcd_custom_top/AESL_inst_gcd_custom/ap_rst_n -into $resetgroup
+## set clockgroup [add_wave_group "Clock" -into $designtopgroup]
+## add_wave /apatb_gcd_custom_top/AESL_inst_gcd_custom/ap_clk -into $clockgroup
+## save_wave_config gcd_custom.wcfg
+## run all
+////////////////////////////////////////////////////////////////////////////////////
+// Inter-Transaction Progress: Completed Transaction / Total Transaction
+// Intra-Transaction Progress: Measured Latency / Latency Estimation * 100%
+//
+// RTL Simulation : "Inter-Transaction Progress" ["Intra-Transaction Progress"] @ "Simulation Time"
+////////////////////////////////////////////////////////////////////////////////////
+// RTL Simulation : 0 / 1 [n/a] @ "1125000"
+// RTL Simulation : 1 / 1 [n/a] @ "2165000"
+////////////////////////////////////////////////////////////////////////////////////
+$finish called at time : 2205 ns : File "C:/Xilinx/Vitis/2020.1/gcd_custom_ip/gcd_ip/solution1/sim/verilog/gcd_custom.autotb.v" Line 341
+save_wave_config {C:/Xilinx/Vitis/2020.1/gcd_custom_ip/gcd_ip/solution1/sim/verilog/gcd_custom.wcfg}
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+exit
+INFO: [Common 17-206] Exiting xsim at Thu Mar 24 00:15:29 2022...

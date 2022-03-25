@@ -1,0 +1,71 @@
+INFO: [COSIM-47] Using XSIM for RTL simulation.
+INFO: [COSIM-14] Instrumenting C test bench ...
+   Build using "C:/Xilinx/Vitis/2020.1/tps/win64/msys64/mingw64/bin/g++"
+   Compiling gcd_custom.cpp_pre.cpp.tb.cpp
+   Compiling apatb_gcd_custom.cpp
+   Compiling gcd_testbench.cpp_pre.cpp.tb.cpp
+   Generating cosim.tv.exe
+INFO: [COSIM-302] Starting C TB testing ... 
+INFO: [COSIM-333] Generating C post check test bench ...
+INFO: [COSIM-12] Generating RTL test bench ...
+INFO: [COSIM-1] *** C/RTL co-simulation file generation completed. ***
+INFO: [COSIM-323] Starting verilog simulation. 
+INFO: [COSIM-15] Starting XSIM ...
+INFO: [COSIM-316] Starting C post checking ...
+33
+
+C:\Xilinx\Vitis\2020.1\gcd_custom_ip\gcd_ip\solution1\sim\verilog>set PATH= 
+
+C:\Xilinx\Vitis\2020.1\gcd_custom_ip\gcd_ip\solution1\sim\verilog>call C:/Xilinx/Vivado/2020.1/bin/xelab xil_defaultlib.apatb_gcd_custom_top glbl -prj gcd_custom.prj -L smartconnect_v1_0 -L axi_protocol_checker_v1_1_12 -L axi_protocol_checker_v1_1_13 -L axis_protocol_checker_v1_1_11 -L axis_protocol_checker_v1_1_12 -L xil_defaultlib -L unisims_ver -L xpm  --lib "ieee_proposed=./ieee_proposed" -s gcd_custom -debug wave 
+Vivado Simulator 2020.1.1
+Copyright 1986-1999, 2001-2020 Xilinx, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2020.1/bin/unwrapped/win64.o/xelab.exe xil_defaultlib.apatb_gcd_custom_top glbl -prj gcd_custom.prj -L smartconnect_v1_0 -L axi_protocol_checker_v1_1_12 -L axi_protocol_checker_v1_1_13 -L axis_protocol_checker_v1_1_11 -L axis_protocol_checker_v1_1_12 -L xil_defaultlib -L unisims_ver -L xpm --lib ieee_proposed=./ieee_proposed -s gcd_custom -debug wave 
+Multi-threading is on. Using 10 slave threads.
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Xilinx/Vitis/2020.1/gcd_custom_ip/gcd_ip/solution1/sim/verilog/glbl.v" into library work
+INFO: [VRFC 10-311] analyzing module glbl
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Xilinx/Vitis/2020.1/gcd_custom_ip/gcd_ip/solution1/sim/verilog/AESL_axi_slave_control.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module AESL_axi_slave_control
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Xilinx/Vitis/2020.1/gcd_custom_ip/gcd_ip/solution1/sim/verilog/gcd_custom.autotb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module apatb_gcd_custom_top
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Xilinx/Vitis/2020.1/gcd_custom_ip/gcd_ip/solution1/sim/verilog/gcd_custom.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module gcd_custom
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Xilinx/Vitis/2020.1/gcd_custom_ip/gcd_ip/solution1/sim/verilog/gcd_custom_control_s_axi.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module gcd_custom_control_s_axi
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Xilinx/Vitis/2020.1/gcd_custom_ip/gcd_ip/solution1/sim/verilog/gcd_custom_srem_32ns_32ns_32_36_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module gcd_custom_srem_32ns_32ns_32_36_1_div_u
+INFO: [VRFC 10-311] analyzing module gcd_custom_srem_32ns_32ns_32_36_1_div
+INFO: [VRFC 10-311] analyzing module gcd_custom_srem_32ns_32ns_32_36_1
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.gcd_custom_control_s_axi
+Compiling module xil_defaultlib.gcd_custom_srem_32ns_32ns_32_36_...
+Compiling module xil_defaultlib.gcd_custom_srem_32ns_32ns_32_36_...
+Compiling module xil_defaultlib.gcd_custom_srem_32ns_32ns_32_36_...
+Compiling module xil_defaultlib.gcd_custom
+Compiling module xil_defaultlib.AESL_axi_slave_control
+Compiling module xil_defaultlib.apatb_gcd_custom_top
+Compiling module work.glbl
+Built simulation snapshot gcd_custom
+
+****** Webtalk v2020.1.1 (64-bit)
+  **** SW Build 2960000 on Wed Aug  5 22:57:20 MDT 2020
+  **** IP Build 2956692 on Thu Aug  6 01:41:30 MDT 2020
+    ** Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+
+source C:/Xilinx/Vitis/2020.1/gcd_custom_ip/gcd_ip/solution1/sim/verilog/xsim.dir/gcd_custom/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-206] Exiting Webtalk at Thu Mar 24 00:07:51 2022...
+
+****** xsim v2020.1.1 (64-bit)
+  **** SW Build 2960000 on Wed Aug  5 22:57:20 MDT 2020
+  **** IP Build 2956692 on Thu Aug  6 01:41:30 MDT 2020
+    ** Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+
+start_gui
+INFO: [Common 17-206] Exiting xsim at Thu Mar 24 00:15:29 2022...
+33
+INFO: [COSIM-1000] *** C/RTL co-simulation finished: PASS ***
+INFO: [COSIM-211] II is measurable only when transaction number is greater than 1 in RTL simulation. Otherwise, they will be marked as all NA. If user wants to calculate them, please make sure there are at least 2 transactions in RTL simulation.

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<autopilotfilemapping:AutoPilotFileMapping xmlns:autopilotfilemapping="www.autoesl.com/autopilotfilemapping">
+  <source>
+    <originFiles name="gcd_custom.cpp" path="C:\Xilinx\Vitis\2020.1\gcd_custom_ip\gcd_custom.cpp"/>
+    <originFiles name="gcd_custom.h" path="C:\Xilinx\Vitis\2020.1\gcd_custom_ip\gcd_custom.h"/>
+  </source>
+  <testbench>
+    <originFiles name="gcd_testbench.cpp" path="C:\Xilinx\Vitis\2020.1\gcd_custom_ip\gcd_testbench.cpp"/>
+  </testbench>
+</autopilotfilemapping:AutoPilotFileMapping>

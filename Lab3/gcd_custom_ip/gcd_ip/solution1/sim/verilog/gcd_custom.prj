@@ -1,0 +1,7 @@
+sv work "glbl.v"
+sv xil_defaultlib "AESL_axi_slave_control.v"
+sv xil_defaultlib "gcd_custom.autotb.v"
+sv xil_defaultlib "gcd_custom.v"
+sv xil_defaultlib "gcd_custom_control_s_axi.v"
+sv xil_defaultlib "gcd_custom_srem_32ns_32ns_32_36_1.v"
+

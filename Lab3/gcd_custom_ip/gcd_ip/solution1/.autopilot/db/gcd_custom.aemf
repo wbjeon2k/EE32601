@@ -1,0 +1,552 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cdfg:DBCdfg xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cdfg="http://www.autoesl.com/DBCdfg" timeStamp="1648048718882">
+  <ports id="1" name="a" type="PortType" originalName="a" bitwidth="32">
+    <dataOutputObjs>read</dataOutputObjs>
+  </ports>
+  <ports id="2" name="b" type="PortType" originalName="b" bitwidth="32">
+    <dataOutputObjs>read</dataOutputObjs>
+  </ports>
+  <ports id="3" name="gcd" type="PortType" originalName="gcd" bitwidth="32" direction="DirOut">
+    <dataInputObjs>write</dataInputObjs>
+  </ports>
+  <edges id="36" source_obj="//@ports.1" sink_obj="//@blocks.0/@node_objs.0"/>
+  <edges id="38" source_obj="//@ports.0" sink_obj="//@blocks.0/@node_objs.1"/>
+  <edges id="39" source_obj="//@blocks.0/@node_objs.0" sink_obj="//@blocks.0/@node_objs.2"/>
+  <edges id="40" source_obj="//@blocks.0/@node_objs.1" sink_obj="//@blocks.0/@node_objs.2"/>
+  <edges id="41" source_obj="//@blocks.0/@node_objs.2" sink_obj="//@blocks.0/@node_objs.3"/>
+  <edges id="42" source_obj="//@blocks.0/@node_objs.1" sink_obj="//@blocks.0/@node_objs.3"/>
+  <edges id="43" source_obj="//@blocks.0/@node_objs.0" sink_obj="//@blocks.0/@node_objs.3"/>
+  <edges id="44" source_obj="//@blocks.0/@node_objs.2" sink_obj="//@blocks.0/@node_objs.4"/>
+  <edges id="45" source_obj="//@blocks.0/@node_objs.0" sink_obj="//@blocks.0/@node_objs.4"/>
+  <edges id="46" source_obj="//@blocks.0/@node_objs.1" sink_obj="//@blocks.0/@node_objs.4"/>
+  <edges id="47" edge_type="CtrlEdge" source_obj="//@regions.0/@basic_blocks.0" sink_obj="//@blocks.0/@node_objs.5"/>
+  <edges id="48" source_obj="//@blocks.0/@node_objs.3" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.0"/>
+  <edges id="49" edge_type="CtrlEdge" source_obj="//@blocks.0" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.0"/>
+  <edges id="50" source_obj="//@regions.0/@basic_blocks.1/@node_objs.0" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.0" is_back_edge="1"/>
+  <edges id="51" edge_type="CtrlEdge" source_obj="//@regions.0/@basic_blocks.1" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.0" is_back_edge="1"/>
+  <edges id="52" source_obj="//@blocks.0/@node_objs.4" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.1"/>
+  <edges id="53" edge_type="CtrlEdge" source_obj="//@blocks.0" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.1"/>
+  <edges id="54" source_obj="//@regions.0/@basic_blocks.0/@node_objs.0" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.1" is_back_edge="1"/>
+  <edges id="55" edge_type="CtrlEdge" source_obj="//@regions.0/@basic_blocks.1" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.1" is_back_edge="1"/>
+  <edges id="56" source_obj="//@regions.0/@basic_blocks.0/@node_objs.0" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.2"/>
+  <edges id="59" source_obj="//@regions.0/@basic_blocks.0/@node_objs.2" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.3"/>
+  <edges id="60" edge_type="CtrlEdge" source_obj="//@regions.0/@basic_blocks.1" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.3"/>
+  <edges id="61" edge_type="CtrlEdge" source_obj="//@blocks.1" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.3"/>
+  <edges id="62" source_obj="//@regions.0/@basic_blocks.0/@node_objs.1" sink_obj="//@regions.0/@basic_blocks.1/@node_objs.0"/>
+  <edges id="63" source_obj="//@regions.0/@basic_blocks.0/@node_objs.0" sink_obj="//@regions.0/@basic_blocks.1/@node_objs.0"/>
+  <edges id="64" edge_type="CtrlEdge" source_obj="//@regions.0/@basic_blocks.0" sink_obj="//@regions.0/@basic_blocks.1/@node_objs.1"/>
+  <edges id="67" source_obj="//@blocks.1/@node_objs.0" sink_obj="//@ports.2"/>
+  <edges id="68" source_obj="//@regions.0/@basic_blocks.0/@node_objs.1" sink_obj="//@blocks.1/@node_objs.0"/>
+  <edges id="215" edge_type="CtrlEdge" source_obj="//@blocks.0" sink_obj="//@regions.0/@basic_blocks.0"/>
+  <edges id="216" edge_type="CtrlEdge" source_obj="//@regions.0/@basic_blocks.0" sink_obj="//@blocks.1"/>
+  <edges id="217" edge_type="CtrlEdge" source_obj="//@regions.0/@basic_blocks.0" sink_obj="//@regions.0/@basic_blocks.1"/>
+  <edges id="218" edge_type="CtrlEdge" source_obj="//@regions.0/@basic_blocks.1" sink_obj="//@regions.0/@basic_blocks.0" is_back_edge="1"/>
+  <edges id="2147483647" source_obj="//@regions.0/@basic_blocks.0/@node_objs.2" sink_obj="//@regions.0/@basic_blocks.1/@node_objs.0"/>
+  <edges id="2147483647" source_obj="//@regions.0/@basic_blocks.1/@node_objs.0" sink_obj="//@regions.0/@basic_blocks.0/@node_objs.2" is_back_edge="1"/>
+  <blocks id="20" name="block_20" type="BlockType">
+    <controlOutputObjs>phi</controlOutputObjs>
+    <controlOutputObjs>phi</controlOutputObjs>
+    <controlOutputObjs>block_26</controlOutputObjs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="14" name="b_read" lineNumber="1" originalName="b" fileName="gcd_custom.cpp" fileDirectory=".." contextFuncName="gcd_custom" bitwidth="32" opcode="read" m_display="0" m_delay="1.0" m_topoIndex="1" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="gcd_custom.cpp" linenumber="1" fileDirectory="C:\Xilinx\Vitis\2020.1\gcd_custom_ip" functionName="gcd_custom"/>
+      <dataInputObjs>b</dataInputObjs>
+      <dataOutputObjs>icmp</dataOutputObjs>
+      <dataOutputObjs>select</dataOutputObjs>
+      <dataOutputObjs>select</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="15" name="a_read" lineNumber="1" originalName="a" fileName="gcd_custom.cpp" fileDirectory=".." contextFuncName="gcd_custom" bitwidth="32" opcode="read" m_display="0" m_delay="1.0" m_topoIndex="2" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="gcd_custom.cpp" linenumber="1" fileDirectory="C:\Xilinx\Vitis\2020.1\gcd_custom_ip" functionName="gcd_custom"/>
+      <dataInputObjs>a</dataInputObjs>
+      <dataOutputObjs>icmp</dataOutputObjs>
+      <dataOutputObjs>select</dataOutputObjs>
+      <dataOutputObjs>select</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="16" name="icmp_ln10" lineNumber="10" fileName="gcd_custom.cpp" fileDirectory=".." rtlName="icmp_ln10_fu_89_p2" contextFuncName="gcd_custom" bitwidth="1" opcode="icmp" m_display="0" m_delay="2.47" m_topoIndex="3" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="gcd_custom.cpp" linenumber="10" fileDirectory="C:\Xilinx\Vitis\2020.1\gcd_custom_ip" functionName="gcd_custom"/>
+      <dataInputObjs>read</dataInputObjs>
+      <dataInputObjs>read</dataInputObjs>
+      <dataOutputObjs>select</dataOutputObjs>
+      <dataOutputObjs>select</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="17" name="select_ln10" lineNumber="10" originalName="b" fileName="gcd_custom.cpp" fileDirectory=".." rtlName="select_ln10_fu_95_p3" contextFuncName="gcd_custom" bitwidth="32" opcode="select" m_display="0" m_delay="0.69" m_topoIndex="4" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="gcd_custom.cpp" linenumber="10" fileDirectory="C:\Xilinx\Vitis\2020.1\gcd_custom_ip" functionName="gcd_custom"/>
+      <dataInputObjs>icmp</dataInputObjs>
+      <dataInputObjs>read</dataInputObjs>
+      <dataInputObjs>read</dataInputObjs>
+      <dataOutputObjs>phi</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="18" name="select_ln10_1" lineNumber="10" originalName="a" fileName="gcd_custom.cpp" fileDirectory=".." rtlName="select_ln10_1_fu_103_p3" contextFuncName="gcd_custom" bitwidth="32" opcode="select" m_display="0" m_delay="0.69" m_topoIndex="5" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="gcd_custom.cpp" linenumber="10" fileDirectory="C:\Xilinx\Vitis\2020.1\gcd_custom_ip" functionName="gcd_custom"/>
+      <dataInputObjs>icmp</dataInputObjs>
+      <dataInputObjs>read</dataInputObjs>
+      <dataInputObjs>read</dataInputObjs>
+      <dataOutputObjs>phi</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="19" name="br_ln18" lineNumber="18" fileName="gcd_custom.cpp" fileDirectory=".." contextFuncName="gcd_custom" opcode="br" m_display="0" m_delay="1.76" m_topoIndex="6" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="gcd_custom.cpp" linenumber="18" fileDirectory="C:\Xilinx\Vitis\2020.1\gcd_custom_ip" functionName="gcd_custom"/>
+      <controlInputObjs>block_26</controlInputObjs>
+    </node_objs>
+    <fileValidLineNumbers fileName="gcd_custom.cpp">
+      <validLinenumbers>1</validLinenumbers>
+      <validLinenumbers>10</validLinenumbers>
+      <validLinenumbers>18</validLinenumbers>
+    </fileValidLineNumbers>
+  </blocks>
+  <blocks id="33" name="bb" type="BlockType">
+    <controlInputObjs>block_26</controlInputObjs>
+    <controlOutputObjs>br</controlOutputObjs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="31" name="gcd_write_ln24" lineNumber="24" fileName="gcd_custom.cpp" fileDirectory=".." contextFuncName="gcd_custom" opcode="write" nodeLabel="37.0" m_display="0" m_delay="1.0" m_topoIndex="13" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="gcd_custom.cpp" linenumber="24" fileDirectory="C:\Xilinx\Vitis\2020.1\gcd_custom_ip" functionName="gcd_custom"/>
+      <dataInputObjs>phi</dataInputObjs>
+      <dataOutputObjs>gcd</dataOutputObjs>
+    </node_objs>
+    <node_objs xsi:type="cdfg:CdfgNode" id="32" name="_ln25" lineNumber="25" fileName="gcd_custom.cpp" fileDirectory=".." contextFuncName="gcd_custom" opcode="ret" nodeLabel="37.0" m_display="0" m_topoIndex="14" m_clusterGroupNumber="-1">
+      <inlineStackInfo fileName="gcd_custom.cpp" linenumber="25" fileDirectory="C:\Xilinx\Vitis\2020.1\gcd_custom_ip" functionName="gcd_custom"/>
+    </node_objs>
+    <fileValidLineNumbers fileName="gcd_custom.cpp">
+      <validLinenumbers>24</validLinenumbers>
+      <validLinenumbers>25</validLinenumbers>
+    </fileValidLineNumbers>
+  </blocks>
+  <regions anchor_node="-1" region_type="8" interval="36" typeName="Pipeline" id="201" pipe_depth="36" RegionName="VITIS_LOOP_18_1">
+    <basic_blocks id="26" name="block_26" type="BlockType">
+      <controlInputObjs>block_20</controlInputObjs>
+      <controlInputObjs>block_30</controlInputObjs>
+      <controlOutputObjs>br</controlOutputObjs>
+      <controlOutputObjs>br</controlOutputObjs>
+      <controlOutputObjs>bb</controlOutputObjs>
+      <controlOutputObjs>block_30</controlOutputObjs>
+      <node_objs xsi:type="cdfg:CdfgNode" id="21" name="tmp" lineNumber="10" originalName="b" fileName="gcd_custom.cpp" fileDirectory=".." contextFuncName="gcd_custom" bitwidth="32" opcode="phi" nodeLabel="1.0" m_display="0" m_topoIndex="7" m_clusterGroupNumber="-1">
+        <inlineStackInfo fileName="gcd_custom.cpp" linenumber="10" fileDirectory="C:\Xilinx\Vitis\2020.1\gcd_custom_ip" functionName="gcd_custom"/>
+        <dataInputObjs>select</dataInputObjs>
+        <dataInputObjs>srem</dataInputObjs>
+        <dataOutputObjs>phi</dataOutputObjs>
+        <dataOutputObjs>icmp</dataOutputObjs>
+        <dataOutputObjs>srem</dataOutputObjs>
+        <controlInputObjs>block_20</controlInputObjs>
+        <controlInputObjs>block_30</controlInputObjs>
+      </node_objs>
+      <node_objs xsi:type="cdfg:CdfgNode" id="22" name="a_assign_1" originalName="tmp" bitwidth="32" opcode="phi" nodeLabel="1.0" m_display="0" m_topoIndex="8" m_clusterGroupNumber="-1">
+        <dataInputObjs>select</dataInputObjs>
+        <dataInputObjs>phi</dataInputObjs>
+        <dataOutputObjs>srem</dataOutputObjs>
+        <dataOutputObjs>write</dataOutputObjs>
+        <controlInputObjs>block_20</controlInputObjs>
+        <controlInputObjs>block_30</controlInputObjs>
+      </node_objs>
+      <node_objs xsi:type="cdfg:CdfgNode" id="24" name="icmp_ln18" lineNumber="18" fileName="gcd_custom.cpp" fileDirectory=".." rtlName="icmp_ln18_fu_111_p2" contextFuncName="gcd_custom" bitwidth="1" opcode="icmp" nodeLabel="1.0" m_display="1" m_delay="2.47" m_isLCDNode="true" m_isStartOfPath="true" m_topoIndex="9" m_clusterGroupNumber="-1">
+        <inlineStackInfo fileName="gcd_custom.cpp" linenumber="18" fileDirectory="C:\Xilinx\Vitis\2020.1\gcd_custom_ip" functionName="gcd_custom"/>
+        <dataInputObjs>phi</dataInputObjs>
+        <dataInputObjs>srem</dataInputObjs>
+        <dataOutputObjs>br</dataOutputObjs>
+        <dataOutputObjs>srem</dataOutputObjs>
+        <constName>empty</constName>
+      </node_objs>
+      <node_objs xsi:type="cdfg:CdfgNode" id="25" name="br_ln18" lineNumber="18" fileName="gcd_custom.cpp" fileDirectory=".." contextFuncName="gcd_custom" opcode="br" nodeLabel="1.0" m_display="0" m_topoIndex="10" m_clusterGroupNumber="-1">
+        <inlineStackInfo fileName="gcd_custom.cpp" linenumber="18" fileDirectory="C:\Xilinx\Vitis\2020.1\gcd_custom_ip" functionName="gcd_custom"/>
+        <dataInputObjs>icmp</dataInputObjs>
+        <controlInputObjs>block_30</controlInputObjs>
+        <controlInputObjs>bb</controlInputObjs>
+      </node_objs>
+      <fileValidLineNumbers fileName="gcd_custom.cpp">
+        <validLinenumbers>10</validLinenumbers>
+        <validLinenumbers>18</validLinenumbers>
+      </fileValidLineNumbers>
+    </basic_blocks>
+    <basic_blocks id="30" name="block_30" type="BlockType">
+      <controlInputObjs>block_26</controlInputObjs>
+      <controlOutputObjs>phi</controlOutputObjs>
+      <controlOutputObjs>phi</controlOutputObjs>
+      <controlOutputObjs>br</controlOutputObjs>
+      <controlOutputObjs>block_26</controlOutputObjs>
+      <node_objs xsi:type="cdfg:CdfgNode" id="28" name="srem_ln20" lineNumber="20" originalName="b" fileName="gcd_custom.cpp" fileDirectory=".." rtlName="srem_32ns_32ns_32_36_1_U1" contextFuncName="gcd_custom" bitwidth="32" opcode="srem" nodeLabel="1.0" nodeLatency="35" m_display="1" m_delay="4.33" m_isLCDNode="true" m_topoIndex="11" m_clusterGroupNumber="-1">
+        <inlineStackInfo fileName="gcd_custom.cpp" linenumber="20" fileDirectory="C:\Xilinx\Vitis\2020.1\gcd_custom_ip" functionName="gcd_custom"/>
+        <dataInputObjs>phi</dataInputObjs>
+        <dataInputObjs>phi</dataInputObjs>
+        <dataInputObjs>icmp</dataInputObjs>
+        <dataOutputObjs>phi</dataOutputObjs>
+        <dataOutputObjs>icmp</dataOutputObjs>
+      </node_objs>
+      <node_objs xsi:type="cdfg:CdfgNode" id="29" name="br_ln18" lineNumber="18" fileName="gcd_custom.cpp" fileDirectory=".." contextFuncName="gcd_custom" opcode="br" nodeLabel="36.0" m_display="0" m_topoIndex="12" m_clusterGroupNumber="-1">
+        <inlineStackInfo fileName="gcd_custom.cpp" linenumber="18" fileDirectory="C:\Xilinx\Vitis\2020.1\gcd_custom_ip" functionName="gcd_custom"/>
+        <controlInputObjs>block_26</controlInputObjs>
+      </node_objs>
+      <fileValidLineNumbers fileName="gcd_custom.cpp">
+        <validLinenumbers>20</validLinenumbers>
+        <validLinenumbers>18</validLinenumbers>
+      </fileValidLineNumbers>
+    </basic_blocks>
+  </regions>
+  <ScheduleInfo time="0"/>
+  <ScheduleInfo time="1"/>
+  <ScheduleInfo time="2"/>
+  <ScheduleInfo time="3"/>
+  <ScheduleInfo time="4"/>
+  <ScheduleInfo time="5"/>
+  <ScheduleInfo time="6"/>
+  <ScheduleInfo time="7"/>
+  <ScheduleInfo time="8"/>
+  <ScheduleInfo time="9"/>
+  <ScheduleInfo time="10"/>
+  <ScheduleInfo time="11"/>
+  <ScheduleInfo time="12"/>
+  <ScheduleInfo time="13"/>
+  <ScheduleInfo time="14"/>
+  <ScheduleInfo time="15"/>
+  <ScheduleInfo time="16"/>
+  <ScheduleInfo time="17"/>
+  <ScheduleInfo time="18"/>
+  <ScheduleInfo time="19"/>
+  <ScheduleInfo time="20"/>
+  <ScheduleInfo time="21"/>
+  <ScheduleInfo time="22"/>
+  <ScheduleInfo time="23"/>
+  <ScheduleInfo time="24"/>
+  <ScheduleInfo time="25"/>
+  <ScheduleInfo time="26"/>
+  <ScheduleInfo time="27"/>
+  <ScheduleInfo time="28"/>
+  <ScheduleInfo time="29"/>
+  <ScheduleInfo time="30"/>
+  <ScheduleInfo time="31"/>
+  <ScheduleInfo time="32"/>
+  <ScheduleInfo time="33"/>
+  <ScheduleInfo time="34"/>
+  <ScheduleInfo time="35"/>
+  <ScheduleInfo time="36"/>
+  <ScheduleInfo time="37"/>
+  <regnodes realName="tmp_reg_67">
+    <nodeIds>21</nodeIds>
+  </regnodes>
+  <regnodes realName="select_ln10_reg_123">
+    <nodeIds>17</nodeIds>
+  </regnodes>
+  <regnodes realName="select_ln10_1_reg_128">
+    <nodeIds>18</nodeIds>
+  </regnodes>
+  <regnodes realName="a_assign_1_reg_77">
+    <nodeIds>22</nodeIds>
+  </regnodes>
+  <regnodes realName="srem_ln20_reg_136">
+    <nodeIds>28</nodeIds>
+  </regnodes>
+  <expressionNodes realName="select_ln10_1_fu_103">
+    <nodeIds>18</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="a_assign_1_phi_fu_81">
+    <nodeIds>22</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="icmp_ln10_fu_89">
+    <nodeIds>16</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="icmp_ln18_fu_111">
+    <nodeIds>24</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="tmp_phi_fu_70">
+    <nodeIds>21</nodeIds>
+  </expressionNodes>
+  <expressionNodes realName="select_ln10_fu_95">
+    <nodeIds>17</nodeIds>
+  </expressionNodes>
+  <moduleNodes realName="grp_fu_117">
+    <nodeIds>28</nodeIds>
+  </moduleNodes>
+  <ioNodes realName="a_read_read_fu_54">
+    <nodeIds>15</nodeIds>
+  </ioNodes>
+  <ioNodes realName="b_read_read_fu_48">
+    <nodeIds>14</nodeIds>
+  </ioNodes>
+  <ioNodes realName="write_ln24_write_fu_60">
+    <nodeIds>31</nodeIds>
+  </ioNodes>
+  <ioPorts name="a">
+    <contents name="read">
+      <nodeIds>15</nodeIds>
+    </contents>
+  </ioPorts>
+  <ioPorts name="b">
+    <contents name="read">
+      <nodeIds>14</nodeIds>
+    </contents>
+  </ioPorts>
+  <ioPorts name="gcd">
+    <contents name="write">
+      <nodeIds>31</nodeIds>
+    </contents>
+  </ioPorts>
+  <fsm>
+    <states id="1">
+      <operations id="4" stage="1" latency="1"/>
+      <operations id="5" stage="1" latency="1"/>
+      <operations id="6" stage="1" latency="1"/>
+      <operations id="7" stage="1" latency="1"/>
+      <operations id="8" stage="1" latency="1"/>
+      <operations id="9" stage="1" latency="1"/>
+      <operations id="10" stage="1" latency="1"/>
+      <operations id="11" stage="1" latency="1"/>
+      <operations id="12" stage="1" latency="1"/>
+      <operations id="13" stage="1" latency="1"/>
+      <operations id="14" stage="1" latency="1"/>
+      <operations id="15" stage="1" latency="1"/>
+      <operations id="16" stage="1" latency="1"/>
+      <operations id="17" stage="1" latency="1"/>
+      <operations id="18" stage="1" latency="1"/>
+      <operations id="19" stage="1" latency="1"/>
+    </states>
+    <states id="2">
+      <operations id="21" stage="1" latency="1"/>
+      <operations id="22" stage="1" latency="1"/>
+      <operations id="23" stage="1" latency="1"/>
+      <operations id="24" stage="1" latency="1"/>
+      <operations id="25" stage="1" latency="1"/>
+      <operations id="28" stage="36" latency="36"/>
+    </states>
+    <states id="3">
+      <operations id="28" stage="35" latency="36"/>
+    </states>
+    <states id="4">
+      <operations id="28" stage="34" latency="36"/>
+    </states>
+    <states id="5">
+      <operations id="28" stage="33" latency="36"/>
+    </states>
+    <states id="6">
+      <operations id="28" stage="32" latency="36"/>
+    </states>
+    <states id="7">
+      <operations id="28" stage="31" latency="36"/>
+    </states>
+    <states id="8">
+      <operations id="28" stage="30" latency="36"/>
+    </states>
+    <states id="9">
+      <operations id="28" stage="29" latency="36"/>
+    </states>
+    <states id="10">
+      <operations id="28" stage="28" latency="36"/>
+    </states>
+    <states id="11">
+      <operations id="28" stage="27" latency="36"/>
+    </states>
+    <states id="12">
+      <operations id="28" stage="26" latency="36"/>
+    </states>
+    <states id="13">
+      <operations id="28" stage="25" latency="36"/>
+    </states>
+    <states id="14">
+      <operations id="28" stage="24" latency="36"/>
+    </states>
+    <states id="15">
+      <operations id="28" stage="23" latency="36"/>
+    </states>
+    <states id="16">
+      <operations id="28" stage="22" latency="36"/>
+    </states>
+    <states id="17">
+      <operations id="28" stage="21" latency="36"/>
+    </states>
+    <states id="18">
+      <operations id="28" stage="20" latency="36"/>
+    </states>
+    <states id="19">
+      <operations id="28" stage="19" latency="36"/>
+    </states>
+    <states id="20">
+      <operations id="28" stage="18" latency="36"/>
+    </states>
+    <states id="21">
+      <operations id="28" stage="17" latency="36"/>
+    </states>
+    <states id="22">
+      <operations id="28" stage="16" latency="36"/>
+    </states>
+    <states id="23">
+      <operations id="28" stage="15" latency="36"/>
+    </states>
+    <states id="24">
+      <operations id="28" stage="14" latency="36"/>
+    </states>
+    <states id="25">
+      <operations id="28" stage="13" latency="36"/>
+    </states>
+    <states id="26">
+      <operations id="28" stage="12" latency="36"/>
+    </states>
+    <states id="27">
+      <operations id="28" stage="11" latency="36"/>
+    </states>
+    <states id="28">
+      <operations id="28" stage="10" latency="36"/>
+    </states>
+    <states id="29">
+      <operations id="28" stage="9" latency="36"/>
+    </states>
+    <states id="30">
+      <operations id="28" stage="8" latency="36"/>
+    </states>
+    <states id="31">
+      <operations id="28" stage="7" latency="36"/>
+    </states>
+    <states id="32">
+      <operations id="28" stage="6" latency="36"/>
+    </states>
+    <states id="33">
+      <operations id="28" stage="5" latency="36"/>
+    </states>
+    <states id="34">
+      <operations id="28" stage="4" latency="36"/>
+    </states>
+    <states id="35">
+      <operations id="28" stage="3" latency="36"/>
+    </states>
+    <states id="36">
+      <operations id="28" stage="2" latency="36"/>
+    </states>
+    <states id="37">
+      <operations id="27" stage="1" latency="1"/>
+      <operations id="28" stage="1" latency="36"/>
+      <operations id="29" stage="1" latency="1"/>
+    </states>
+    <states id="38">
+      <operations id="31" stage="1" latency="1"/>
+      <operations id="32" stage="1" latency="1"/>
+    </states>
+    <transitions inState="1" outState="2">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="3" outState="4">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="4" outState="5">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="5" outState="6">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="6" outState="7">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="7" outState="8">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="8" outState="9">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="9" outState="10">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="10" outState="11">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="11" outState="12">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="12" outState="13">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="13" outState="14">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="14" outState="15">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="15" outState="16">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="16" outState="17">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="17" outState="18">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="18" outState="19">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="19" outState="20">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="20" outState="21">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="21" outState="22">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="22" outState="23">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="23" outState="24">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="24" outState="25">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="25" outState="26">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="26" outState="27">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="27" outState="28">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="28" outState="29">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="29" outState="30">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="30" outState="31">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="31" outState="32">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="32" outState="33">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="33" outState="34">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="34" outState="35">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="35" outState="36">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="36" outState="37">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="37" outState="2">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="2" outState="38">
+      <condition id="-1"/>
+    </transitions>
+    <transitions inState="2" outState="3">
+      <condition id="-1"/>
+    </transitions>
+  </fsm>
+  <CFGRegionsRoot>
+    <cfgRegions mId="1" mTag="gcd_custom" mII="-1" mDepth="-1" mMinTripCount="-1" mMaxTripCount="-1" mMinLatency="-1" mMaxLatency="-1">
+      <subRegions>2</subRegions>
+      <subRegions>3</subRegions>
+      <subRegions>4</subRegions>
+      <mDfPipe/>
+    </cfgRegions>
+    <cfgRegions mId="2" mTag="Entry" mII="-1" mDepth="-1" mMinTripCount="-1" mMaxTripCount="-1">
+      <basicBlocks>20</basicBlocks>
+      <mDfPipe/>
+    </cfgRegions>
+    <cfgRegions mId="3" mTag="VITIS_LOOP_18_1" mII="36" mDepth="36" mMinTripCount="-1" mMaxTripCount="-1" mMinLatency="-1" mMaxLatency="-1" mType="1">
+      <basicBlocks>26</basicBlocks>
+      <basicBlocks>30</basicBlocks>
+      <mDfPipe/>
+    </cfgRegions>
+    <cfgRegions mId="4" mTag="Return" mII="-1" mDepth="-1" mMinTripCount="-1" mMaxTripCount="-1">
+      <basicBlocks>33</basicBlocks>
+      <mDfPipe/>
+    </cfgRegions>
+  </CFGRegionsRoot>
+</cdfg:DBCdfg>

@@ -1,0 +1,25 @@
+INFO: Applying HLS Y2K22 patch v1.2 for IP revision
+INFO: [HLS 200-10] Running 'C:/Xilinx/Vitis/2020.1/bin/unwrapped/win64.o/vitis_hls.exe'
+INFO: [HLS 200-10] For user 'JEONWOONGBAE' on host 'desktop-u3o80b6' (Windows NT_amd64 version 6.2) on Thu Mar 24 00:20:01 +0900 2022
+INFO: [HLS 200-10] In directory 'C:/Xilinx/Vitis/2020.1/gcd_custom_ip'
+Sourcing Tcl script 'C:/Xilinx/Vitis/2020.1/gcd_custom_ip/gcd_ip/solution1/export.tcl'
+INFO: [HLS 200-10] Opening project 'C:/Xilinx/Vitis/2020.1/gcd_custom_ip/gcd_ip'.
+INFO: [HLS 200-10] Adding design file 'gcd_custom.cpp' to the project
+INFO: [HLS 200-10] Adding design file 'gcd_custom.h' to the project
+INFO: [HLS 200-10] Adding test bench file 'gcd_testbench.cpp' to the project
+INFO: [HLS 200-10] Opening solution 'C:/Xilinx/Vitis/2020.1/gcd_custom_ip/gcd_ip/solution1'.
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [HLS 200-10] Setting target device to 'xc7z020-clg400-1'
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+Resolution: For help on HLS 200-1505 see www.xilinx.com/html_docs/xilinx2020_1/hls-guidance/200-1505.html
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+INFO: [IMPL 213-8] Exporting RTL as a Vivado IP.
+
+****** Vivado v2020.1.1 (64-bit)
+  **** SW Build 2960000 on Wed Aug  5 22:57:20 MDT 2020
+  **** IP Build 2956692 on Thu Aug  6 01:41:30 MDT 2020
+    ** Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+
+source run_ippack.tcl -notrace
+INFO: [Common 17-206] Exiting Vivado at Thu Mar 24 00:20:12 2022...
+INFO: [HLS 200-802] Generated output file C:/Xilinx/Vivado/2020.1/ip_repository/gcd_custom.zip
