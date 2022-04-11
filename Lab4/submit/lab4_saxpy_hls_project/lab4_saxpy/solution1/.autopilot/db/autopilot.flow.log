@@ -1,0 +1,634 @@
+INFO-FLOW: Workspace C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1 opened at Thu Mar 31 04:00:09 +0900 2022
+Execute     ap_set_clock -name default -period 10 -default=false 
+INFO: [SYN 201-201] Setting up clock 'default' with a period of 10ns.
+Execute     open_platform DefaultPlatform 
+Execute     import_lib C:/Xilinx/Vitis/2020.1/common/technology/xilinx/zynq/zynq 
+Execute       source C:/Xilinx/Vitis/2020.1/common/technology/xilinx/common/xilinx.lib 
+Execute         source C:/Xilinx/Vitis/2020.1/common/technology/xilinx/common/dsp48.lib 
+Execute       source C:/Xilinx/Vitis/2020.1/common/technology/xilinx/common/xilinx.hlp 
+Execute         source C:/Xilinx/Vitis/2020.1/common/technology/xilinx/interface/xilinx_interface.hlp 
+Execute           source C:/Xilinx/Vitis/2020.1/common/technology/xilinx/interface/maxi.hlp 
+Execute           source C:/Xilinx/Vitis/2020.1/common/technology/xilinx/interface/saxilite.hlp 
+Execute         source C:/Xilinx/Vitis/2020.1/common/technology/xilinx/common/dsp48.hlp 
+Execute       source C:/Xilinx/Vitis/2020.1/common/technology/xilinx/zynq/dsp48e1.hlp 
+Execute     source C:/Xilinx/Vitis/2020.1/common/technology/xilinx/zynq/zynq.gen 
+Execute       source C:/Xilinx/Vitis/2020.1/common/technology/xilinx/common/xilinx.gen 
+Execute         source C:/Xilinx/Vitis/2020.1/common/technology/xilinx/interface/plb46.gen 
+Execute         source C:/Xilinx/Vitis/2020.1/common/technology/xilinx/interface/axi4.gen 
+Execute         source C:/Xilinx/Vitis/2020.1/common/technology/xilinx/interface/nativeAXI4.gen 
+Execute           source C:/Xilinx/Vitis/2020.1/common/technology/xilinx/interface/saxilite.gen 
+Execute           source C:/Xilinx/Vitis/2020.1/common/technology/xilinx/interface/maxi.gen 
+Execute         source C:/Xilinx/Vitis/2020.1/common/technology/xilinx/scripts/xilinxcoregen.gen 
+Execute         source C:/Xilinx/Vitis/2020.1/common/technology/xilinx/interface/XilEDKCoreGen.gen 
+Execute         source C:/Xilinx/Vitis/2020.1/common/technology/xilinx/ip/dds_compiler.gen 
+Execute         source C:/Xilinx/Vitis/2020.1/common/technology/xilinx/ip/util.gen 
+Execute         source C:/Xilinx/Vitis/2020.1/common/technology/xilinx/ip/xfft.gen 
+Execute         source C:/Xilinx/Vitis/2020.1/common/technology/xilinx/ip/xfir.gen 
+Execute         source C:/Xilinx/Vitis/2020.1/common/technology/xilinx/common/dsp48.gen 
+Command       ap_source done; 0.131 sec.
+Command     ap_source done; 0.131 sec.
+Execute     open_platform DefaultPlatform 
+Execute     import_lib C:/Xilinx/Vitis/2020.1/common/technology/xilinx/zynq/zynq_fpv6 
+Execute       source C:/Xilinx/Vitis/2020.1/common/technology/xilinx/common/xilinx_fp.lib 
+Execute       source C:/Xilinx/Vitis/2020.1/common/technology/xilinx/common/xilinx_fp.hlp 
+Execute         source C:/Xilinx/Vitis/2020.1/common/technology/xilinx/common/xilinx.hlp 
+Execute           source C:/Xilinx/Vitis/2020.1/common/technology/xilinx/interface/xilinx_interface.hlp 
+Execute             source C:/Xilinx/Vitis/2020.1/common/technology/xilinx/interface/maxi.hlp 
+Execute             source C:/Xilinx/Vitis/2020.1/common/technology/xilinx/interface/saxilite.hlp 
+Execute           source C:/Xilinx/Vitis/2020.1/common/technology/xilinx/common/dsp48.hlp 
+Execute     source C:/Xilinx/Vitis/2020.1/common/technology/xilinx/zynq/zynq_fpv6.gen 
+Execute       source C:/Xilinx/Vitis/2020.1/common/technology/xilinx/common/xilinx_fp.gen 
+Execute     set_part xc7z020-clg400-1 
+INFO-FLOW: DBG:set_part: XILINX_VIVADO=C:/Xilinx/Vivado/2020.1
+INFO-FLOW: DBG:set_part: RDI_DATADIR=C:/Xilinx/Vivado/2020.1/data;C:/Xilinx/Vitis/2020.1/data
+Execute       ap_part_info -name xc7z020-clg400-1 -data single -quiet 
+DBG:HLSDevice: Trying to load device library: C:/Xilinx/Vitis/2020.1\lib\win64.o\librdi_hlsvwrap.dll
+DBG:HLSDevice: first parts/arch.xml in RDI_DATADIR: C:/Xilinx/Vivado/2020.1/data/parts/arch.xml
+Command       ap_part_info done; 1.309 sec.
+Execute       ap_part_info -name xc7z020-clg400-1 -data info 
+Execute       ap_family_info -name zynq -data info 
+Execute       add_library xilinx/zynq/zynq:xc7z020:-clg400:-1 
+Execute         get_default_platform 
+Execute         ap_part_info -data single -name xc7z020-clg400-1 
+Execute         ap_part_info -name xc7z020-clg400-1 -data resources 
+Execute         config_chip_info -resource {SLICE 13300} {LUT 53200} {FF 106400} {DSP 220} {BRAM 280} {URAM 0} 
+Execute         ap_part_info -name xc7z020-clg400-1 -data info 
+Execute         config_chip_info -speed slow 
+Execute       add_library xilinx/zynq/zynq_fpv6 
+Execute         get_default_platform 
+INFO: [HLS 200-10] Setting target device to 'xc7z020-clg400-1'
+Execute       ap_part_info -name xc7z020-clg400-1 -data info 
+Execute       get_default_platform 
+Command     set_part done; 1.413 sec.
+Execute     ap_part_info -data single -name xc7z020-clg400-1 
+Execute     ap_part_info -name xc7z020-clg400-1 -data resources 
+Execute     config_chip_info -resource {SLICE 13300} {LUT 53200} {FF 106400} {DSP 220} {BRAM 280} {URAM 0} 
+Execute     ap_part_info -name xc7z020-clg400-1 -data info 
+Execute     config_chip_info -speed slow 
+Execute     send_msg_by_id INFO @200-1505@%s%s  vivado 
+INFO: [HLS 200-1505] Using flow_target 'vivado'
+Execute     get_config_interface -m_axi_latency 
+Execute     get_config_interface -m_axi_alignment_byte_size 
+Execute     get_config_interface -m_axi_max_widen_bitwidth 
+Execute     get_config_interface -default_interface 
+Execute     get_config_interface -default_slave_interface 
+Execute     get_config_rtl -register_reset_num 
+Execute     send_msg_by_id INFO @200-1464@%s config_export -format=ip_catalog 
+INFO: [HLS 200-1464] Running solution command: config_export -format=ip_catalog
+Execute     config_export -format=ip_catalog 
+Execute     send_msg_by_id INFO @200-1464@%s config_export -output=C:/Xilinx/Vivado/2020.1/ip_repository/saxpy.zip 
+INFO: [HLS 200-1464] Running solution command: config_export -output=C:/Xilinx/Vivado/2020.1/ip_repository/saxpy.zip
+Execute     config_export -output=C:/Xilinx/Vivado/2020.1/ip_repository/saxpy.zip 
+Execute     send_msg_by_id INFO @200-1464@%s config_export -rtl=verilog 
+INFO: [HLS 200-1464] Running solution command: config_export -rtl=verilog
+Execute     config_export -rtl=verilog 
+Command   open_solution done; 1.621 sec.
+Execute   set_part xc7z020-clg400-1 
+INFO-FLOW: DBG:set_part: XILINX_VIVADO=C:/Xilinx/Vivado/2020.1
+INFO-FLOW: DBG:set_part: RDI_DATADIR=C:/Xilinx/Vivado/2020.1/data;C:/Xilinx/Vitis/2020.1/data
+Execute     ap_part_info -name xc7z020-clg400-1 -data single -quiet 
+Execute     ap_part_info -name xc7z020-clg400-1 -data info 
+Execute     ap_family_info -name zynq -data info 
+Execute     add_library xilinx/zynq/zynq:xc7z020:-clg400:-1 
+Execute       get_default_platform 
+Execute       ap_part_info -data single -name xc7z020-clg400-1 
+Execute       ap_part_info -name xc7z020-clg400-1 -data resources 
+Execute       config_chip_info -resource {SLICE 13300} {LUT 53200} {FF 106400} {DSP 220} {BRAM 280} {URAM 0} 
+Execute       ap_part_info -name xc7z020-clg400-1 -data info 
+Execute       config_chip_info -speed slow 
+Execute     add_library xilinx/zynq/zynq_fpv6 
+Execute       get_default_platform 
+Execute     ap_part_info -name xc7z020-clg400-1 -data info 
+Execute     get_default_platform 
+Command   set_part done; 0.101 sec.
+Execute   create_clock -period 10 -name default 
+Execute   config_export -format ip_catalog -output C:/Xilinx/Vivado/2020.1/ip_repository/saxpy.zip -rtl verilog 
+Execute   source ./lab4_saxpy/solution1/directives.tcl 
+Execute     set_directive_top -name saxpy saxpy 
+INFO-FLOW: Setting directive 'TOP' name=saxpy 
+Execute   csynth_design 
+Execute     get_config_compile -dump_cfg 
+Execute     get_config_compile -effort 
+Execute     get_config_compile -enable_clang39 
+Execute     get_config_compile -g 
+Execute     get_config_compile -ng 
+Execute     get_config_compile -opt_fp 
+Execute     get_config_compile -skip_cdt 
+Execute     get_config_compile -skip_syncheck 
+Execute     get_config_compile -skip_transform 
+Execute     get_config_compile -keep_printf 
+Execute     elaborate -effort=medium -skip_syncheck=0 -keep_printf=0 -skip_cdt=0 -skip_transform=0 -ng=0 -g=0 -opt_fp=0 -from_csynth_design=1 
+INFO: [HLS 200-10] Analyzing design file '../saxpy.cpp' ... 
+INFO-FLOW: Compiling one TU...
+Execute       get_config_compile -pragma_strict_mode 
+INFO-FLOW: Handling ../saxpy.cpp as C++
+Execute       ap_part_info -name xc7z020-clg400-1 -data info 
+INFO-FLOW: Running: GCC PP 39
+INFO-FLOW: Source preprocessing
+Execute       ap_eval exec -ignorestderr C:/Xilinx/Vitis/2020.1/win64/tools/clang-3.9-csynth/bin/clang -fsave-optimization-record -foptimization-record-file=C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/clang.saxpy.cpp.diag.yml -fno-limit-debug-info --sysroot C:/Xilinx/Vitis/2020.1/tps/mingw/6.2.0/win64.o/nt -fhls -fno-exceptions -E ../saxpy.cpp -fno-math-errno -c -emit-llvm -mllvm -disable-llvm-optzns -Werror=implicit-function-declaration -Werror=implicit-hls-streams -Werror=return-type -Wpragmas -Wunused-parameter -fno-threadsafe-statics -fno-use-cxa-atexit -std=gnu++14 -target fpga64-xilinx-mingw32 -fno-threadsafe-statics -fno-use-cxa-atexit -I C:/Xilinx/Vitis/2020.1/common/technology/autopilot/39 -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I C:/Xilinx/Vitis/2020.1/common/technology/autopilot -I C:/Xilinx/Vitis/2020.1/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -D__DSP48E1__ -o C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/saxpy.pp.0.cpp > C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/clang.saxpy.cpp.out.log 2> C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/clang.saxpy.cpp.err.log 
+Command       ap_eval done; 0.303 sec.
+INFO-FLOW: Done: GCC PP 39 time: 0.3 seconds per iteration
+Execute       set_directive_top saxpy -name=saxpy 
+INFO-FLOW: Setting directive 'TOP' name=saxpy 
+INFO-FLOW: Setting directive 'TOP' name=saxpy 
+INFO-FLOW: Setting directive 'TOP' name=saxpy 
+INFO-FLOW: Setting directive 'TOP' name=saxpy 
+Execute       source C:/Xilinx/Vitis/2020.1/tps/tcl/tcllib1.11.1/yaml/huddle.tcl 
+Execute       source C:/Xilinx/Vitis/2020.1/tps/tcl/tcllib1.11.1/yaml/json2huddle.tcl 
+Execute         source C:/Xilinx/Vitis/2020.1/tps/tcl/tcllib1.11.1/try/try.tcl 
+INFO-FLOW: Setting directive 'TOP' name=saxpy 
+INFO-FLOW: Setting directive 'TOP' name=saxpy 
+Execute       list_core -type functional_unit 
+Execute       clang_tidy xilinx-systemc-detector C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/saxpy.pp.0.cpp std=gnu++14 -target fpga  -directive=C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/.systemc_flag 
+INFO-FLOW: exec C:/Xilinx/Vitis/2020.1/win64/tools/clang-3.9-csynth/bin/clang-tidy -header-filter=.* --checks=-*,xilinx-systemc-detector -import-directive=C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/.systemc_flag -fix-errors C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/saxpy.pp.0.cpp -- -std=gnu++14 -target fpga -fhls -ferror-limit=0
+INFO-FLOW: Running: clang-tidy CDT preprocess 39
+Execute       clang_tidy xilinx-directive2pragma C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/saxpy.pp.0.cpp std=gnu++14 -target fpga  -directive=C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/all.directive.json 
+INFO-FLOW: exec C:/Xilinx/Vitis/2020.1/win64/tools/clang-3.9-csynth/bin/clang-tidy -header-filter=.* --checks=-*,xilinx-directive2pragma -import-directive=C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/all.directive.json -fix-errors C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/saxpy.pp.0.cpp -- -std=gnu++14 -target fpga -fhls -ferror-limit=0
+Execute       clang_tidy xilinx-constantarray-param,xilinx-remove-assert C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/saxpy.pp.0.cpp std=gnu++14 -target fpga  
+INFO-FLOW: exec C:/Xilinx/Vitis/2020.1/win64/tools/clang-3.9-csynth/bin/clang-tidy -header-filter=.* --checks=-*,xilinx-constantarray-param,xilinx-remove-assert -fix-errors C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/saxpy.pp.0.cpp -- -std=gnu++14 -target fpga -fhls -ferror-limit=0
+INFO-FLOW: Done: clang-tidy CDT preprocess 39 time: 0.2 seconds per iteration
+INFO-FLOW: Calling xilinx-label-all-loops ... 
+Execute       clang_tidy -errorcheck xilinx-label-all-loops C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/saxpy.pp.0.cpp std=gnu++14 -target fpga  
+Execute         ap_eval exec -ignorestderr C:/Xilinx/Vitis/2020.1/win64/tools/clang-3.9-csynth/bin/clang-tidy -export-fixes=C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/clang-tidy.saxpy.pp.0.cpp.diag.yml -header-filter=.* --checks=-*,xilinx-label-all-loops -fix-errors C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/saxpy.pp.0.cpp -- -std=gnu++14 -target fpga -fhls -ferror-limit=0 > C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/clang-tidy.saxpy.pp.0.cpp.out.log 2> C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/clang-tidy.saxpy.pp.0.cpp.err.log 
+Execute         source C:/Xilinx/Vitis/2020.1/tps/tcl/tcllib1.11.1/yaml/yaml.tcl 
+Execute           source C:/Xilinx/Vitis/2020.1/tps/tcl/tcllib1.11.1/cmdline/cmdline.tcl 
+Command       clang_tidy done; 0.115 sec.
+Execute       clang_tidy -errorcheck xilinx-top-parameters C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/saxpy.pp.0.cpp std=gnu++14 -target fpga  
+Execute         ap_eval exec -ignorestderr C:/Xilinx/Vitis/2020.1/win64/tools/clang-3.9-csynth/bin/clang-tidy -export-fixes=C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/clang-tidy.saxpy.pp.0.cpp.diag.yml -header-filter=.* --checks=-*,xilinx-top-parameters -fix-errors C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/saxpy.pp.0.cpp -- -std=gnu++14 -target fpga -fhls -ferror-limit=0 > C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/clang-tidy.saxpy.pp.0.cpp.out.log 2> C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/clang-tidy.saxpy.pp.0.cpp.err.log 
+Execute       clang_tidy -errorcheck xilinx-array-stream-check C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/saxpy.pp.0.cpp std=gnu++14 -target fpga  
+Execute         ap_eval exec -ignorestderr C:/Xilinx/Vitis/2020.1/win64/tools/clang-3.9-csynth/bin/clang-tidy -export-fixes=C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/clang-tidy.saxpy.pp.0.cpp.diag.yml -header-filter=.* --checks=-*,xilinx-array-stream-check -fix-errors C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/saxpy.pp.0.cpp -- -std=gnu++14 -target fpga -fhls -ferror-limit=0 > C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/clang-tidy.saxpy.pp.0.cpp.out.log 2> C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/clang-tidy.saxpy.pp.0.cpp.err.log 
+Execute       get_config_dataflow -strict_mode 
+Execute       ap_eval exec -ignorestderr C:/Xilinx/Vitis/2020.1/win64/tools/clang-3.9-csynth/bin/xilinx-dataflow-lawyer -export-fixes=C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/xilinx-dataflow-lawyer.saxpy.pp.0.cpp.diag.yml C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/saxpy.pp.0.cpp -- -std=gnu++14 -target fpga -fhls -ferror-limit=0 -fstrict-dataflow > C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/xilinx-dataflow-lawyer.saxpy.pp.0.cpp.out.log 2> C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/xilinx-dataflow-lawyer.saxpy.pp.0.cpp.err.log 
+WARNING: [HLS 214-114] Since the only kind of statements allowed in a canonical dataflow region are variable declarations and function calls, the compiler may not be able to correctly handle the region: ../saxpy.cpp:22:2
+WARNING: [HLS 214-114] Since the only kind of statements allowed in a canonical dataflow region are variable declarations and function calls, the compiler may not be able to correctly handle the region: ../saxpy.cpp:25:2
+WARNING: [HLS 214-114] Since the only kind of statements allowed in a canonical dataflow region are variable declarations and function calls, the compiler may not be able to correctly handle the region: ../saxpy.cpp:30:2
+WARNING: [HLS 214-169] There are a total of 6 such instances of non-canonical statements in the dataflow region: ../saxpy.cpp:17:2
+Execute       send_msg_by_id WARNING @200-471@%s%s 4 ../saxpy.cpp 
+WARNING: [HLS 200-471] Dataflow form checks found 4 issue(s) in file ../saxpy.cpp
+Execute       clang_tidy -errorcheck xilinx-warn-mayneed-no-ctor-attribute C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/saxpy.pp.0.cpp std=gnu++14 -target fpga  
+Execute         ap_eval exec -ignorestderr C:/Xilinx/Vitis/2020.1/win64/tools/clang-3.9-csynth/bin/clang-tidy -export-fixes=C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/clang-tidy.saxpy.pp.0.cpp.diag.yml -header-filter=.* --checks=-*,xilinx-warn-mayneed-no-ctor-attribute -fix-errors C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/saxpy.pp.0.cpp -- -std=gnu++14 -target fpga -fhls -ferror-limit=0 > C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/clang-tidy.saxpy.pp.0.cpp.out.log 2> C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/clang-tidy.saxpy.pp.0.cpp.err.log 
+Execute       ap_part_info -name xc7z020-clg400-1 -data info 
+INFO-FLOW: compiling source code to llvm bc
+Execute       ap_eval exec -ignorestderr C:/Xilinx/Vitis/2020.1/win64/tools/clang-3.9-csynth/bin/clang -fsave-optimization-record -foptimization-record-file=C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/clang.saxpy.pragma.2.cpp.diag.yml -fno-limit-debug-info -fhls -flto -fno-exceptions -Wno-error=c++11-narrowing C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/saxpy.pragma.2.cpp -fno-math-errno -c -emit-llvm -mllvm -disable-llvm-optzns -Werror=implicit-function-declaration -Werror=implicit-hls-streams -Werror=return-type -Wpragmas -Wunused-parameter -fno-threadsafe-statics -fno-use-cxa-atexit -std=gnu++14 -target fpga64-xilinx-linux-gnu -DAESL_SYN -D__SYNTHESIS__ -D__HLS_SYN__ -I C:/Xilinx/Vitis/2020.1/common/technology/autopilot -I C:/Xilinx/Vitis/2020.1/common/technology/autopilot/ap_sysc -include etc/autopilot_ssdm_op.h -D__DSP48E1__ -g -o C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/saxpy.bc > C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/clang.saxpy.pragma.2.cpp.out.log 2> C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/clang.saxpy.pragma.2.cpp.err.log 
+Command       ap_eval done; 0.295 sec.
+WARNING: [HLS 207-1602] Unsupported interface port data type in '#pragma HLS interface m_axi': ../saxpy.cpp:7:34
+INFO-FLOW: Linking Debug ...
+INFO-FLOW: Linking dut bc code.
+Execute       run_link_or_opt -out C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/a.g.ld.0.bc -args  "C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/saxpy.g.bc"  
+Execute         ap_eval exec -ignorestderr C:/Xilinx/Vitis/2020.1/win64/tools/clang-3.9-csynth/bin/llvm-link C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/saxpy.g.bc -o C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/a.g.ld.0.bc > C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/llvm-link.a.g.ld.0.bc.out.log 2> C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/llvm-link.a.g.ld.0.bc.err.log 
+INFO-FLOW: 
+Execute       run_link_or_opt -opt -out C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/a.g.ld.1.lower.bc -args C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/a.g.ld.0.bc -reflow-lower-math-intrinsics 
+Execute         ap_eval exec -ignorestderr C:/Xilinx/Vitis/2020.1/win64/tools/clang-3.9-csynth/bin/opt -pass-remarks-missed=.* -pass-remarks-output=C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/opt.a.g.ld.1.lower.bc.diag.yml C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/a.g.ld.0.bc -reflow-lower-math-intrinsics -o C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/a.g.ld.1.lower.bc > C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/opt.a.g.ld.1.lower.bc.out.log 2> C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/opt.a.g.ld.1.lower.bc.err.log 
+INFO-FLOW: 
+INFO-FLOW: Linking math bc lib
+Execute       run_link_or_opt -out C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/a.g.ld.2.m1.bc -args C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/a.g.ld.1.lower.bc -only-needed C:/Xilinx/Vitis/2020.1/win64/lib/libhlsm_39.bc C:/Xilinx/Vitis/2020.1/win64/lib/libhlsmc++_39.bc 
+Execute         ap_eval exec -ignorestderr C:/Xilinx/Vitis/2020.1/win64/tools/clang-3.9-csynth/bin/llvm-link C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/a.g.ld.1.lower.bc -only-needed C:/Xilinx/Vitis/2020.1/win64/lib/libhlsm_39.bc C:/Xilinx/Vitis/2020.1/win64/lib/libhlsmc++_39.bc -o C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/a.g.ld.2.m1.bc > C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/llvm-link.a.g.ld.2.m1.bc.out.log 2> C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/llvm-link.a.g.ld.2.m1.bc.err.log 
+Command         ap_eval done; 2.369 sec.
+INFO-FLOW: 
+Command       run_link_or_opt done; 2.372 sec.
+Execute       run_link_or_opt -opt -out C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/a.g.ld.3.fpc.bc -args C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/a.g.ld.2.m1.bc -reflow-globaldce -hls-top-function-name=saxpy -reflow-float-conversion 
+Execute         ap_eval exec -ignorestderr C:/Xilinx/Vitis/2020.1/win64/tools/clang-3.9-csynth/bin/opt -pass-remarks-missed=.* -pass-remarks-output=C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/opt.a.g.ld.3.fpc.bc.diag.yml C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/a.g.ld.2.m1.bc -reflow-globaldce -hls-top-function-name=saxpy -reflow-float-conversion -o C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/a.g.ld.3.fpc.bc > C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/opt.a.g.ld.3.fpc.bc.out.log 2> C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/opt.a.g.ld.3.fpc.bc.err.log 
+Command         ap_eval done; 0.887 sec.
+INFO-FLOW: 
+Command       run_link_or_opt done; 0.89 sec.
+Execute       run_link_or_opt -out C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/a.g.ld.4.m2.bc -args C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/a.g.ld.3.fpc.bc -only-needed C:/Xilinx/Vitis/2020.1/win64/lib/libfloatconversion_39.bc 
+Execute         ap_eval exec -ignorestderr C:/Xilinx/Vitis/2020.1/win64/tools/clang-3.9-csynth/bin/llvm-link C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/a.g.ld.3.fpc.bc -only-needed C:/Xilinx/Vitis/2020.1/win64/lib/libfloatconversion_39.bc -o C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/a.g.ld.4.m2.bc > C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/llvm-link.a.g.ld.4.m2.bc.out.log 2> C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/llvm-link.a.g.ld.4.m2.bc.err.log 
+INFO-FLOW: 
+Execute       run_link_or_opt -opt -out C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/a.g.ld.5.gdce.bc -args C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/a.g.ld.4.m2.bc -reflow-globaldce -hls-top-function-name=saxpy 
+Execute         ap_eval exec -ignorestderr C:/Xilinx/Vitis/2020.1/win64/tools/clang-3.9-csynth/bin/opt -pass-remarks-missed=.* -pass-remarks-output=C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/opt.a.g.ld.5.gdce.bc.diag.yml C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/a.g.ld.4.m2.bc -reflow-globaldce -hls-top-function-name=saxpy -o C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/a.g.ld.5.gdce.bc > C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/opt.a.g.ld.5.gdce.bc.out.log 2> C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/opt.a.g.ld.5.gdce.bc.err.log 
+INFO-FLOW: 
+Execute       get_solution -flow_target 
+Execute       get_config_export -xo 
+Execute       get_config_export -format 
+Execute       get_config_rtl -module_prefix 
+Execute       get_config_interface -default_interface 
+Execute       send_msg_by_id INFO @200-777@%s Vivado 
+INFO: [HLS 200-777] Using interface defaults for 'Vivado' target.
+Execute       get_config_interface -default_slave_interface 
+Execute       get_solution -flow_target 
+Execute       get_config_export -xo 
+Execute       get_config_export -format 
+Execute       get_config_interface -m_axi_offset 
+Execute       get_config_interface -m_axi_latency 
+Execute       get_config_interface -m_axi_alignment_byte_size 
+Execute       get_config_interface -m_axi_min_bitwidth 
+Execute       get_config_interface -m_axi_max_bitwidth 
+Execute       get_config_interface -m_axi_max_widen_bitwidth 
+Execute       get_config_interface -m_axi_num_read_outstanding 
+Execute       get_config_interface -m_axi_num_write_outstanding 
+Execute       get_config_interface -m_axi_max_read_burst_length 
+Execute       get_config_interface -m_axi_max_write_burst_length 
+Execute       get_config_interface -m_axi_min_bitwidth 
+Execute       get_config_interface -m_axi_max_bitwidth 
+Execute       get_config_interface -m_axi_latency 
+Execute       get_config_interface -m_axi_min_bitwidth 
+Execute       get_config_interface -m_axi_max_bitwidth 
+Execute       get_config_interface -m_axi_max_widen_bitwidth 
+Execute       get_config_interface -m_axi_auto_max_ports 
+Execute       get_config_interface -m_axi_num_read_outstanding 
+Execute       get_config_interface -m_axi_num_write_outstanding 
+Execute       get_config_interface -m_axi_max_read_burst_length 
+Execute       get_config_interface -m_axi_max_write_burst_length 
+Execute       get_config_interface -s_axilite_data64 
+Execute       get_config_interface -m_axi_alignment_byte_size 
+Execute       get_config_compile -pragma_strict_mode 
+INFO-FLOW: Doing LTO.
+Execute       ap_eval exec -ignorestderr C:/Xilinx/Vitis/2020.1/win64/tools/clang-3.9-csynth/bin/clang -fsave-optimization-record -foptimization-record-file=C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/clang.a.g.ld.0.bc.diag.yml -fhls -mllvm -hls-top-function-name=saxpy -mllvm -hls-db-dir -mllvm C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db -emit-llvm -c -mllvm -hls-bitcode-version=3.1 -target fpga64-xilinx-none -mllvm -xcl-xmlinfo=C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/kernel.internal.xml -mllvm -top-io-mapping-info=C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/top-io-fe.xml -mllvm -pass-remarks=supported-subset -mllvm -reflow-enable-interface-default-setting=false -mllvm -reflow-enable-slave-interface-default-setting=false -mllvm -gen-kernel-xml=false -mllvm -maxi-latency=0 -mllvm -hls-maxi-data-size-in-bits=8 -mllvm -hls-maxi-max-data-size-in-bits=1024 -mllvm -hls-max-widen-size-in-bits=0 -mllvm -xcl-kernel-max-mem-ports=0 -mllvm -maxi-read-trans=16 -mllvm -maxi-write-trans=16 -mllvm -maxi-read-burst-len=16 -mllvm -maxi-write-burst-len=16 -mllvm -reflow-enable-saxi-64bits=0 -mllvm -assume-maxi-align=0 -mllvm -no-unaligned-maxi-accesses -x ir C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/a.g.ld.5.gdce.bc -o C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/a.g.lto.bc > C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/clang.a.g.ld.0.bc.out.log 2> C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/clang.a.g.ld.0.bc.err.log 
+Command       ap_eval done; 0.302 sec.
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_45_5' (../saxpy.cpp:45:19) in function 'saxpy' completely with a factor of 10 (../saxpy.cpp:45:19)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_40_4' (../saxpy.cpp:40:19) in function 'saxpy' completely with a factor of 10 (../saxpy.cpp:40:19)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_35_3' (../saxpy.cpp:35:19) in function 'saxpy' completely with a factor of 10 (../saxpy.cpp:35:19)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_30_2' (../saxpy.cpp:30:19) in function 'saxpy' completely with a factor of 10 (../saxpy.cpp:30:19)
+INFO: [HLS 214-186] Unrolling loop 'VITIS_LOOP_25_1' (../saxpy.cpp:25:19) in function 'saxpy' completely with a factor of 10 (../saxpy.cpp:25:19)
+INFO-FLOW: DBG:CMD: copy_raw_kernel_xml ap_link_39: kernel.xml not generated: C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/kernel.internal.xml
+INFO: [HLS 200-111] Finished Linking Time (s): cpu = 00:00:03 ; elapsed = 00:00:07 . Memory (MB): peak = 999.871 ; gain = 902.055
+INFO: [HLS 200-111] Finished Checking Pragmas Time (s): cpu = 00:00:03 ; elapsed = 00:00:08 . Memory (MB): peak = 999.871 ; gain = 902.055
+Execute       opt_and_import_c a -opt_level=2 -skip_syncheck=0 -ng=0 -keep_printf=0 
+Execute         cleanup_all_models 
+INFO: [HLS 200-10] Starting code transformations ...
+INFO-FLOW: Running Standard Transforms...
+Execute         transform -hls -share-std-xform -demangle-name -inline-byval-memcpy -always-inline -promote-dbg-pointer -interface-preproc -mem2reg -scalarrepl -mem2reg -keep-read-access -instcombine -dce -promote-dbg-pointer -bitop-raise -loop-simplify -indvarspre -indvars -loop-simplify -xunroll -constprop -instcombine -simplifycfg -indvars -simplifycfg -dce -globaldce -basicaa -simplifycfg -mem2reg -globalopt -global-constprop -deadargelim -instcombine -simplifycfg -scalarrepl -instcombine -reassociate -licm -simplifycfg -loop-simplify -indvars -instcombine -simplifycfg -mem2reg -loop-simplify -indvars -instcombine -gvn -gvn -instcombine -adce -break-crit-edges -simplifycfg -loop-delete -global-array-opt -dce -dse -adce -find-syn-modules -top saxpy -deadargelim -mem2reg -instcombine -dce -presyn-prepare -auto-rom-infer -interface-preproc -syn-check -check-rec-only -find-region -simplifycfg -func-extr -function-inline -globaldce -mem2reg -instcombine -dce -gvn -globaldce -adce -adse -constprop -instcombine -bit-constprop -instcombine -dce -simplifycfg -bitop-raise -simplifycfg -dce -loop-delete -reassociate -globalopt -global-privatize -mem2reg -dce -global-constprop -pointer-simplify -constprop -dce -func-inst -deadargelim -auto-shift-reg-idiom -promote-dbg-pointer -norm-name C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/a.g.0.bc -o C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/a.g.1.bc -f -phase std-opt 
+INFO: [HLS 200-111] Finished Standard Transforms Time (s): cpu = 00:00:03 ; elapsed = 00:00:08 . Memory (MB): peak = 999.871 ; gain = 902.055
+INFO: [HLS 200-10] Checking synthesizability ...
+INFO-FLOW: Checking Synthesizability 1/2..
+Execute         transform -hls -syn-check -check-rec-only -disaggr -scalarrepl -norm-name -dce -mem2reg -instcombine -function-uniquify -directive-preproc -mem2reg -dse -dce -auto-rom-infer -dce -pag -array-normalize -instcombine -dce -warn-fifo-pointer -array-seg-normalize -instcombine -dce -data-pack -instcombine -dce -inst-simplify -array-flatten -instcombine -dce -array-burst -dce -deadargelim -promote-global-argument -simplifycfg -mem2reg -globaldce -dce -deadargelim -dce -instcombine -function-inline -globaldce -dce -doublePtrSimplify -doublePtrElim -dce -doublePtrSimplify -promote-dbg-pointer -dce -scalarrepl -dse -adse -instcombine -ptrLegalization -simplifycfg -dce -instcombine -pointer-simplify -ptrArgReplace -dce -instcombine -resolve-double-ptr -disaggr -scalarrepl -norm-name -dce -mem2reg -instcombine -ptrLegalization -simplifycfg -deadargelim -instcombine -dce -inst-simplify -function-uniquify -directive-preproc -mem2reg -dse -dce -globaldce -check-dspbuiltin C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/a.g.1.bc -o C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/a.g.2.prechk.bc -f 
+INFO-FLOW: Checking Synthesizability 2/2..
+Execute         transform -syn-check C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/a.g.2.prechk.bc -o C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/a.g.2.bc -f -phase syn-check 
+INFO: [HLS 200-111] Finished Checking Synthesizability Time (s): cpu = 00:00:03 ; elapsed = 00:00:08 . Memory (MB): peak = 999.871 ; gain = 902.055
+INFO-FLOW: Compiler optimizing ...
+INFO-FLOW: Share syncheck's 1.bc for syn flow: copy C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/a.g.1.bc to C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/a.o.1.bc
+INFO-FLOW: Presyn 1...
+Execute         transform -hls -tmp C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db -interface-port-rename -function-uniquify -directive-preproc -mem2reg -dse -dce -disaggr -scalarrepl -norm-name -deadargelim -mem2reg -instcombine -dce -simplifycfg -auto-rom-infer -dce -function-uniquify -resource-proc -clib-intrinsic-prepare -dce -func-buffer -dce -pag -array-normalize -func-legal -instcombine -gvn -constprop -dce -simplifycfg -mem2reg -globaldce -resolve-double-ptr -dce -deadargelim -dce -instcombine -ptrArgReplace -mem2reg -dce -array-seg-normalize -deadargelim -instcombine -dce -function-uniquify -directive-preproc -mem2reg -dse -dce -pointer-simplify -dce -port-alignment -dce -interface-preproc -data-pack -instcombine -dce -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -gvn -gvn -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -dse -adse -adce -loop-simplify -indvars -instcombine -gvn -loop-simplify -mem2reg -dce -find-region -instcombine -auto-loop-pipeline -inst-simplify -interface-preproc -cfgopt -instcombine -indvars -auto-loop-unroll -loop-simplify -loop-bound -xunroll -constprop -instcombine -simplifycfg -indvars -simplifycfg -dce -globaldce -clean-region -attach-range -gvn -inst-simplify -constprop -simplifycfg -dce -pointer-simplify -dce -globalopt -constprop -dce -array-promote -constprop -dce -ptrArgReplace -mem2reg -simplifycfg -dce -auto-par -instcombine -dce -array-transform-check -array-reshape -instcombine -simplifycfg -dce -ptrArgReplace -deadargelim -mem2reg -instcombine -simplifycfg -dce -indvars -loop-simplify -loop-bound -xunroll -constprop -instcombine -simplifycfg -indvars -simplifycfg -dce -globaldce -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -dse -duplicate-dataflow-processes -globaldce -instcombine -array-partition -instcombine -simplifycfg -dce -ptrArgReplace -global-constprop -deadargelim -mem2reg -func-legal -dce -global-constprop -deadargelim -mem2reg -simplifycfg -dce -merge-param -deadargelim -globalopt -constprop -dce -array-promote -constprop -dce -ptrArgReplace -mem2reg -simplifycfg -dce -mem-intrinsic-preproc -dce -global-internalize -global-privatize -mem2reg -globaldce -promote-global-argument -ptrArgReplace -mem2reg -dce -globalopt -mergereturn -simplify-global-access -mem2reg -dce -pointer-simplify -dce -functionattrs -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -gvn -gvn -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -dse -adse -adce -dce -norm-name -function-inline -complex-op-raise -inst-simplify -globaldce -func-inst -constprop -instcombine -simplifycfg -dce -func-legal -dce -loop-bound -arraycheck -bitwidthmin2 -bitwidthmin2 -on-by-dataflow -loop-delete -instcombine -simplifycfg -globaldce -dce -gvn -deadargelim -dce -loop-simplify -clean-region -simplifycfg -propagate-stable-arguments -loop-stream -instcombine -simplifycfg -dce -globaldce -duplicate-dataflow-processes -stream-intrinsic-preproc -dce -check-ap-stream -loop-simplify -eliminate-keepreads -extract-dataflow-in-loop -loop-simplify -dce -gvn -deadargelim -dse -check-dataflow-syntax -legalize-stream-variable -legalize-global -extract-subproc -dce -dead-channel-elimination -canonicalize-gep -globaldce -dce -gvn -deadargelim -directive-preproc -annotate-dataflow-channels -scalar-propagation -deadargelim -globaldce -mem2reg -check-dataflow-channels -function-stream -dce -globaldce -prop-fifo-spec -internal-stream-gen -canonicalize-gep -globaldce -dce -gvn -deadargelim -mergereturn -indvars -loop-simplify -instcombine -array-stream -array-seg-normalize -array-partition -func-legal -instcombine -simplifycfg -dce -bundle-memfifo-ops -deadargelim -function-uniquify -directive-preproc -mem2reg -dse -dce -group-axi-access -licm -simplifycfg -dce -loop-delete -norm-name C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/a.o.1.bc -o C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/a.o.1.tmp.bc -f 
+WARNING: [HLS 200-786] Detected dataflow-on-top in function  'saxpy'  with default interface mode 'ap_ctrl_hs'. Overlapped execution of successive kernel calls will not happen unless interface mode 'ap_ctrl_chain' is used (or 'ap_ctrl_none' for a purely data-driven design).
+INFO: [XFORM 203-712] Applying dataflow to function 'saxpy', detected/extracted 1 process function(s): 
+	 'Block_.split1_proc'.
+Command         transform done; 0.118 sec.
+INFO-FLOW: Presyn 2...
+Execute         transform -hls -keep-callgraph -scalarrepl -mem2reg -port-alignment -attach-range -dce -pipe-mux-gen -indvars -loop-bound -inst-simplify -instcombine -dce -merge-array-access -mem2reg -dce -clean-region -mergereturn -if-conv -instcombine -dce -constprop -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -gvn -gvn -basicaa -aggr-aa -aggrmodref-aa -aggr-aa -dse -adse -adce -scalarrepl -mem2reg -global-constprop -deadargelim -deadargelim -instcombine -dce -simplifycfg -ptrArgReplace -mem2reg -function-inline -globaldce -mem2reg -instcombine -dce -expr-balance -instcombine -dce -bitwidthmin2 -bitwidthmin2 -interface-preproc -directive-preproc -inst-rectify -instcombine -dce -functionattrs -constprop -instcombine -bit-constprop -simplify-global-access -globalopt -globaldce -inst-simplify -instcombine -elimdeaddata -dce -loop-delete -simplifycfg -loop-simplify -auto-burst -barrier -norm-name C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/a.o.1.tmp.bc -o C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/a.o.2.bc -f -phase presyn 
+INFO: [HLS 200-111] Finished Pre-synthesis Time (s): cpu = 00:00:03 ; elapsed = 00:00:08 . Memory (MB): peak = 999.871 ; gain = 902.055
+Execute         get_config_compile -enable_loop_extract 
+INFO-FLOW: Building ssdm...
+Execute         transform -hls -function-uniquify -auto-function-inline -globaldce -ptrArgReplace -mem2reg -dce -reset-lda -loop-simplify -indvars -aggr-aa -licm -loop-dep -loop-bound -licm -loop-simplify -flattenloopnest -array-flatten -gvn -instcombine -dce -array-map -dce -func-legal -gvn -adce -instcombine -cfgopt -simplifycfg -loop-simplify -array-burst -promote-global-argument -dce -array-seg-normalize -basicaa -aggrmodref-aa -globalsmodref-aa -aggr-aa -gvn -gvn -basicaa -aggrmodref-aa -globalsmodref-aa -aggr-aa -dse -adse -adce -licm -inst-simplify -dce -globaldce -instcombine -array-stream -eliminate-keepreads -instcombine -dce -deadargelim -doublePtrSimplify -doublePtrElim -dce -doublePtrSimplify -promote-dbg-pointer -dce -scalarrepl -mem2reg -disaggr -norm-name -mem2reg -instcombine -dse -adse -adce -ptrLegalization -dce -auto-rom-infer -array-flatten -dce -instcombine -check-doubleptr -loop-rot -constprop -cfgopt -simplifycfg -loop-simplify -indvars -pointer-simplify -dce -loop-bound -loop-simplify -loop-preproc -constprop -global-constprop -gvn -mem2reg -instcombine -dce -loop-bound -loop-merge -dce -bitwidthmin2 -bitwidthmin2 -deadargelim -dce -canonicalize-dataflow -dce -scalar-propagation -deadargelim -globaldce -mem2reg -read-loop-dep -interface-preproc -directive-preproc -interface-gen -bram-byte-enable -deadargelim -inst-simplify -dce -gvn -mem2reg -instcombine -dce -adse -loop-bound -instcombine -cfgopt -simplifycfg -loop-simplify -clean-region -io-protocol -find-region -mem2reg -bitop-raise -complex-op-raise -inst-simplify -inst-rectify -instcombine -adce -deadargelim -loop-simplify -phi-opt -bitop-raise -cfgopt -simplifycfg -strip-dead-prototypes -interface-lower -bitop-lower -intrinsic-lower -auto-function-inline -basicaa -aggrmodref-aa -globalsmodref-aa -aggr-aa -inst-simplify -simplifycfg -loop-simplify -mergereturn -inst-simplify -inst-rectify -dce -load-elim -bitop-lower -loop-rewind -pointer-simplify -dce -cfgopt -dce -loop-bound -loop-dep -read-loop-dep -dce -check-stream -norm-name -legalize -validate-dataflow -inst-clarity -bitwidth -dump-loop-dep-to-ir -check-all-ssdm -cdfg-build C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/a.o.2.bc -o C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/a.o.3.bc -f -phase build-ssdm 
+Command         transform done; 0.285 sec.
+INFO: [HLS 200-111] Finished Architecture Synthesis Time (s): cpu = 00:00:03 ; elapsed = 00:00:08 . Memory (MB): peak = 999.871 ; gain = 902.055
+INFO-FLOW: Finish building internal data model.
+Command       opt_and_import_c done; 0.613 sec.
+Command     elaborate done; 5.815 sec.
+Execute     autosyn -from_csynth_design=1 
+INFO: [HLS 200-10] Starting hardware synthesis ...
+INFO-FLOW: Synthesizing C/C++ design ...
+INFO: [HLS 200-10] Synthesizing 'saxpy' ...
+Execute       ap_set_top_model saxpy 
+WARNING: [SYN 201-103] Legalizing function name 'Block_.split1_proc' to 'Block_split1_proc'.
+Execute       get_model_list saxpy -filter all-wo-channel -topdown 
+Execute       preproc_iomode -model saxpy 
+Execute       preproc_iomode -model Block_.split1_proc 
+Execute       get_model_list saxpy -filter all-wo-channel 
+INFO-FLOW: Model list for configure: Block_.split1_proc saxpy
+INFO-FLOW: Configuring Module : Block_.split1_proc ...
+Execute       set_default_model Block_.split1_proc 
+Execute       apply_spec_resource_limit Block_.split1_proc 
+INFO-FLOW: Configuring Module : saxpy ...
+Execute       set_default_model saxpy 
+Execute       apply_spec_resource_limit saxpy 
+INFO-FLOW: Model list for preprocess: Block_.split1_proc saxpy
+INFO-FLOW: Preprocessing Module: Block_.split1_proc ...
+Execute       set_default_model Block_.split1_proc 
+Execute       cdfg_preprocess -model Block_.split1_proc 
+Execute       rtl_gen_preprocess Block_.split1_proc 
+INFO-FLOW: Preprocessing Module: saxpy ...
+Execute       set_default_model saxpy 
+Execute       cdfg_preprocess -model saxpy 
+Execute       rtl_gen_preprocess saxpy 
+INFO-FLOW: Model list for synthesis: Block_.split1_proc saxpy
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'Block_split1_proc' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+Execute       set_default_model Block_.split1_proc 
+Execute       schedule -model Block_.split1_proc 
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+Command       schedule done; 0.11 sec.
+INFO: [HLS 200-111]  Elapsed time: 8.322 seconds; current allocated memory: 149.755 MB.
+Execute       syn_report -verbosereport -o C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/Block_split1_proc.verbose.sched.rpt 
+Execute         AP::get_flow_target_display_name
+Execute           get_solution -flow_target 
+Execute       db_write -o C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/Block_split1_proc.sched.adb -f 
+INFO-FLOW: Finish scheduling Block_.split1_proc.
+Execute       set_default_model Block_.split1_proc 
+Execute       bind -model Block_.split1_proc 
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.227 seconds; current allocated memory: 150.910 MB.
+Execute       syn_report -verbosereport -o C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/Block_split1_proc.verbose.bind.rpt 
+Execute         AP::get_flow_target_display_name
+Execute           get_solution -flow_target 
+Command       syn_report done; 0.105 sec.
+Execute       db_write -o C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/Block_split1_proc.bind.adb -f 
+INFO-FLOW: Finish binding Block_.split1_proc.
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-42] -- Implementing module 'saxpy' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+Execute       set_default_model saxpy 
+Execute       schedule -model saxpy 
+INFO: [SCHED 204-11] Starting scheduling ...
+INFO: [SCHED 204-11] Finished scheduling.
+INFO: [HLS 200-111]  Elapsed time: 0.224 seconds; current allocated memory: 151.052 MB.
+Execute       syn_report -verbosereport -o C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/saxpy.verbose.sched.rpt 
+Execute         AP::get_flow_target_display_name
+Execute           get_solution -flow_target 
+Execute       db_write -o C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/saxpy.sched.adb -f 
+INFO-FLOW: Finish scheduling saxpy.
+Execute       set_default_model saxpy 
+Execute       bind -model saxpy 
+INFO: [BIND 205-100] Starting micro-architecture generation ...
+INFO: [BIND 205-101] Performing variable lifetime analysis.
+INFO: [BIND 205-101] Exploring resource sharing.
+INFO: [BIND 205-101] Binding ...
+INFO: [BIND 205-100] Finished micro-architecture generation.
+INFO: [HLS 200-111]  Elapsed time: 0.093 seconds; current allocated memory: 151.208 MB.
+Execute       syn_report -verbosereport -o C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/saxpy.verbose.bind.rpt 
+Execute         AP::get_flow_target_display_name
+Execute           get_solution -flow_target 
+Execute       db_write -o C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/saxpy.bind.adb -f 
+INFO-FLOW: Finish binding saxpy.
+Execute       get_model_list saxpy -filter all-wo-channel 
+INFO-FLOW: Preprocessing for RTLGen ...
+Execute       rtl_gen_preprocess Block_.split1_proc 
+Execute       rtl_gen_preprocess saxpy 
+INFO-FLOW: Model list for RTL generation: Block_.split1_proc saxpy
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'Block_split1_proc' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+Execute       get_config_rtl -module_prefix 
+Execute       get_config_rtl -module_auto_prefix 
+Execute       get_config_rtl -module_prefix 
+Execute       get_config_rtl -module_auto_prefix 
+Execute       create_rtl_model Block_.split1_proc -top_prefix saxpy_ -sub_prefix saxpy_ -mg_file C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/Block_split1_proc.compgen.tcl 
+INFO: [RTGEN 206-100] Generating core module 'fadd_32ns_32ns_32_5_full_dsp_1': 1 instance(s).
+INFO: [RTGEN 206-100] Generating core module 'fmul_32ns_32ns_32_4_max_dsp_1': 8 instance(s).
+INFO: [RTGEN 206-100] Finished creating RTL model for 'Block_split1_proc'.
+INFO: [HLS 200-111]  Elapsed time: 0.187 seconds; current allocated memory: 152.829 MB.
+Execute       source C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/saxpy.rtl_wrap.cfg.tcl 
+Execute       gen_rtl Block_.split1_proc -style xilinx -f -lang vhdl -o C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/syn/vhdl/saxpy_Block_split1_proc 
+Execute       gen_rtl Block_.split1_proc -style xilinx -f -lang vlog -o C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/syn/verilog/saxpy_Block_split1_proc 
+Execute       syn_report -csynth -model Block_.split1_proc -o C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/syn/report/Block_split1_proc_csynth.rpt 
+Execute         AP::get_flow_target_display_name
+Execute           get_solution -flow_target 
+Execute       syn_report -rtlxml -model Block_.split1_proc -o C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/syn/report/Block_split1_proc_csynth.xml 
+Execute         get_solution -flow_target
+Execute           get_solution -flow_target 
+Execute       syn_report -verbosereport -model Block_.split1_proc -o C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/Block_split1_proc.verbose.rpt 
+Execute         AP::get_flow_target_display_name
+Execute           get_solution -flow_target 
+Command       syn_report done; 0.117 sec.
+Execute       db_write -model Block_.split1_proc -f -o C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/Block_split1_proc.adb 
+Execute       gen_tb_info Block_.split1_proc -p C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db -o C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/Block_split1_proc 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+INFO: [HLS 200-10] -- Generating RTL for module 'saxpy' 
+INFO: [HLS 200-10] ----------------------------------------------------------------
+Execute       get_config_rtl -module_prefix 
+Execute       get_config_rtl -module_prefix 
+Execute       get_config_rtl -module_auto_prefix 
+Execute       create_rtl_model saxpy -top_prefix  -sub_prefix saxpy_ -mg_file C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/saxpy.compgen.tcl 
+WARNING: [RTGEN 206-101] Design contains AXI ports. Reset is fixed to synchronous and active low.
+INFO: [RTGEN 206-500] Setting interface mode on port 'saxpy/gmem' to 'm_axi'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'saxpy/x' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'saxpy/y' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on port 'saxpy/a' to 's_axilite & ap_none'.
+INFO: [RTGEN 206-500] Setting interface mode on function 'saxpy' to 's_axilite & ap_ctrl_hs'.
+INFO: [RTGEN 206-100] Bundling port 'x', 'y', 'a' to AXI-Lite port control.
+INFO: [RTGEN 206-100] Finished creating RTL model for 'saxpy'.
+INFO: [HLS 200-111]  Elapsed time: 0.771 seconds; current allocated memory: 156.143 MB.
+Execute       source C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/saxpy.rtl_wrap.cfg.tcl 
+Execute       gen_rtl saxpy -istop -style xilinx -f -lang vhdl -o C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/syn/vhdl/saxpy 
+Execute       gen_rtl saxpy -istop -style xilinx -f -lang vlog -o C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/syn/verilog/saxpy 
+Execute       syn_report -csynth -model saxpy -o C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/syn/report/saxpy_csynth.rpt 
+Execute         AP::get_flow_target_display_name
+Execute           get_solution -flow_target 
+Execute       syn_report -rtlxml -model saxpy -o C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/syn/report/saxpy_csynth.xml 
+Execute         get_solution -flow_target
+Execute           get_solution -flow_target 
+Execute       syn_report -verbosereport -model saxpy -o C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/saxpy.verbose.rpt 
+Execute         AP::get_flow_target_display_name
+Execute           get_solution -flow_target 
+Execute       db_write -model saxpy -f -o C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/saxpy.adb 
+Execute       gen_tb_info saxpy -p C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db -o C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/saxpy 
+Execute       export_constraint_db -f -tool general -o C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/saxpy.constraint.tcl 
+Execute       syn_report -designview -model saxpy -o C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/saxpy.design.xml 
+Execute       get_config_rtl -disable_wave_debug 
+Execute       syn_report -wcfg -model saxpy -o C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/saxpy_dataflow_ana.wcfg 
+Execute       syn_report -protoinst -model saxpy -o C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/saxpy.protoinst 
+Execute       get_config_debug -directory 
+Execute       sc_get_clocks saxpy 
+Execute       get_config_export -vivado_clock 
+Execute       get_config_rtl -module_prefix 
+Execute       get_config_rtl -module_prefix 
+Execute       get_config_rtl -module_auto_prefix 
+Execute       sc_get_portdomain saxpy 
+INFO-FLOW: Model list for RTL component generation: Block_.split1_proc saxpy
+INFO-FLOW: Handling components in module [Block_split1_proc] ... 
+Execute       source C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/Block_split1_proc.compgen.tcl 
+INFO-FLOW: Found component saxpy_fadd_32ns_32ns_32_5_full_dsp_1.
+INFO-FLOW: Append model saxpy_fadd_32ns_32ns_32_5_full_dsp_1
+INFO-FLOW: Found component saxpy_fmul_32ns_32ns_32_4_max_dsp_1.
+INFO-FLOW: Append model saxpy_fmul_32ns_32ns_32_4_max_dsp_1
+INFO-FLOW: Handling components in module [saxpy] ... 
+Execute       source C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/saxpy.compgen.tcl 
+INFO-FLOW: Found component saxpy_control_s_axi.
+INFO-FLOW: Append model saxpy_control_s_axi
+INFO-FLOW: Found component saxpy_gmem_m_axi.
+INFO-FLOW: Append model saxpy_gmem_m_axi
+INFO-FLOW: Append model Block_split1_proc
+INFO-FLOW: Append model saxpy
+INFO-FLOW: Generating RTL model list ...
+INFO-FLOW: All models in this session: saxpy_fadd_32ns_32ns_32_5_full_dsp_1 saxpy_fmul_32ns_32ns_32_4_max_dsp_1 saxpy_control_s_axi saxpy_gmem_m_axi Block_split1_proc saxpy
+INFO-FLOW: To file: write model saxpy_fadd_32ns_32ns_32_5_full_dsp_1
+INFO-FLOW: To file: write model saxpy_fmul_32ns_32ns_32_4_max_dsp_1
+INFO-FLOW: To file: write model saxpy_control_s_axi
+INFO-FLOW: To file: write model saxpy_gmem_m_axi
+INFO-FLOW: To file: write model Block_split1_proc
+INFO-FLOW: To file: write model saxpy
+INFO-FLOW: Finished generating RTL model list.
+
+
+INFO-FLOW: RTL Generation done.
+INFO-FLOW: CAS Generation done.
+INFO-FLOW: CBC Generation done.
+Execute       get_top 
+Execute       get_config_export -ipname 
+Execute       get_config_export -xo 
+Execute       get_config_export -format 
+Execute       get_config_rtl -module_auto_prefix 
+INFO-FLOW: DBG:CMD:   auto_impl: set ipname to top (module_auto_prefix): saxpy
+INFO-FLOW: DBG:CMD: auto_generate_csynth_design
+INFO-FLOW: DBG:CMD:     auto_generate --sim-model -phase csynth_design -d C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1
+Execute       get_solution -flow_target 
+Execute       get_config_export -xo 
+Execute       get_config_export -format 
+Execute       source C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/global.setting.tcl 
+INFO-FLOW: DBG:CMD: read_platform_lib C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/global.setting.tcl
+Execute       source C:/Xilinx/Vitis/2020.1/common/technology/generic/autopilot/common.gen 
+Execute         source C:/Xilinx/Vitis/2020.1/common/technology/generic/autopilot/APCoreGen.gen 
+Execute       source C:/Xilinx/Vitis/2020.1/common/technology/generic/autopilot/op.gen 
+Execute       source C:/Xilinx/Vitis/2020.1/common/technology/generic/autopilot/op_simcore.gen 
+Execute       source C:/Xilinx/Vitis/2020.1/common/technology/generic/autopilot/interface.gen 
+Execute       source C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/global.setting.tcl 
+Execute       source C:/Xilinx/Vitis/2020.1/common/technology/xilinx/zynq/zynq.gen 
+Execute         source C:/Xilinx/Vitis/2020.1/common/technology/xilinx/common/xilinx.gen 
+Execute           source C:/Xilinx/Vitis/2020.1/common/technology/xilinx/interface/plb46.gen 
+Execute           source C:/Xilinx/Vitis/2020.1/common/technology/xilinx/interface/axi4.gen 
+Execute           source C:/Xilinx/Vitis/2020.1/common/technology/xilinx/interface/nativeAXI4.gen 
+Execute             source C:/Xilinx/Vitis/2020.1/common/technology/xilinx/interface/saxilite.gen 
+Execute             source C:/Xilinx/Vitis/2020.1/common/technology/xilinx/interface/maxi.gen 
+Execute           source C:/Xilinx/Vitis/2020.1/common/technology/xilinx/scripts/xilinxcoregen.gen 
+Execute           source C:/Xilinx/Vitis/2020.1/common/technology/xilinx/interface/XilEDKCoreGen.gen 
+Execute           source C:/Xilinx/Vitis/2020.1/common/technology/xilinx/ip/dds_compiler.gen 
+Execute           source C:/Xilinx/Vitis/2020.1/common/technology/xilinx/ip/util.gen 
+Execute           source C:/Xilinx/Vitis/2020.1/common/technology/xilinx/ip/xfft.gen 
+Execute           source C:/Xilinx/Vitis/2020.1/common/technology/xilinx/ip/xfir.gen 
+Execute           source C:/Xilinx/Vitis/2020.1/common/technology/xilinx/common/dsp48.gen 
+Command         ap_source done; 0.124 sec.
+Command       ap_source done; 0.125 sec.
+Execute       source C:/Xilinx/Vitis/2020.1/common/technology/xilinx/zynq/zynq_fpv6.gen 
+Execute         source C:/Xilinx/Vitis/2020.1/common/technology/xilinx/common/xilinx_fp.gen 
+INFO-FLOW: DBG:CMD:   using AESL_AUTOCG::g_clock_period=10.000 (was NA)
+INFO-FLOW: DBG:CMD:       generate_ip_cores sim=1 export=0 expOnly=0 dstVlogDir=syn/verilog
+Execute       source C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/global.setting.tcl 
+Execute       ap_part_info -name xc7z020-clg400-1 -data names -quiet 
+Execute       ap_part_info -name xc7z020-clg400-1 -data info -quiet 
+Execute       source C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/global.setting.tcl 
+Execute       source C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/global.setting.tcl 
+Execute       source C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/Block_split1_proc.compgen.tcl 
+Execute         ap_part_info -name xc7z020-clg400-1 -data names -quiet 
+Execute         ap_part_info -name xc7z020-clg400-1 -data info -quiet 
+Execute         ap_part_info -name xc7z020-clg400-1 -data names -quiet 
+Execute         ap_part_info -name xc7z020-clg400-1 -data info -quiet 
+Command       ap_source done; 0.147 sec.
+Execute       source C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/saxpy.compgen.tcl 
+Execute         source ./control.slave.tcl 
+Execute         is_m_axi_addr64 
+Execute         ap_part_info -name xc7z020-clg400-1 -data names -quiet 
+Execute         ap_part_info -name xc7z020-clg400-1 -data info -quiet 
+INFO-FLOW: DBG:CMD:     auto_generate -export -impltomg_flag -rtl both -tool Vivado -pcore_version 1.00.a -phase csynth_design -d C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1
+Execute       get_solution -flow_target 
+Execute       get_config_export -xo 
+Execute       get_config_export -format 
+Execute       source C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/global.setting.tcl 
+INFO-FLOW: DBG:CMD: read_platform_lib C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/global.setting.tcl
+Execute       source C:/Xilinx/Vitis/2020.1/common/technology/generic/autopilot/common.gen 
+Execute         source C:/Xilinx/Vitis/2020.1/common/technology/generic/autopilot/APCoreGen.gen 
+Execute       source C:/Xilinx/Vitis/2020.1/common/technology/generic/autopilot/op.gen 
+Execute       source C:/Xilinx/Vitis/2020.1/common/technology/generic/autopilot/op_simcore.gen 
+Execute       source C:/Xilinx/Vitis/2020.1/common/technology/generic/autopilot/interface.gen 
+Execute       source C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/global.setting.tcl 
+Execute       source C:/Xilinx/Vitis/2020.1/common/technology/xilinx/zynq/zynq.gen 
+Execute         source C:/Xilinx/Vitis/2020.1/common/technology/xilinx/common/xilinx.gen 
+Execute           source C:/Xilinx/Vitis/2020.1/common/technology/xilinx/interface/plb46.gen 
+Execute           source C:/Xilinx/Vitis/2020.1/common/technology/xilinx/interface/axi4.gen 
+Execute           source C:/Xilinx/Vitis/2020.1/common/technology/xilinx/interface/nativeAXI4.gen 
+Execute             source C:/Xilinx/Vitis/2020.1/common/technology/xilinx/interface/saxilite.gen 
+Execute             source C:/Xilinx/Vitis/2020.1/common/technology/xilinx/interface/maxi.gen 
+Execute           source C:/Xilinx/Vitis/2020.1/common/technology/xilinx/scripts/xilinxcoregen.gen 
+Execute           source C:/Xilinx/Vitis/2020.1/common/technology/xilinx/interface/XilEDKCoreGen.gen 
+Execute           source C:/Xilinx/Vitis/2020.1/common/technology/xilinx/ip/dds_compiler.gen 
+Execute           source C:/Xilinx/Vitis/2020.1/common/technology/xilinx/ip/util.gen 
+Execute           source C:/Xilinx/Vitis/2020.1/common/technology/xilinx/ip/xfft.gen 
+Execute           source C:/Xilinx/Vitis/2020.1/common/technology/xilinx/ip/xfir.gen 
+Execute           source C:/Xilinx/Vitis/2020.1/common/technology/xilinx/common/dsp48.gen 
+Command         ap_source done; 0.125 sec.
+Command       ap_source done; 0.125 sec.
+Execute       source C:/Xilinx/Vitis/2020.1/common/technology/xilinx/zynq/zynq_fpv6.gen 
+Execute         source C:/Xilinx/Vitis/2020.1/common/technology/xilinx/common/xilinx_fp.gen 
+INFO-FLOW: DBG:CMD:       initCTypeInfo top_module=saxpy xml_exists=0
+Execute       source C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/saxpy.rtl_wrap.cfg.tcl 
+Execute       source C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/saxpy.rtl_wrap.cfg.tcl 
+Execute       source C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/saxpy.rtl_wrap.cfg.tcl 
+Execute       source C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/saxpy.tbgen.tcl 
+Execute       source C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/saxpy.tbgen.tcl 
+INFO-FLOW: DBG:CMD:       export_impl_rtl
+INFO-FLOW: DBG:CMD:       generate_ip_cores sim=0 export=0 expOnly=0 dstVlogDir=impl/.verilog
+Execute       source C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/global.setting.tcl 
+Execute       source C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/Block_split1_proc.compgen.tcl 
+Execute         ap_part_info -name xc7z020-clg400-1 -data names -quiet 
+Execute         ap_part_info -name xc7z020-clg400-1 -data info -quiet 
+Execute         ap_part_info -name xc7z020-clg400-1 -data names -quiet 
+Execute         ap_part_info -name xc7z020-clg400-1 -data info -quiet 
+Execute       source C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/saxpy.compgen.tcl 
+INFO-FLOW: DBG:CMD:       generate_ip_cores sim=0 export=1 expOnly=1 dstVlogDir=impl/.pcores/verilog
+Execute       source C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/global.setting.tcl 
+Execute       source C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/Block_split1_proc.compgen.tcl 
+Execute       source C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/saxpy.compgen.tcl 
+Execute         ap_part_info -name xc7z020-clg400-1 -data names -quiet 
+Execute         ap_part_info -name xc7z020-clg400-1 -data info -quiet 
+Execute         ap_part_info -name xc7z020-clg400-1 -data names -quiet 
+Execute         ap_part_info -name xc7z020-clg400-1 -data info -quiet 
+Execute         ap_part_info -name xc7z020-clg400-1 -data names -quiet 
+Execute         ap_part_info -name xc7z020-clg400-1 -data info -quiet 
+Execute         ap_part_info -name xc7z020-clg400-1 -data names -quiet 
+Execute         ap_part_info -name xc7z020-clg400-1 -data info -quiet 
+Execute         ap_part_info -name xc7z020-clg400-1 -data names -quiet 
+Execute         ap_part_info -name xc7z020-clg400-1 -data info -quiet 
+Execute         ap_part_info -name xc7z020-clg400-1 -data names -quiet 
+Execute         ap_part_info -name xc7z020-clg400-1 -data info -quiet 
+Command       ap_source done; 0.115 sec.
+Execute       ap_part_info -name xc7z020-clg400-1 -data names -quiet 
+Execute       ap_part_info -name xc7z020-clg400-1 -data info -quiet 
+INFO-FLOW: DBG:CMD:       generate_ip_cores sim=0 export=0 expOnly=0 dstVlogDir=impl/.pcores/verilog_sim
+Execute       source C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/global.setting.tcl 
+Execute       source C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/Block_split1_proc.compgen.tcl 
+Execute       source C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/saxpy.compgen.tcl 
+Execute       ap_part_info -name xc7z020-clg400-1 -data names -quiet 
+Execute       ap_part_info -name xc7z020-clg400-1 -data info -quiet 
+Execute       ap_part_info -name xc7z020-clg400-1 -data names -quiet 
+Execute       ap_part_info -name xc7z020-clg400-1 -data info -quiet 
+Execute       source C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/global.setting.tcl 
+Execute       ap_part_info -name xc7z020-clg400-1 -data names -quiet 
+Execute       ap_part_info -name xc7z020-clg400-1 -data info -quiet 
+Execute       source C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/saxpy.constraint.tcl 
+Execute       source C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/saxpy.tbgen.tcl 
+INFO-FLOW: DBG:CMD:       hasPcoreIpAdapter=false #gSsdmPorts=0
+INFO-FLOW: DBG:CMD: Skipping loadAnalyze_DB, #g_database=4
+INFO-FLOW: DBG:CMD:       generate_json is_phase_csynth=1 g_has_adaptors=false generate_bd_files=0 #modelList=6 #gSsdmPorts=0
+Execute       source C:/Xilinx/Vitis/2020.1/tps/tcl/tcllib1.11.1/fileutil/fileutil.tcl 
+Execute       source C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/global.setting.tcl 
+Execute       source C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/global.setting.tcl 
+Execute       source C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/top-io-be.tcl 
+Execute       source C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/saxpy.tbgen.tcl 
+Execute       source C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/saxpy.compgen.dataonly.tcl 
+Execute       source C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/saxpy.compgen.dataonly.tcl 
+Execute       source C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/saxpy.tbgen.tcl 
+Execute       source C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/saxpy.rtl_wrap.cfg.tcl 
+Execute       source C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/saxpy.compgen.dataonly.tcl 
+Execute       get_config_export -format 
+Execute       ap_part_info -name xc7z020-clg400-1 -data names -quiet 
+Execute       ap_part_info -name xc7z020-clg400-1 -data info -quiet 
+Execute       source C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/Block_split1_proc.tbgen.tcl 
+Execute       source C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/saxpy.tbgen.tcl 
+Execute       source C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/global.setting.tcl 
+Execute       ap_part_info -name xc7z020-clg400-1 -data names -quiet 
+Execute       ap_part_info -name xc7z020-clg400-1 -data info -quiet 
+Execute       get_solution -flow_target 
+Execute       get_config_rtl -kernel_profile 
+Execute       get_config_rtl -kernel_profile 
+Execute       get_config_rtl -stall_sig_gen 
+Execute       get_config_rtl -profile 
+Execute       source C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/saxpy.constraint.tcl 
+Execute       sc_get_clocks saxpy 
+Execute       source C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/.autopilot/db/global.setting.tcl 
+Execute       get_config_debug -directory 
+Execute       source C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/impl/misc/saxpy_ap_fadd_3_full_dsp_32_ip.tcl 
+Execute       source C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/impl/misc/saxpy_ap_fmul_2_max_dsp_32_ip.tcl 
+INFO-FLOW: DBG:CMD:       delete-temp-dirs (skipped for debug)
+INFO: [HLS 200-111] Finished generating all RTL models Time (s): cpu = 00:00:06 ; elapsed = 00:00:12 . Memory (MB): peak = 999.871 ; gain = 902.055
+INFO: [VHDL 208-304] Generating VHDL RTL for saxpy.
+INFO: [VLOG 209-307] Generating Verilog RTL for saxpy.
+Execute       syn_report -model saxpy -printsummary 
+INFO: [HLS 200-789] **** Estimated Fmax: 120.23 MHz
+Command     autosyn done; 3.81 sec.
+Command   csynth_design done; 9.638 sec.
+Command ap_source done; 11.398 sec.
+Execute cleanup_all 

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<autopilotfilemapping:AutoPilotFileMapping xmlns:autopilotfilemapping="www.autoesl.com/autopilotfilemapping">
+  <source>
+    <originFiles name="saxpy.cpp" path="C:\Users\JEONWOONGBAE\AppData\Roaming\Xilinx\saxpy.cpp"/>
+    <originFiles name="saxpy.h" path="C:\Users\JEONWOONGBAE\AppData\Roaming\Xilinx\saxpy.h"/>
+  </source>
+  <testbench>
+    <originFiles name="saxpy_test.cpp" path="C:\Users\JEONWOONGBAE\AppData\Roaming\Xilinx\saxpy_test.cpp"/>
+  </testbench>
+</autopilotfilemapping:AutoPilotFileMapping>

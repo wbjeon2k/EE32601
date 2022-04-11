@@ -1,0 +1,851 @@
+
+
+================================================================
+== Vitis HLS Report for 'Block_split1_proc'
+================================================================
+* Date:           Thu Mar 31 04:00:16 2022
+
+* Version:        2020.1.1 (Build 2960000 on Wed Aug 05 23:18:37 MDT 2020)
+* Project:        lab4_saxpy
+* Solution:       solution1 (Vivado IP Flow Target)
+* Product family: zynq
+* Target device:  xc7z020-clg400-1
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing: 
+    * Summary: 
+    +--------+----------+----------+------------+
+    |  Clock |  Target  | Estimated| Uncertainty|
+    +--------+----------+----------+------------+
+    |ap_clk  | 10.00 ns | 7.300 ns |   2.70 ns  |
+    +--------+----------+----------+------------+
+
++ Latency: 
+    * Summary: 
+    +---------+---------+----------+----------+-----+-----+---------+
+    |  Latency (cycles) |  Latency (absolute) |  Interval | Pipeline|
+    |   min   |   max   |    min   |    max   | min | max |   Type  |
+    +---------+---------+----------+----------+-----+-----+---------+
+    |       39|       39| 0.390 us | 0.390 us |   39|   39|   none  |
+    +---------+---------+----------+----------+-----+-----+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        N/A
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 0
+ResetActiveHigh: 1
+IsCombinational: 2
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 40
+* Pipeline : 0
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 2 
+2 --> 3 
+3 --> 4 
+4 --> 5 
+5 --> 6 
+6 --> 7 
+7 --> 8 
+8 --> 9 
+9 --> 10 
+10 --> 11 
+11 --> 12 
+12 --> 13 
+13 --> 14 
+14 --> 15 
+15 --> 16 
+16 --> 17 
+17 --> 18 
+18 --> 19 
+19 --> 20 
+20 --> 21 
+21 --> 22 
+22 --> 23 
+23 --> 24 
+24 --> 25 
+25 --> 26 
+26 --> 27 
+27 --> 28 
+28 --> 29 
+29 --> 30 
+30 --> 31 
+31 --> 32 
+32 --> 33 
+33 --> 34 
+34 --> 35 
+35 --> 36 
+36 --> 37 
+37 --> 38 
+38 --> 39 
+39 --> 40 
+40 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 7.30>
+ST_1 : Operation 41 [1/1] (0.00ns)   --->   "%x_read = read i64 @_ssdm_op_Read.ap_auto.i64, i64 %x" [../saxpy.cpp:27]   --->   Operation 41 'read' 'x_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 42 [1/1] (0.00ns)   --->   "%trunc_ln = partselect i62 @_ssdm_op_PartSelect.i62.i64.i32.i32, i64 %x_read, i32, i32" [../saxpy.cpp:27]   --->   Operation 42 'partselect' 'trunc_ln' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 43 [1/1] (0.00ns)   --->   "%sext_ln27 = sext i62 %trunc_ln" [../saxpy.cpp:27]   --->   Operation 43 'sext' 'sext_ln27' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 44 [1/1] (0.00ns)   --->   "%gmem_addr = getelementptr i32 %gmem, i64 %sext_ln27" [../saxpy.cpp:27]   --->   Operation 44 'getelementptr' 'gmem_addr' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 45 [7/7] (7.30ns)   --->   "%gmem_load_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr, i32" [../saxpy.cpp:27]   --->   Operation 45 'readreq' 'gmem_load_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_1 : Operation 46 [1/1] (3.52ns)   --->   "%add_ln27 = add i64 %x_read, i64" [../saxpy.cpp:27]   --->   Operation 46 'add' 'add_ln27' <Predicate = true> <Delay = 3.52> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 3.52> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_1 : Operation 47 [1/1] (0.00ns)   --->   "%trunc_ln27_1 = partselect i62 @_ssdm_op_PartSelect.i62.i64.i32.i32, i64 %add_ln27, i32, i32" [../saxpy.cpp:27]   --->   Operation 47 'partselect' 'trunc_ln27_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 48 [1/1] (0.00ns)   --->   "%sext_ln27_1 = sext i62 %trunc_ln27_1" [../saxpy.cpp:27]   --->   Operation 48 'sext' 'sext_ln27_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 49 [1/1] (0.00ns)   --->   "%gmem_addr_1 = getelementptr i32 %gmem, i64 %sext_ln27_1" [../saxpy.cpp:27]   --->   Operation 49 'getelementptr' 'gmem_addr_1' <Predicate = true> <Delay = 0.00>
+
+State 2 <SV = 1> <Delay = 7.30>
+ST_2 : Operation 50 [6/7] (7.30ns)   --->   "%gmem_load_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr, i32" [../saxpy.cpp:27]   --->   Operation 50 'readreq' 'gmem_load_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_2 : Operation 51 [7/7] (7.30ns)   --->   "%gmem_load_1_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_1, i32, i1 %gmem_load_req" [../saxpy.cpp:27]   --->   Operation 51 'readreq' 'gmem_load_1_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_2 : Operation 52 [1/1] (3.52ns)   --->   "%add_ln27_1 = add i64 %x_read, i64" [../saxpy.cpp:27]   --->   Operation 52 'add' 'add_ln27_1' <Predicate = true> <Delay = 3.52> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 3.52> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_2 : Operation 53 [1/1] (0.00ns)   --->   "%trunc_ln27_2 = partselect i62 @_ssdm_op_PartSelect.i62.i64.i32.i32, i64 %add_ln27_1, i32, i32" [../saxpy.cpp:27]   --->   Operation 53 'partselect' 'trunc_ln27_2' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 54 [1/1] (0.00ns)   --->   "%sext_ln27_2 = sext i62 %trunc_ln27_2" [../saxpy.cpp:27]   --->   Operation 54 'sext' 'sext_ln27_2' <Predicate = true> <Delay = 0.00>
+ST_2 : Operation 55 [1/1] (0.00ns)   --->   "%gmem_addr_2 = getelementptr i32 %gmem, i64 %sext_ln27_2" [../saxpy.cpp:27]   --->   Operation 55 'getelementptr' 'gmem_addr_2' <Predicate = true> <Delay = 0.00>
+
+State 3 <SV = 2> <Delay = 7.30>
+ST_3 : Operation 56 [5/7] (7.30ns)   --->   "%gmem_load_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr, i32" [../saxpy.cpp:27]   --->   Operation 56 'readreq' 'gmem_load_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_3 : Operation 57 [6/7] (7.30ns)   --->   "%gmem_load_1_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_1, i32, i1 %gmem_load_req" [../saxpy.cpp:27]   --->   Operation 57 'readreq' 'gmem_load_1_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_3 : Operation 58 [7/7] (7.30ns)   --->   "%gmem_load_2_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_2, i32, i1 %gmem_load_1_req" [../saxpy.cpp:27]   --->   Operation 58 'readreq' 'gmem_load_2_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_3 : Operation 59 [1/1] (3.52ns)   --->   "%add_ln27_2 = add i64 %x_read, i64" [../saxpy.cpp:27]   --->   Operation 59 'add' 'add_ln27_2' <Predicate = true> <Delay = 3.52> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 3.52> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_3 : Operation 60 [1/1] (0.00ns)   --->   "%trunc_ln27_3 = partselect i62 @_ssdm_op_PartSelect.i62.i64.i32.i32, i64 %add_ln27_2, i32, i32" [../saxpy.cpp:27]   --->   Operation 60 'partselect' 'trunc_ln27_3' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 61 [1/1] (0.00ns)   --->   "%sext_ln27_3 = sext i62 %trunc_ln27_3" [../saxpy.cpp:27]   --->   Operation 61 'sext' 'sext_ln27_3' <Predicate = true> <Delay = 0.00>
+ST_3 : Operation 62 [1/1] (0.00ns)   --->   "%gmem_addr_3 = getelementptr i32 %gmem, i64 %sext_ln27_3" [../saxpy.cpp:27]   --->   Operation 62 'getelementptr' 'gmem_addr_3' <Predicate = true> <Delay = 0.00>
+
+State 4 <SV = 3> <Delay = 7.30>
+ST_4 : Operation 63 [4/7] (7.30ns)   --->   "%gmem_load_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr, i32" [../saxpy.cpp:27]   --->   Operation 63 'readreq' 'gmem_load_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_4 : Operation 64 [5/7] (7.30ns)   --->   "%gmem_load_1_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_1, i32, i1 %gmem_load_req" [../saxpy.cpp:27]   --->   Operation 64 'readreq' 'gmem_load_1_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_4 : Operation 65 [6/7] (7.30ns)   --->   "%gmem_load_2_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_2, i32, i1 %gmem_load_1_req" [../saxpy.cpp:27]   --->   Operation 65 'readreq' 'gmem_load_2_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_4 : Operation 66 [7/7] (7.30ns)   --->   "%gmem_load_3_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_3, i32, i1 %gmem_load_2_req" [../saxpy.cpp:27]   --->   Operation 66 'readreq' 'gmem_load_3_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_4 : Operation 67 [1/1] (3.52ns)   --->   "%add_ln27_3 = add i64 %x_read, i64" [../saxpy.cpp:27]   --->   Operation 67 'add' 'add_ln27_3' <Predicate = true> <Delay = 3.52> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 3.52> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_4 : Operation 68 [1/1] (0.00ns)   --->   "%trunc_ln27_4 = partselect i62 @_ssdm_op_PartSelect.i62.i64.i32.i32, i64 %add_ln27_3, i32, i32" [../saxpy.cpp:27]   --->   Operation 68 'partselect' 'trunc_ln27_4' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 69 [1/1] (0.00ns)   --->   "%sext_ln27_4 = sext i62 %trunc_ln27_4" [../saxpy.cpp:27]   --->   Operation 69 'sext' 'sext_ln27_4' <Predicate = true> <Delay = 0.00>
+ST_4 : Operation 70 [1/1] (0.00ns)   --->   "%gmem_addr_4 = getelementptr i32 %gmem, i64 %sext_ln27_4" [../saxpy.cpp:27]   --->   Operation 70 'getelementptr' 'gmem_addr_4' <Predicate = true> <Delay = 0.00>
+
+State 5 <SV = 4> <Delay = 7.30>
+ST_5 : Operation 71 [3/7] (7.30ns)   --->   "%gmem_load_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr, i32" [../saxpy.cpp:27]   --->   Operation 71 'readreq' 'gmem_load_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_5 : Operation 72 [4/7] (7.30ns)   --->   "%gmem_load_1_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_1, i32, i1 %gmem_load_req" [../saxpy.cpp:27]   --->   Operation 72 'readreq' 'gmem_load_1_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_5 : Operation 73 [5/7] (7.30ns)   --->   "%gmem_load_2_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_2, i32, i1 %gmem_load_1_req" [../saxpy.cpp:27]   --->   Operation 73 'readreq' 'gmem_load_2_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_5 : Operation 74 [6/7] (7.30ns)   --->   "%gmem_load_3_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_3, i32, i1 %gmem_load_2_req" [../saxpy.cpp:27]   --->   Operation 74 'readreq' 'gmem_load_3_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_5 : Operation 75 [7/7] (7.30ns)   --->   "%gmem_load_4_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_4, i32, i1 %gmem_load_3_req" [../saxpy.cpp:27]   --->   Operation 75 'readreq' 'gmem_load_4_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_5 : Operation 76 [1/1] (3.52ns)   --->   "%add_ln27_4 = add i64 %x_read, i64" [../saxpy.cpp:27]   --->   Operation 76 'add' 'add_ln27_4' <Predicate = true> <Delay = 3.52> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 3.52> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_5 : Operation 77 [1/1] (0.00ns)   --->   "%trunc_ln27_5 = partselect i62 @_ssdm_op_PartSelect.i62.i64.i32.i32, i64 %add_ln27_4, i32, i32" [../saxpy.cpp:27]   --->   Operation 77 'partselect' 'trunc_ln27_5' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 78 [1/1] (0.00ns)   --->   "%sext_ln27_5 = sext i62 %trunc_ln27_5" [../saxpy.cpp:27]   --->   Operation 78 'sext' 'sext_ln27_5' <Predicate = true> <Delay = 0.00>
+ST_5 : Operation 79 [1/1] (0.00ns)   --->   "%gmem_addr_5 = getelementptr i32 %gmem, i64 %sext_ln27_5" [../saxpy.cpp:27]   --->   Operation 79 'getelementptr' 'gmem_addr_5' <Predicate = true> <Delay = 0.00>
+
+State 6 <SV = 5> <Delay = 7.30>
+ST_6 : Operation 80 [2/7] (7.30ns)   --->   "%gmem_load_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr, i32" [../saxpy.cpp:27]   --->   Operation 80 'readreq' 'gmem_load_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_6 : Operation 81 [3/7] (7.30ns)   --->   "%gmem_load_1_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_1, i32, i1 %gmem_load_req" [../saxpy.cpp:27]   --->   Operation 81 'readreq' 'gmem_load_1_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_6 : Operation 82 [4/7] (7.30ns)   --->   "%gmem_load_2_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_2, i32, i1 %gmem_load_1_req" [../saxpy.cpp:27]   --->   Operation 82 'readreq' 'gmem_load_2_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_6 : Operation 83 [5/7] (7.30ns)   --->   "%gmem_load_3_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_3, i32, i1 %gmem_load_2_req" [../saxpy.cpp:27]   --->   Operation 83 'readreq' 'gmem_load_3_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_6 : Operation 84 [6/7] (7.30ns)   --->   "%gmem_load_4_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_4, i32, i1 %gmem_load_3_req" [../saxpy.cpp:27]   --->   Operation 84 'readreq' 'gmem_load_4_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_6 : Operation 85 [7/7] (7.30ns)   --->   "%gmem_load_5_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_5, i32, i1 %gmem_load_4_req" [../saxpy.cpp:27]   --->   Operation 85 'readreq' 'gmem_load_5_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_6 : Operation 86 [1/1] (3.52ns)   --->   "%add_ln27_5 = add i64 %x_read, i64" [../saxpy.cpp:27]   --->   Operation 86 'add' 'add_ln27_5' <Predicate = true> <Delay = 3.52> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 3.52> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_6 : Operation 87 [1/1] (0.00ns)   --->   "%trunc_ln27_6 = partselect i62 @_ssdm_op_PartSelect.i62.i64.i32.i32, i64 %add_ln27_5, i32, i32" [../saxpy.cpp:27]   --->   Operation 87 'partselect' 'trunc_ln27_6' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 88 [1/1] (0.00ns)   --->   "%sext_ln27_6 = sext i62 %trunc_ln27_6" [../saxpy.cpp:27]   --->   Operation 88 'sext' 'sext_ln27_6' <Predicate = true> <Delay = 0.00>
+ST_6 : Operation 89 [1/1] (0.00ns)   --->   "%gmem_addr_6 = getelementptr i32 %gmem, i64 %sext_ln27_6" [../saxpy.cpp:27]   --->   Operation 89 'getelementptr' 'gmem_addr_6' <Predicate = true> <Delay = 0.00>
+
+State 7 <SV = 6> <Delay = 7.30>
+ST_7 : Operation 90 [1/7] (7.30ns)   --->   "%gmem_load_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr, i32" [../saxpy.cpp:27]   --->   Operation 90 'readreq' 'gmem_load_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_7 : Operation 91 [2/7] (7.30ns)   --->   "%gmem_load_1_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_1, i32, i1 %gmem_load_req" [../saxpy.cpp:27]   --->   Operation 91 'readreq' 'gmem_load_1_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_7 : Operation 92 [3/7] (7.30ns)   --->   "%gmem_load_2_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_2, i32, i1 %gmem_load_1_req" [../saxpy.cpp:27]   --->   Operation 92 'readreq' 'gmem_load_2_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_7 : Operation 93 [4/7] (7.30ns)   --->   "%gmem_load_3_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_3, i32, i1 %gmem_load_2_req" [../saxpy.cpp:27]   --->   Operation 93 'readreq' 'gmem_load_3_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_7 : Operation 94 [5/7] (7.30ns)   --->   "%gmem_load_4_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_4, i32, i1 %gmem_load_3_req" [../saxpy.cpp:27]   --->   Operation 94 'readreq' 'gmem_load_4_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_7 : Operation 95 [6/7] (7.30ns)   --->   "%gmem_load_5_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_5, i32, i1 %gmem_load_4_req" [../saxpy.cpp:27]   --->   Operation 95 'readreq' 'gmem_load_5_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_7 : Operation 96 [7/7] (7.30ns)   --->   "%gmem_load_6_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_6, i32, i1 %gmem_load_5_req" [../saxpy.cpp:27]   --->   Operation 96 'readreq' 'gmem_load_6_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_7 : Operation 97 [1/1] (3.52ns)   --->   "%add_ln27_6 = add i64 %x_read, i64" [../saxpy.cpp:27]   --->   Operation 97 'add' 'add_ln27_6' <Predicate = true> <Delay = 3.52> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 3.52> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_7 : Operation 98 [1/1] (0.00ns)   --->   "%trunc_ln27_7 = partselect i62 @_ssdm_op_PartSelect.i62.i64.i32.i32, i64 %add_ln27_6, i32, i32" [../saxpy.cpp:27]   --->   Operation 98 'partselect' 'trunc_ln27_7' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 99 [1/1] (0.00ns)   --->   "%sext_ln27_7 = sext i62 %trunc_ln27_7" [../saxpy.cpp:27]   --->   Operation 99 'sext' 'sext_ln27_7' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 100 [1/1] (0.00ns)   --->   "%gmem_addr_7 = getelementptr i32 %gmem, i64 %sext_ln27_7" [../saxpy.cpp:27]   --->   Operation 100 'getelementptr' 'gmem_addr_7' <Predicate = true> <Delay = 0.00>
+
+State 8 <SV = 7> <Delay = 7.30>
+ST_8 : Operation 101 [1/1] (7.30ns)   --->   "%gmem_addr_read = read i32 @_ssdm_op_Read.m_axi.i32P, i32 %gmem_addr, i1 %gmem_load_req" [../saxpy.cpp:27]   --->   Operation 101 'read' 'gmem_addr_read' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_8 : Operation 102 [1/7] (7.30ns)   --->   "%gmem_load_1_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_1, i32, i1 %gmem_load_req" [../saxpy.cpp:27]   --->   Operation 102 'readreq' 'gmem_load_1_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_8 : Operation 103 [2/7] (7.30ns)   --->   "%gmem_load_2_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_2, i32, i1 %gmem_load_1_req" [../saxpy.cpp:27]   --->   Operation 103 'readreq' 'gmem_load_2_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_8 : Operation 104 [3/7] (7.30ns)   --->   "%gmem_load_3_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_3, i32, i1 %gmem_load_2_req" [../saxpy.cpp:27]   --->   Operation 104 'readreq' 'gmem_load_3_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_8 : Operation 105 [4/7] (7.30ns)   --->   "%gmem_load_4_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_4, i32, i1 %gmem_load_3_req" [../saxpy.cpp:27]   --->   Operation 105 'readreq' 'gmem_load_4_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_8 : Operation 106 [5/7] (7.30ns)   --->   "%gmem_load_5_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_5, i32, i1 %gmem_load_4_req" [../saxpy.cpp:27]   --->   Operation 106 'readreq' 'gmem_load_5_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_8 : Operation 107 [6/7] (7.30ns)   --->   "%gmem_load_6_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_6, i32, i1 %gmem_load_5_req" [../saxpy.cpp:27]   --->   Operation 107 'readreq' 'gmem_load_6_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_8 : Operation 108 [7/7] (7.30ns)   --->   "%gmem_load_7_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_7, i32, i1 %gmem_load_6_req" [../saxpy.cpp:27]   --->   Operation 108 'readreq' 'gmem_load_7_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_8 : Operation 109 [1/1] (3.52ns)   --->   "%add_ln27_7 = add i64 %x_read, i64" [../saxpy.cpp:27]   --->   Operation 109 'add' 'add_ln27_7' <Predicate = true> <Delay = 3.52> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 3.52> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 110 [1/1] (0.00ns)   --->   "%trunc_ln27_8 = partselect i62 @_ssdm_op_PartSelect.i62.i64.i32.i32, i64 %add_ln27_7, i32, i32" [../saxpy.cpp:27]   --->   Operation 110 'partselect' 'trunc_ln27_8' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 111 [1/1] (0.00ns)   --->   "%sext_ln27_8 = sext i62 %trunc_ln27_8" [../saxpy.cpp:27]   --->   Operation 111 'sext' 'sext_ln27_8' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 112 [1/1] (0.00ns)   --->   "%gmem_addr_8 = getelementptr i32 %gmem, i64 %sext_ln27_8" [../saxpy.cpp:27]   --->   Operation 112 'getelementptr' 'gmem_addr_8' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 113 [1/1] (3.52ns)   --->   "%add_ln27_8 = add i64 %x_read, i64" [../saxpy.cpp:27]   --->   Operation 113 'add' 'add_ln27_8' <Predicate = true> <Delay = 3.52> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 3.52> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 114 [1/1] (0.00ns)   --->   "%trunc_ln27_9 = partselect i62 @_ssdm_op_PartSelect.i62.i64.i32.i32, i64 %add_ln27_8, i32, i32" [../saxpy.cpp:27]   --->   Operation 114 'partselect' 'trunc_ln27_9' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 115 [1/1] (0.00ns)   --->   "%sext_ln27_9 = sext i62 %trunc_ln27_9" [../saxpy.cpp:27]   --->   Operation 115 'sext' 'sext_ln27_9' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 116 [1/1] (0.00ns)   --->   "%gmem_addr_9 = getelementptr i32 %gmem, i64 %sext_ln27_9" [../saxpy.cpp:27]   --->   Operation 116 'getelementptr' 'gmem_addr_9' <Predicate = true> <Delay = 0.00>
+
+State 9 <SV = 8> <Delay = 7.30>
+ST_9 : Operation 117 [1/1] (7.30ns)   --->   "%gmem_addr_1_read = read i32 @_ssdm_op_Read.m_axi.i32P, i32 %gmem_addr_1, i1 %gmem_load_1_req, i32 %gmem_addr_read" [../saxpy.cpp:27]   --->   Operation 117 'read' 'gmem_addr_1_read' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_9 : Operation 118 [1/7] (7.30ns)   --->   "%gmem_load_2_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_2, i32, i1 %gmem_load_1_req" [../saxpy.cpp:27]   --->   Operation 118 'readreq' 'gmem_load_2_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_9 : Operation 119 [2/7] (7.30ns)   --->   "%gmem_load_3_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_3, i32, i1 %gmem_load_2_req" [../saxpy.cpp:27]   --->   Operation 119 'readreq' 'gmem_load_3_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_9 : Operation 120 [3/7] (7.30ns)   --->   "%gmem_load_4_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_4, i32, i1 %gmem_load_3_req" [../saxpy.cpp:27]   --->   Operation 120 'readreq' 'gmem_load_4_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_9 : Operation 121 [4/7] (7.30ns)   --->   "%gmem_load_5_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_5, i32, i1 %gmem_load_4_req" [../saxpy.cpp:27]   --->   Operation 121 'readreq' 'gmem_load_5_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_9 : Operation 122 [5/7] (7.30ns)   --->   "%gmem_load_6_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_6, i32, i1 %gmem_load_5_req" [../saxpy.cpp:27]   --->   Operation 122 'readreq' 'gmem_load_6_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_9 : Operation 123 [6/7] (7.30ns)   --->   "%gmem_load_7_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_7, i32, i1 %gmem_load_6_req" [../saxpy.cpp:27]   --->   Operation 123 'readreq' 'gmem_load_7_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_9 : Operation 124 [7/7] (7.30ns)   --->   "%gmem_load_8_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_8, i32, i1 %gmem_load_7_req" [../saxpy.cpp:27]   --->   Operation 124 'readreq' 'gmem_load_8_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 10 <SV = 9> <Delay = 7.30>
+ST_10 : Operation 125 [1/1] (7.30ns)   --->   "%gmem_addr_2_read = read i32 @_ssdm_op_Read.m_axi.i32P, i32 %gmem_addr_2, i1 %gmem_load_2_req, i32 %gmem_addr_1_read" [../saxpy.cpp:27]   --->   Operation 125 'read' 'gmem_addr_2_read' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_10 : Operation 126 [1/7] (7.30ns)   --->   "%gmem_load_3_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_3, i32, i1 %gmem_load_2_req" [../saxpy.cpp:27]   --->   Operation 126 'readreq' 'gmem_load_3_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_10 : Operation 127 [2/7] (7.30ns)   --->   "%gmem_load_4_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_4, i32, i1 %gmem_load_3_req" [../saxpy.cpp:27]   --->   Operation 127 'readreq' 'gmem_load_4_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_10 : Operation 128 [3/7] (7.30ns)   --->   "%gmem_load_5_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_5, i32, i1 %gmem_load_4_req" [../saxpy.cpp:27]   --->   Operation 128 'readreq' 'gmem_load_5_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_10 : Operation 129 [4/7] (7.30ns)   --->   "%gmem_load_6_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_6, i32, i1 %gmem_load_5_req" [../saxpy.cpp:27]   --->   Operation 129 'readreq' 'gmem_load_6_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_10 : Operation 130 [5/7] (7.30ns)   --->   "%gmem_load_7_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_7, i32, i1 %gmem_load_6_req" [../saxpy.cpp:27]   --->   Operation 130 'readreq' 'gmem_load_7_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_10 : Operation 131 [6/7] (7.30ns)   --->   "%gmem_load_8_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_8, i32, i1 %gmem_load_7_req" [../saxpy.cpp:27]   --->   Operation 131 'readreq' 'gmem_load_8_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_10 : Operation 132 [7/7] (7.30ns)   --->   "%gmem_load_9_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_9, i32, i1 %gmem_load_8_req" [../saxpy.cpp:27]   --->   Operation 132 'readreq' 'gmem_load_9_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 11 <SV = 10> <Delay = 7.30>
+ST_11 : Operation 133 [1/1] (0.00ns)   --->   "%y_read = read i64 @_ssdm_op_Read.ap_auto.i64, i64 %y" [../saxpy.cpp:27]   --->   Operation 133 'read' 'y_read' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 134 [1/1] (7.30ns)   --->   "%gmem_addr_3_read = read i32 @_ssdm_op_Read.m_axi.i32P, i32 %gmem_addr_3, i1 %gmem_load_3_req, i32 %gmem_addr_2_read" [../saxpy.cpp:27]   --->   Operation 134 'read' 'gmem_addr_3_read' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_11 : Operation 135 [1/7] (7.30ns)   --->   "%gmem_load_4_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_4, i32, i1 %gmem_load_3_req" [../saxpy.cpp:27]   --->   Operation 135 'readreq' 'gmem_load_4_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_11 : Operation 136 [2/7] (7.30ns)   --->   "%gmem_load_5_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_5, i32, i1 %gmem_load_4_req" [../saxpy.cpp:27]   --->   Operation 136 'readreq' 'gmem_load_5_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_11 : Operation 137 [3/7] (7.30ns)   --->   "%gmem_load_6_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_6, i32, i1 %gmem_load_5_req" [../saxpy.cpp:27]   --->   Operation 137 'readreq' 'gmem_load_6_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_11 : Operation 138 [4/7] (7.30ns)   --->   "%gmem_load_7_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_7, i32, i1 %gmem_load_6_req" [../saxpy.cpp:27]   --->   Operation 138 'readreq' 'gmem_load_7_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_11 : Operation 139 [5/7] (7.30ns)   --->   "%gmem_load_8_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_8, i32, i1 %gmem_load_7_req" [../saxpy.cpp:27]   --->   Operation 139 'readreq' 'gmem_load_8_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_11 : Operation 140 [6/7] (7.30ns)   --->   "%gmem_load_9_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_9, i32, i1 %gmem_load_8_req" [../saxpy.cpp:27]   --->   Operation 140 'readreq' 'gmem_load_9_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_11 : Operation 141 [1/1] (0.00ns)   --->   "%trunc_ln1 = partselect i62 @_ssdm_op_PartSelect.i62.i64.i32.i32, i64 %y_read, i32, i32" [../saxpy.cpp:32]   --->   Operation 141 'partselect' 'trunc_ln1' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 142 [1/1] (0.00ns)   --->   "%sext_ln32 = sext i62 %trunc_ln1" [../saxpy.cpp:32]   --->   Operation 142 'sext' 'sext_ln32' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 143 [1/1] (0.00ns)   --->   "%gmem_addr_10 = getelementptr i32 %gmem, i64 %sext_ln32" [../saxpy.cpp:32]   --->   Operation 143 'getelementptr' 'gmem_addr_10' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 144 [7/7] (7.30ns)   --->   "%gmem_load_10_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_10, i32, i1 %gmem_load_9_req" [../saxpy.cpp:32]   --->   Operation 144 'readreq' 'gmem_load_10_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_11 : Operation 145 [1/1] (3.52ns)   --->   "%add_ln32 = add i64 %y_read, i64" [../saxpy.cpp:32]   --->   Operation 145 'add' 'add_ln32' <Predicate = true> <Delay = 3.52> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 3.52> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_11 : Operation 146 [1/1] (0.00ns)   --->   "%trunc_ln32_1 = partselect i62 @_ssdm_op_PartSelect.i62.i64.i32.i32, i64 %add_ln32, i32, i32" [../saxpy.cpp:32]   --->   Operation 146 'partselect' 'trunc_ln32_1' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 147 [1/1] (0.00ns)   --->   "%sext_ln32_1 = sext i62 %trunc_ln32_1" [../saxpy.cpp:32]   --->   Operation 147 'sext' 'sext_ln32_1' <Predicate = true> <Delay = 0.00>
+ST_11 : Operation 148 [1/1] (0.00ns)   --->   "%gmem_addr_11 = getelementptr i32 %gmem, i64 %sext_ln32_1" [../saxpy.cpp:32]   --->   Operation 148 'getelementptr' 'gmem_addr_11' <Predicate = true> <Delay = 0.00>
+
+State 12 <SV = 11> <Delay = 7.30>
+ST_12 : Operation 149 [1/1] (7.30ns)   --->   "%gmem_addr_4_read = read i32 @_ssdm_op_Read.m_axi.i32P, i32 %gmem_addr_4, i1 %gmem_load_4_req, i32 %gmem_addr_3_read" [../saxpy.cpp:27]   --->   Operation 149 'read' 'gmem_addr_4_read' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_12 : Operation 150 [1/7] (7.30ns)   --->   "%gmem_load_5_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_5, i32, i1 %gmem_load_4_req" [../saxpy.cpp:27]   --->   Operation 150 'readreq' 'gmem_load_5_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_12 : Operation 151 [2/7] (7.30ns)   --->   "%gmem_load_6_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_6, i32, i1 %gmem_load_5_req" [../saxpy.cpp:27]   --->   Operation 151 'readreq' 'gmem_load_6_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_12 : Operation 152 [3/7] (7.30ns)   --->   "%gmem_load_7_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_7, i32, i1 %gmem_load_6_req" [../saxpy.cpp:27]   --->   Operation 152 'readreq' 'gmem_load_7_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_12 : Operation 153 [4/7] (7.30ns)   --->   "%gmem_load_8_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_8, i32, i1 %gmem_load_7_req" [../saxpy.cpp:27]   --->   Operation 153 'readreq' 'gmem_load_8_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_12 : Operation 154 [5/7] (7.30ns)   --->   "%gmem_load_9_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_9, i32, i1 %gmem_load_8_req" [../saxpy.cpp:27]   --->   Operation 154 'readreq' 'gmem_load_9_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_12 : Operation 155 [6/7] (7.30ns)   --->   "%gmem_load_10_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_10, i32, i1 %gmem_load_9_req" [../saxpy.cpp:32]   --->   Operation 155 'readreq' 'gmem_load_10_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_12 : Operation 156 [7/7] (7.30ns)   --->   "%gmem_load_11_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_11, i32, i1 %gmem_load_10_req" [../saxpy.cpp:32]   --->   Operation 156 'readreq' 'gmem_load_11_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_12 : Operation 157 [1/1] (3.52ns)   --->   "%add_ln32_1 = add i64 %y_read, i64" [../saxpy.cpp:32]   --->   Operation 157 'add' 'add_ln32_1' <Predicate = true> <Delay = 3.52> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 3.52> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_12 : Operation 158 [1/1] (0.00ns)   --->   "%trunc_ln32_2 = partselect i62 @_ssdm_op_PartSelect.i62.i64.i32.i32, i64 %add_ln32_1, i32, i32" [../saxpy.cpp:32]   --->   Operation 158 'partselect' 'trunc_ln32_2' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 159 [1/1] (0.00ns)   --->   "%sext_ln32_2 = sext i62 %trunc_ln32_2" [../saxpy.cpp:32]   --->   Operation 159 'sext' 'sext_ln32_2' <Predicate = true> <Delay = 0.00>
+ST_12 : Operation 160 [1/1] (0.00ns)   --->   "%gmem_addr_12 = getelementptr i32 %gmem, i64 %sext_ln32_2" [../saxpy.cpp:32]   --->   Operation 160 'getelementptr' 'gmem_addr_12' <Predicate = true> <Delay = 0.00>
+
+State 13 <SV = 12> <Delay = 7.30>
+ST_13 : Operation 161 [1/1] (7.30ns)   --->   "%gmem_addr_5_read = read i32 @_ssdm_op_Read.m_axi.i32P, i32 %gmem_addr_5, i1 %gmem_load_5_req, i32 %gmem_addr_4_read" [../saxpy.cpp:27]   --->   Operation 161 'read' 'gmem_addr_5_read' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_13 : Operation 162 [1/7] (7.30ns)   --->   "%gmem_load_6_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_6, i32, i1 %gmem_load_5_req" [../saxpy.cpp:27]   --->   Operation 162 'readreq' 'gmem_load_6_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_13 : Operation 163 [2/7] (7.30ns)   --->   "%gmem_load_7_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_7, i32, i1 %gmem_load_6_req" [../saxpy.cpp:27]   --->   Operation 163 'readreq' 'gmem_load_7_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_13 : Operation 164 [3/7] (7.30ns)   --->   "%gmem_load_8_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_8, i32, i1 %gmem_load_7_req" [../saxpy.cpp:27]   --->   Operation 164 'readreq' 'gmem_load_8_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_13 : Operation 165 [4/7] (7.30ns)   --->   "%gmem_load_9_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_9, i32, i1 %gmem_load_8_req" [../saxpy.cpp:27]   --->   Operation 165 'readreq' 'gmem_load_9_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_13 : Operation 166 [5/7] (7.30ns)   --->   "%gmem_load_10_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_10, i32, i1 %gmem_load_9_req" [../saxpy.cpp:32]   --->   Operation 166 'readreq' 'gmem_load_10_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_13 : Operation 167 [6/7] (7.30ns)   --->   "%gmem_load_11_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_11, i32, i1 %gmem_load_10_req" [../saxpy.cpp:32]   --->   Operation 167 'readreq' 'gmem_load_11_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_13 : Operation 168 [7/7] (7.30ns)   --->   "%gmem_load_12_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_12, i32, i1 %gmem_load_11_req" [../saxpy.cpp:32]   --->   Operation 168 'readreq' 'gmem_load_12_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_13 : Operation 169 [1/1] (3.52ns)   --->   "%add_ln32_2 = add i64 %y_read, i64" [../saxpy.cpp:32]   --->   Operation 169 'add' 'add_ln32_2' <Predicate = true> <Delay = 3.52> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 3.52> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_13 : Operation 170 [1/1] (0.00ns)   --->   "%trunc_ln32_3 = partselect i62 @_ssdm_op_PartSelect.i62.i64.i32.i32, i64 %add_ln32_2, i32, i32" [../saxpy.cpp:32]   --->   Operation 170 'partselect' 'trunc_ln32_3' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 171 [1/1] (0.00ns)   --->   "%sext_ln32_3 = sext i62 %trunc_ln32_3" [../saxpy.cpp:32]   --->   Operation 171 'sext' 'sext_ln32_3' <Predicate = true> <Delay = 0.00>
+ST_13 : Operation 172 [1/1] (0.00ns)   --->   "%gmem_addr_13 = getelementptr i32 %gmem, i64 %sext_ln32_3" [../saxpy.cpp:32]   --->   Operation 172 'getelementptr' 'gmem_addr_13' <Predicate = true> <Delay = 0.00>
+
+State 14 <SV = 13> <Delay = 7.30>
+ST_14 : Operation 173 [1/1] (7.30ns)   --->   "%gmem_addr_6_read = read i32 @_ssdm_op_Read.m_axi.i32P, i32 %gmem_addr_6, i1 %gmem_load_6_req, i32 %gmem_addr_5_read" [../saxpy.cpp:27]   --->   Operation 173 'read' 'gmem_addr_6_read' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_14 : Operation 174 [1/7] (7.30ns)   --->   "%gmem_load_7_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_7, i32, i1 %gmem_load_6_req" [../saxpy.cpp:27]   --->   Operation 174 'readreq' 'gmem_load_7_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_14 : Operation 175 [2/7] (7.30ns)   --->   "%gmem_load_8_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_8, i32, i1 %gmem_load_7_req" [../saxpy.cpp:27]   --->   Operation 175 'readreq' 'gmem_load_8_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_14 : Operation 176 [3/7] (7.30ns)   --->   "%gmem_load_9_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_9, i32, i1 %gmem_load_8_req" [../saxpy.cpp:27]   --->   Operation 176 'readreq' 'gmem_load_9_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_14 : Operation 177 [4/7] (7.30ns)   --->   "%gmem_load_10_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_10, i32, i1 %gmem_load_9_req" [../saxpy.cpp:32]   --->   Operation 177 'readreq' 'gmem_load_10_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_14 : Operation 178 [5/7] (7.30ns)   --->   "%gmem_load_11_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_11, i32, i1 %gmem_load_10_req" [../saxpy.cpp:32]   --->   Operation 178 'readreq' 'gmem_load_11_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_14 : Operation 179 [6/7] (7.30ns)   --->   "%gmem_load_12_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_12, i32, i1 %gmem_load_11_req" [../saxpy.cpp:32]   --->   Operation 179 'readreq' 'gmem_load_12_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_14 : Operation 180 [7/7] (7.30ns)   --->   "%gmem_load_13_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_13, i32, i1 %gmem_load_12_req" [../saxpy.cpp:32]   --->   Operation 180 'readreq' 'gmem_load_13_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_14 : Operation 181 [1/1] (3.52ns)   --->   "%add_ln32_3 = add i64 %y_read, i64" [../saxpy.cpp:32]   --->   Operation 181 'add' 'add_ln32_3' <Predicate = true> <Delay = 3.52> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 3.52> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_14 : Operation 182 [1/1] (0.00ns)   --->   "%trunc_ln32_4 = partselect i62 @_ssdm_op_PartSelect.i62.i64.i32.i32, i64 %add_ln32_3, i32, i32" [../saxpy.cpp:32]   --->   Operation 182 'partselect' 'trunc_ln32_4' <Predicate = true> <Delay = 0.00>
+ST_14 : Operation 183 [1/1] (0.00ns)   --->   "%sext_ln32_4 = sext i62 %trunc_ln32_4" [../saxpy.cpp:32]   --->   Operation 183 'sext' 'sext_ln32_4' <Predicate = true> <Delay = 0.00>
+ST_14 : Operation 184 [1/1] (0.00ns)   --->   "%gmem_addr_14 = getelementptr i32 %gmem, i64 %sext_ln32_4" [../saxpy.cpp:32]   --->   Operation 184 'getelementptr' 'gmem_addr_14' <Predicate = true> <Delay = 0.00>
+
+State 15 <SV = 14> <Delay = 7.30>
+ST_15 : Operation 185 [1/1] (7.30ns)   --->   "%gmem_addr_7_read = read i32 @_ssdm_op_Read.m_axi.i32P, i32 %gmem_addr_7, i1 %gmem_load_7_req, i32 %gmem_addr_6_read" [../saxpy.cpp:27]   --->   Operation 185 'read' 'gmem_addr_7_read' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_15 : Operation 186 [1/7] (7.30ns)   --->   "%gmem_load_8_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_8, i32, i1 %gmem_load_7_req" [../saxpy.cpp:27]   --->   Operation 186 'readreq' 'gmem_load_8_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_15 : Operation 187 [2/7] (7.30ns)   --->   "%gmem_load_9_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_9, i32, i1 %gmem_load_8_req" [../saxpy.cpp:27]   --->   Operation 187 'readreq' 'gmem_load_9_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_15 : Operation 188 [3/7] (7.30ns)   --->   "%gmem_load_10_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_10, i32, i1 %gmem_load_9_req" [../saxpy.cpp:32]   --->   Operation 188 'readreq' 'gmem_load_10_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_15 : Operation 189 [4/7] (7.30ns)   --->   "%gmem_load_11_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_11, i32, i1 %gmem_load_10_req" [../saxpy.cpp:32]   --->   Operation 189 'readreq' 'gmem_load_11_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_15 : Operation 190 [5/7] (7.30ns)   --->   "%gmem_load_12_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_12, i32, i1 %gmem_load_11_req" [../saxpy.cpp:32]   --->   Operation 190 'readreq' 'gmem_load_12_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_15 : Operation 191 [6/7] (7.30ns)   --->   "%gmem_load_13_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_13, i32, i1 %gmem_load_12_req" [../saxpy.cpp:32]   --->   Operation 191 'readreq' 'gmem_load_13_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_15 : Operation 192 [7/7] (7.30ns)   --->   "%gmem_load_14_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_14, i32, i1 %gmem_load_13_req" [../saxpy.cpp:32]   --->   Operation 192 'readreq' 'gmem_load_14_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_15 : Operation 193 [1/1] (3.52ns)   --->   "%add_ln32_4 = add i64 %y_read, i64" [../saxpy.cpp:32]   --->   Operation 193 'add' 'add_ln32_4' <Predicate = true> <Delay = 3.52> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 3.52> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_15 : Operation 194 [1/1] (0.00ns)   --->   "%trunc_ln32_5 = partselect i62 @_ssdm_op_PartSelect.i62.i64.i32.i32, i64 %add_ln32_4, i32, i32" [../saxpy.cpp:32]   --->   Operation 194 'partselect' 'trunc_ln32_5' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 195 [1/1] (0.00ns)   --->   "%sext_ln32_5 = sext i62 %trunc_ln32_5" [../saxpy.cpp:32]   --->   Operation 195 'sext' 'sext_ln32_5' <Predicate = true> <Delay = 0.00>
+ST_15 : Operation 196 [1/1] (0.00ns)   --->   "%gmem_addr_15 = getelementptr i32 %gmem, i64 %sext_ln32_5" [../saxpy.cpp:32]   --->   Operation 196 'getelementptr' 'gmem_addr_15' <Predicate = true> <Delay = 0.00>
+
+State 16 <SV = 15> <Delay = 7.30>
+ST_16 : Operation 197 [1/1] (0.00ns)   --->   "%a_read = read i32 @_ssdm_op_Read.ap_auto.float, i32 %a" [../saxpy.cpp:27]   --->   Operation 197 'read' 'a_read' <Predicate = true> <Delay = 0.00>
+ST_16 : Operation 198 [1/1] (0.00ns)   --->   "%buf = bitcast i32 %gmem_addr_read" [../saxpy.cpp:27]   --->   Operation 198 'bitcast' 'buf' <Predicate = true> <Delay = 0.00>
+ST_16 : Operation 199 [1/1] (7.30ns)   --->   "%gmem_addr_8_read = read i32 @_ssdm_op_Read.m_axi.i32P, i32 %gmem_addr_8, i1 %gmem_load_8_req, i32 %gmem_addr_7_read" [../saxpy.cpp:27]   --->   Operation 199 'read' 'gmem_addr_8_read' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_16 : Operation 200 [1/7] (7.30ns)   --->   "%gmem_load_9_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_9, i32, i1 %gmem_load_8_req" [../saxpy.cpp:27]   --->   Operation 200 'readreq' 'gmem_load_9_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_16 : Operation 201 [2/7] (7.30ns)   --->   "%gmem_load_10_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_10, i32, i1 %gmem_load_9_req" [../saxpy.cpp:32]   --->   Operation 201 'readreq' 'gmem_load_10_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_16 : Operation 202 [3/7] (7.30ns)   --->   "%gmem_load_11_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_11, i32, i1 %gmem_load_10_req" [../saxpy.cpp:32]   --->   Operation 202 'readreq' 'gmem_load_11_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_16 : Operation 203 [4/7] (7.30ns)   --->   "%gmem_load_12_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_12, i32, i1 %gmem_load_11_req" [../saxpy.cpp:32]   --->   Operation 203 'readreq' 'gmem_load_12_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_16 : Operation 204 [5/7] (7.30ns)   --->   "%gmem_load_13_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_13, i32, i1 %gmem_load_12_req" [../saxpy.cpp:32]   --->   Operation 204 'readreq' 'gmem_load_13_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_16 : Operation 205 [6/7] (7.30ns)   --->   "%gmem_load_14_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_14, i32, i1 %gmem_load_13_req" [../saxpy.cpp:32]   --->   Operation 205 'readreq' 'gmem_load_14_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_16 : Operation 206 [7/7] (7.30ns)   --->   "%gmem_load_15_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_15, i32, i1 %gmem_load_14_req" [../saxpy.cpp:32]   --->   Operation 206 'readreq' 'gmem_load_15_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_16 : Operation 207 [1/1] (3.52ns)   --->   "%add_ln32_5 = add i64 %y_read, i64" [../saxpy.cpp:32]   --->   Operation 207 'add' 'add_ln32_5' <Predicate = true> <Delay = 3.52> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 3.52> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_16 : Operation 208 [1/1] (0.00ns)   --->   "%trunc_ln32_6 = partselect i62 @_ssdm_op_PartSelect.i62.i64.i32.i32, i64 %add_ln32_5, i32, i32" [../saxpy.cpp:32]   --->   Operation 208 'partselect' 'trunc_ln32_6' <Predicate = true> <Delay = 0.00>
+ST_16 : Operation 209 [1/1] (0.00ns)   --->   "%sext_ln32_6 = sext i62 %trunc_ln32_6" [../saxpy.cpp:32]   --->   Operation 209 'sext' 'sext_ln32_6' <Predicate = true> <Delay = 0.00>
+ST_16 : Operation 210 [1/1] (0.00ns)   --->   "%gmem_addr_16 = getelementptr i32 %gmem, i64 %sext_ln32_6" [../saxpy.cpp:32]   --->   Operation 210 'getelementptr' 'gmem_addr_16' <Predicate = true> <Delay = 0.00>
+ST_16 : Operation 211 [4/4] (5.70ns)   --->   "%buf_10 = fmul i32 %buf, i32 %a_read" [../saxpy.cpp:37]   --->   Operation 211 'fmul' 'buf_10' <Predicate = true> <Delay = 5.70> <CoreInst = "FMul_maxdsp">   --->   Core 86 'FMul_maxdsp' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+
+State 17 <SV = 16> <Delay = 7.30>
+ST_17 : Operation 212 [1/1] (0.00ns)   --->   "%buf_1 = bitcast i32 %gmem_addr_1_read" [../saxpy.cpp:27]   --->   Operation 212 'bitcast' 'buf_1' <Predicate = true> <Delay = 0.00>
+ST_17 : Operation 213 [1/1] (7.30ns)   --->   "%gmem_addr_9_read = read i32 @_ssdm_op_Read.m_axi.i32P, i32 %gmem_addr_9, i1 %gmem_load_9_req, i32 %gmem_addr_8_read" [../saxpy.cpp:27]   --->   Operation 213 'read' 'gmem_addr_9_read' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_17 : Operation 214 [1/7] (7.30ns)   --->   "%gmem_load_10_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_10, i32, i1 %gmem_load_9_req" [../saxpy.cpp:32]   --->   Operation 214 'readreq' 'gmem_load_10_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_17 : Operation 215 [2/7] (7.30ns)   --->   "%gmem_load_11_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_11, i32, i1 %gmem_load_10_req" [../saxpy.cpp:32]   --->   Operation 215 'readreq' 'gmem_load_11_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_17 : Operation 216 [3/7] (7.30ns)   --->   "%gmem_load_12_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_12, i32, i1 %gmem_load_11_req" [../saxpy.cpp:32]   --->   Operation 216 'readreq' 'gmem_load_12_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_17 : Operation 217 [4/7] (7.30ns)   --->   "%gmem_load_13_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_13, i32, i1 %gmem_load_12_req" [../saxpy.cpp:32]   --->   Operation 217 'readreq' 'gmem_load_13_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_17 : Operation 218 [5/7] (7.30ns)   --->   "%gmem_load_14_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_14, i32, i1 %gmem_load_13_req" [../saxpy.cpp:32]   --->   Operation 218 'readreq' 'gmem_load_14_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_17 : Operation 219 [6/7] (7.30ns)   --->   "%gmem_load_15_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_15, i32, i1 %gmem_load_14_req" [../saxpy.cpp:32]   --->   Operation 219 'readreq' 'gmem_load_15_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_17 : Operation 220 [7/7] (7.30ns)   --->   "%gmem_load_16_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_16, i32, i1 %gmem_load_15_req" [../saxpy.cpp:32]   --->   Operation 220 'readreq' 'gmem_load_16_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_17 : Operation 221 [1/1] (3.52ns)   --->   "%add_ln32_6 = add i64 %y_read, i64" [../saxpy.cpp:32]   --->   Operation 221 'add' 'add_ln32_6' <Predicate = true> <Delay = 3.52> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 3.52> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_17 : Operation 222 [1/1] (0.00ns)   --->   "%trunc_ln32_7 = partselect i62 @_ssdm_op_PartSelect.i62.i64.i32.i32, i64 %add_ln32_6, i32, i32" [../saxpy.cpp:32]   --->   Operation 222 'partselect' 'trunc_ln32_7' <Predicate = true> <Delay = 0.00>
+ST_17 : Operation 223 [1/1] (0.00ns)   --->   "%sext_ln32_7 = sext i62 %trunc_ln32_7" [../saxpy.cpp:32]   --->   Operation 223 'sext' 'sext_ln32_7' <Predicate = true> <Delay = 0.00>
+ST_17 : Operation 224 [1/1] (0.00ns)   --->   "%gmem_addr_17 = getelementptr i32 %gmem, i64 %sext_ln32_7" [../saxpy.cpp:32]   --->   Operation 224 'getelementptr' 'gmem_addr_17' <Predicate = true> <Delay = 0.00>
+ST_17 : Operation 225 [3/4] (5.70ns)   --->   "%buf_10 = fmul i32 %buf, i32 %a_read" [../saxpy.cpp:37]   --->   Operation 225 'fmul' 'buf_10' <Predicate = true> <Delay = 5.70> <CoreInst = "FMul_maxdsp">   --->   Core 86 'FMul_maxdsp' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_17 : Operation 226 [4/4] (5.70ns)   --->   "%buf_11 = fmul i32 %buf_1, i32 %a_read" [../saxpy.cpp:37]   --->   Operation 226 'fmul' 'buf_11' <Predicate = true> <Delay = 5.70> <CoreInst = "FMul_maxdsp">   --->   Core 86 'FMul_maxdsp' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+
+State 18 <SV = 17> <Delay = 7.30>
+ST_18 : Operation 227 [1/1] (0.00ns)   --->   "%buf_2 = bitcast i32 %gmem_addr_2_read" [../saxpy.cpp:27]   --->   Operation 227 'bitcast' 'buf_2' <Predicate = true> <Delay = 0.00>
+ST_18 : Operation 228 [1/1] (0.00ns)   --->   "%buf_3 = bitcast i32 %gmem_addr_3_read" [../saxpy.cpp:27]   --->   Operation 228 'bitcast' 'buf_3' <Predicate = true> <Delay = 0.00>
+ST_18 : Operation 229 [1/1] (0.00ns)   --->   "%buf_4 = bitcast i32 %gmem_addr_4_read" [../saxpy.cpp:27]   --->   Operation 229 'bitcast' 'buf_4' <Predicate = true> <Delay = 0.00>
+ST_18 : Operation 230 [1/1] (0.00ns)   --->   "%buf_5 = bitcast i32 %gmem_addr_5_read" [../saxpy.cpp:27]   --->   Operation 230 'bitcast' 'buf_5' <Predicate = true> <Delay = 0.00>
+ST_18 : Operation 231 [1/1] (0.00ns)   --->   "%buf_6 = bitcast i32 %gmem_addr_6_read" [../saxpy.cpp:27]   --->   Operation 231 'bitcast' 'buf_6' <Predicate = true> <Delay = 0.00>
+ST_18 : Operation 232 [1/1] (0.00ns)   --->   "%buf_7 = bitcast i32 %gmem_addr_7_read" [../saxpy.cpp:27]   --->   Operation 232 'bitcast' 'buf_7' <Predicate = true> <Delay = 0.00>
+ST_18 : Operation 233 [1/1] (0.00ns)   --->   "%buf_8 = bitcast i32 %gmem_addr_8_read" [../saxpy.cpp:27]   --->   Operation 233 'bitcast' 'buf_8' <Predicate = true> <Delay = 0.00>
+ST_18 : Operation 234 [1/1] (0.00ns)   --->   "%buf_9 = bitcast i32 %gmem_addr_9_read" [../saxpy.cpp:27]   --->   Operation 234 'bitcast' 'buf_9' <Predicate = true> <Delay = 0.00>
+ST_18 : Operation 235 [1/7] (7.30ns)   --->   "%gmem_load_11_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_11, i32, i1 %gmem_load_10_req" [../saxpy.cpp:32]   --->   Operation 235 'readreq' 'gmem_load_11_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_18 : Operation 236 [2/7] (7.30ns)   --->   "%gmem_load_12_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_12, i32, i1 %gmem_load_11_req" [../saxpy.cpp:32]   --->   Operation 236 'readreq' 'gmem_load_12_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_18 : Operation 237 [3/7] (7.30ns)   --->   "%gmem_load_13_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_13, i32, i1 %gmem_load_12_req" [../saxpy.cpp:32]   --->   Operation 237 'readreq' 'gmem_load_13_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_18 : Operation 238 [4/7] (7.30ns)   --->   "%gmem_load_14_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_14, i32, i1 %gmem_load_13_req" [../saxpy.cpp:32]   --->   Operation 238 'readreq' 'gmem_load_14_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_18 : Operation 239 [5/7] (7.30ns)   --->   "%gmem_load_15_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_15, i32, i1 %gmem_load_14_req" [../saxpy.cpp:32]   --->   Operation 239 'readreq' 'gmem_load_15_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_18 : Operation 240 [6/7] (7.30ns)   --->   "%gmem_load_16_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_16, i32, i1 %gmem_load_15_req" [../saxpy.cpp:32]   --->   Operation 240 'readreq' 'gmem_load_16_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_18 : Operation 241 [7/7] (7.30ns)   --->   "%gmem_load_17_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_17, i32, i1 %gmem_load_16_req" [../saxpy.cpp:32]   --->   Operation 241 'readreq' 'gmem_load_17_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_18 : Operation 242 [1/1] (3.52ns)   --->   "%add_ln32_7 = add i64 %y_read, i64" [../saxpy.cpp:32]   --->   Operation 242 'add' 'add_ln32_7' <Predicate = true> <Delay = 3.52> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 3.52> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_18 : Operation 243 [1/1] (0.00ns)   --->   "%trunc_ln32_8 = partselect i62 @_ssdm_op_PartSelect.i62.i64.i32.i32, i64 %add_ln32_7, i32, i32" [../saxpy.cpp:32]   --->   Operation 243 'partselect' 'trunc_ln32_8' <Predicate = true> <Delay = 0.00>
+ST_18 : Operation 244 [1/1] (0.00ns)   --->   "%sext_ln32_8 = sext i62 %trunc_ln32_8" [../saxpy.cpp:32]   --->   Operation 244 'sext' 'sext_ln32_8' <Predicate = true> <Delay = 0.00>
+ST_18 : Operation 245 [1/1] (0.00ns)   --->   "%gmem_addr_18 = getelementptr i32 %gmem, i64 %sext_ln32_8" [../saxpy.cpp:32]   --->   Operation 245 'getelementptr' 'gmem_addr_18' <Predicate = true> <Delay = 0.00>
+ST_18 : Operation 246 [1/1] (3.52ns)   --->   "%add_ln32_8 = add i64 %y_read, i64" [../saxpy.cpp:32]   --->   Operation 246 'add' 'add_ln32_8' <Predicate = true> <Delay = 3.52> <CoreInst = "Adder">   --->   Core 1 'Adder' <Latency = 0> <II = 1> <Delay = 3.52> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_18 : Operation 247 [1/1] (0.00ns)   --->   "%trunc_ln32_9 = partselect i62 @_ssdm_op_PartSelect.i62.i64.i32.i32, i64 %add_ln32_8, i32, i32" [../saxpy.cpp:32]   --->   Operation 247 'partselect' 'trunc_ln32_9' <Predicate = true> <Delay = 0.00>
+ST_18 : Operation 248 [1/1] (0.00ns)   --->   "%sext_ln32_9 = sext i62 %trunc_ln32_9" [../saxpy.cpp:32]   --->   Operation 248 'sext' 'sext_ln32_9' <Predicate = true> <Delay = 0.00>
+ST_18 : Operation 249 [1/1] (0.00ns)   --->   "%gmem_addr_19 = getelementptr i32 %gmem, i64 %sext_ln32_9" [../saxpy.cpp:32]   --->   Operation 249 'getelementptr' 'gmem_addr_19' <Predicate = true> <Delay = 0.00>
+ST_18 : Operation 250 [2/4] (5.70ns)   --->   "%buf_10 = fmul i32 %buf, i32 %a_read" [../saxpy.cpp:37]   --->   Operation 250 'fmul' 'buf_10' <Predicate = true> <Delay = 5.70> <CoreInst = "FMul_maxdsp">   --->   Core 86 'FMul_maxdsp' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_18 : Operation 251 [3/4] (5.70ns)   --->   "%buf_11 = fmul i32 %buf_1, i32 %a_read" [../saxpy.cpp:37]   --->   Operation 251 'fmul' 'buf_11' <Predicate = true> <Delay = 5.70> <CoreInst = "FMul_maxdsp">   --->   Core 86 'FMul_maxdsp' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_18 : Operation 252 [4/4] (5.70ns)   --->   "%buf_12 = fmul i32 %buf_2, i32 %a_read" [../saxpy.cpp:37]   --->   Operation 252 'fmul' 'buf_12' <Predicate = true> <Delay = 5.70> <CoreInst = "FMul_maxdsp">   --->   Core 86 'FMul_maxdsp' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_18 : Operation 253 [4/4] (5.70ns)   --->   "%buf_13 = fmul i32 %buf_3, i32 %a_read" [../saxpy.cpp:37]   --->   Operation 253 'fmul' 'buf_13' <Predicate = true> <Delay = 5.70> <CoreInst = "FMul_maxdsp">   --->   Core 86 'FMul_maxdsp' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_18 : Operation 254 [4/4] (5.70ns)   --->   "%buf_14 = fmul i32 %buf_4, i32 %a_read" [../saxpy.cpp:37]   --->   Operation 254 'fmul' 'buf_14' <Predicate = true> <Delay = 5.70> <CoreInst = "FMul_maxdsp">   --->   Core 86 'FMul_maxdsp' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_18 : Operation 255 [4/4] (5.70ns)   --->   "%buf_15 = fmul i32 %buf_5, i32 %a_read" [../saxpy.cpp:37]   --->   Operation 255 'fmul' 'buf_15' <Predicate = true> <Delay = 5.70> <CoreInst = "FMul_maxdsp">   --->   Core 86 'FMul_maxdsp' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_18 : Operation 256 [4/4] (5.70ns)   --->   "%buf_16 = fmul i32 %buf_6, i32 %a_read" [../saxpy.cpp:37]   --->   Operation 256 'fmul' 'buf_16' <Predicate = true> <Delay = 5.70> <CoreInst = "FMul_maxdsp">   --->   Core 86 'FMul_maxdsp' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_18 : Operation 257 [4/4] (5.70ns)   --->   "%buf_17 = fmul i32 %buf_7, i32 %a_read" [../saxpy.cpp:37]   --->   Operation 257 'fmul' 'buf_17' <Predicate = true> <Delay = 5.70> <CoreInst = "FMul_maxdsp">   --->   Core 86 'FMul_maxdsp' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_18 : Operation 258 [4/4] (5.70ns)   --->   "%buf_18 = fmul i32 %buf_8, i32 %a_read" [../saxpy.cpp:37]   --->   Operation 258 'fmul' 'buf_18' <Predicate = true> <Delay = 5.70> <CoreInst = "FMul_maxdsp">   --->   Core 86 'FMul_maxdsp' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_18 : Operation 259 [4/4] (5.70ns)   --->   "%buf_19 = fmul i32 %buf_9, i32 %a_read" [../saxpy.cpp:37]   --->   Operation 259 'fmul' 'buf_19' <Predicate = true> <Delay = 5.70> <CoreInst = "FMul_maxdsp">   --->   Core 86 'FMul_maxdsp' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+
+State 19 <SV = 18> <Delay = 7.30>
+ST_19 : Operation 260 [1/1] (7.30ns)   --->   "%gmem_addr_10_read = read i32 @_ssdm_op_Read.m_axi.i32P, i32 %gmem_addr_10, i1 %gmem_load_10_req, i32 %gmem_addr_9_read" [../saxpy.cpp:32]   --->   Operation 260 'read' 'gmem_addr_10_read' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_19 : Operation 261 [1/7] (7.30ns)   --->   "%gmem_load_12_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_12, i32, i1 %gmem_load_11_req" [../saxpy.cpp:32]   --->   Operation 261 'readreq' 'gmem_load_12_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_19 : Operation 262 [2/7] (7.30ns)   --->   "%gmem_load_13_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_13, i32, i1 %gmem_load_12_req" [../saxpy.cpp:32]   --->   Operation 262 'readreq' 'gmem_load_13_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_19 : Operation 263 [3/7] (7.30ns)   --->   "%gmem_load_14_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_14, i32, i1 %gmem_load_13_req" [../saxpy.cpp:32]   --->   Operation 263 'readreq' 'gmem_load_14_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_19 : Operation 264 [4/7] (7.30ns)   --->   "%gmem_load_15_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_15, i32, i1 %gmem_load_14_req" [../saxpy.cpp:32]   --->   Operation 264 'readreq' 'gmem_load_15_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_19 : Operation 265 [5/7] (7.30ns)   --->   "%gmem_load_16_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_16, i32, i1 %gmem_load_15_req" [../saxpy.cpp:32]   --->   Operation 265 'readreq' 'gmem_load_16_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_19 : Operation 266 [6/7] (7.30ns)   --->   "%gmem_load_17_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_17, i32, i1 %gmem_load_16_req" [../saxpy.cpp:32]   --->   Operation 266 'readreq' 'gmem_load_17_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_19 : Operation 267 [7/7] (7.30ns)   --->   "%gmem_load_18_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_18, i32, i1 %gmem_load_17_req" [../saxpy.cpp:32]   --->   Operation 267 'readreq' 'gmem_load_18_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_19 : Operation 268 [1/4] (5.70ns)   --->   "%buf_10 = fmul i32 %buf, i32 %a_read" [../saxpy.cpp:37]   --->   Operation 268 'fmul' 'buf_10' <Predicate = true> <Delay = 5.70> <CoreInst = "FMul_maxdsp">   --->   Core 86 'FMul_maxdsp' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_19 : Operation 269 [2/4] (5.70ns)   --->   "%buf_11 = fmul i32 %buf_1, i32 %a_read" [../saxpy.cpp:37]   --->   Operation 269 'fmul' 'buf_11' <Predicate = true> <Delay = 5.70> <CoreInst = "FMul_maxdsp">   --->   Core 86 'FMul_maxdsp' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_19 : Operation 270 [3/4] (5.70ns)   --->   "%buf_12 = fmul i32 %buf_2, i32 %a_read" [../saxpy.cpp:37]   --->   Operation 270 'fmul' 'buf_12' <Predicate = true> <Delay = 5.70> <CoreInst = "FMul_maxdsp">   --->   Core 86 'FMul_maxdsp' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_19 : Operation 271 [3/4] (5.70ns)   --->   "%buf_13 = fmul i32 %buf_3, i32 %a_read" [../saxpy.cpp:37]   --->   Operation 271 'fmul' 'buf_13' <Predicate = true> <Delay = 5.70> <CoreInst = "FMul_maxdsp">   --->   Core 86 'FMul_maxdsp' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_19 : Operation 272 [3/4] (5.70ns)   --->   "%buf_14 = fmul i32 %buf_4, i32 %a_read" [../saxpy.cpp:37]   --->   Operation 272 'fmul' 'buf_14' <Predicate = true> <Delay = 5.70> <CoreInst = "FMul_maxdsp">   --->   Core 86 'FMul_maxdsp' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_19 : Operation 273 [3/4] (5.70ns)   --->   "%buf_15 = fmul i32 %buf_5, i32 %a_read" [../saxpy.cpp:37]   --->   Operation 273 'fmul' 'buf_15' <Predicate = true> <Delay = 5.70> <CoreInst = "FMul_maxdsp">   --->   Core 86 'FMul_maxdsp' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_19 : Operation 274 [3/4] (5.70ns)   --->   "%buf_16 = fmul i32 %buf_6, i32 %a_read" [../saxpy.cpp:37]   --->   Operation 274 'fmul' 'buf_16' <Predicate = true> <Delay = 5.70> <CoreInst = "FMul_maxdsp">   --->   Core 86 'FMul_maxdsp' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_19 : Operation 275 [3/4] (5.70ns)   --->   "%buf_17 = fmul i32 %buf_7, i32 %a_read" [../saxpy.cpp:37]   --->   Operation 275 'fmul' 'buf_17' <Predicate = true> <Delay = 5.70> <CoreInst = "FMul_maxdsp">   --->   Core 86 'FMul_maxdsp' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_19 : Operation 276 [3/4] (5.70ns)   --->   "%buf_18 = fmul i32 %buf_8, i32 %a_read" [../saxpy.cpp:37]   --->   Operation 276 'fmul' 'buf_18' <Predicate = true> <Delay = 5.70> <CoreInst = "FMul_maxdsp">   --->   Core 86 'FMul_maxdsp' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_19 : Operation 277 [3/4] (5.70ns)   --->   "%buf_19 = fmul i32 %buf_9, i32 %a_read" [../saxpy.cpp:37]   --->   Operation 277 'fmul' 'buf_19' <Predicate = true> <Delay = 5.70> <CoreInst = "FMul_maxdsp">   --->   Core 86 'FMul_maxdsp' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+
+State 20 <SV = 19> <Delay = 7.30>
+ST_20 : Operation 278 [1/1] (0.00ns)   --->   "%ybuf = bitcast i32 %gmem_addr_10_read" [../saxpy.cpp:32]   --->   Operation 278 'bitcast' 'ybuf' <Predicate = true> <Delay = 0.00>
+ST_20 : Operation 279 [1/1] (7.30ns)   --->   "%gmem_addr_11_read = read i32 @_ssdm_op_Read.m_axi.i32P, i32 %gmem_addr_11, i1 %gmem_load_11_req, i32 %gmem_addr_10_read" [../saxpy.cpp:32]   --->   Operation 279 'read' 'gmem_addr_11_read' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_20 : Operation 280 [1/7] (7.30ns)   --->   "%gmem_load_13_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_13, i32, i1 %gmem_load_12_req" [../saxpy.cpp:32]   --->   Operation 280 'readreq' 'gmem_load_13_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_20 : Operation 281 [2/7] (7.30ns)   --->   "%gmem_load_14_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_14, i32, i1 %gmem_load_13_req" [../saxpy.cpp:32]   --->   Operation 281 'readreq' 'gmem_load_14_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_20 : Operation 282 [3/7] (7.30ns)   --->   "%gmem_load_15_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_15, i32, i1 %gmem_load_14_req" [../saxpy.cpp:32]   --->   Operation 282 'readreq' 'gmem_load_15_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_20 : Operation 283 [4/7] (7.30ns)   --->   "%gmem_load_16_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_16, i32, i1 %gmem_load_15_req" [../saxpy.cpp:32]   --->   Operation 283 'readreq' 'gmem_load_16_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_20 : Operation 284 [5/7] (7.30ns)   --->   "%gmem_load_17_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_17, i32, i1 %gmem_load_16_req" [../saxpy.cpp:32]   --->   Operation 284 'readreq' 'gmem_load_17_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_20 : Operation 285 [6/7] (7.30ns)   --->   "%gmem_load_18_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_18, i32, i1 %gmem_load_17_req" [../saxpy.cpp:32]   --->   Operation 285 'readreq' 'gmem_load_18_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_20 : Operation 286 [7/7] (7.30ns)   --->   "%gmem_load_19_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_19, i32, i1 %gmem_load_18_req" [../saxpy.cpp:32]   --->   Operation 286 'readreq' 'gmem_load_19_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_20 : Operation 287 [5/5] (7.25ns)   --->   "%ybuf_19 = fadd i32 %ybuf, i32 %buf_10" [../saxpy.cpp:42]   --->   Operation 287 'fadd' 'ybuf_19' <Predicate = true> <Delay = 7.25> <CoreInst = "FAddSub_fulldsp">   --->   Core 74 'FAddSub_fulldsp' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_20 : Operation 288 [1/4] (5.70ns)   --->   "%buf_11 = fmul i32 %buf_1, i32 %a_read" [../saxpy.cpp:37]   --->   Operation 288 'fmul' 'buf_11' <Predicate = true> <Delay = 5.70> <CoreInst = "FMul_maxdsp">   --->   Core 86 'FMul_maxdsp' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_20 : Operation 289 [2/4] (5.70ns)   --->   "%buf_12 = fmul i32 %buf_2, i32 %a_read" [../saxpy.cpp:37]   --->   Operation 289 'fmul' 'buf_12' <Predicate = true> <Delay = 5.70> <CoreInst = "FMul_maxdsp">   --->   Core 86 'FMul_maxdsp' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_20 : Operation 290 [2/4] (5.70ns)   --->   "%buf_13 = fmul i32 %buf_3, i32 %a_read" [../saxpy.cpp:37]   --->   Operation 290 'fmul' 'buf_13' <Predicate = true> <Delay = 5.70> <CoreInst = "FMul_maxdsp">   --->   Core 86 'FMul_maxdsp' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_20 : Operation 291 [2/4] (5.70ns)   --->   "%buf_14 = fmul i32 %buf_4, i32 %a_read" [../saxpy.cpp:37]   --->   Operation 291 'fmul' 'buf_14' <Predicate = true> <Delay = 5.70> <CoreInst = "FMul_maxdsp">   --->   Core 86 'FMul_maxdsp' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_20 : Operation 292 [2/4] (5.70ns)   --->   "%buf_15 = fmul i32 %buf_5, i32 %a_read" [../saxpy.cpp:37]   --->   Operation 292 'fmul' 'buf_15' <Predicate = true> <Delay = 5.70> <CoreInst = "FMul_maxdsp">   --->   Core 86 'FMul_maxdsp' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_20 : Operation 293 [2/4] (5.70ns)   --->   "%buf_16 = fmul i32 %buf_6, i32 %a_read" [../saxpy.cpp:37]   --->   Operation 293 'fmul' 'buf_16' <Predicate = true> <Delay = 5.70> <CoreInst = "FMul_maxdsp">   --->   Core 86 'FMul_maxdsp' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_20 : Operation 294 [2/4] (5.70ns)   --->   "%buf_17 = fmul i32 %buf_7, i32 %a_read" [../saxpy.cpp:37]   --->   Operation 294 'fmul' 'buf_17' <Predicate = true> <Delay = 5.70> <CoreInst = "FMul_maxdsp">   --->   Core 86 'FMul_maxdsp' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_20 : Operation 295 [2/4] (5.70ns)   --->   "%buf_18 = fmul i32 %buf_8, i32 %a_read" [../saxpy.cpp:37]   --->   Operation 295 'fmul' 'buf_18' <Predicate = true> <Delay = 5.70> <CoreInst = "FMul_maxdsp">   --->   Core 86 'FMul_maxdsp' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_20 : Operation 296 [2/4] (5.70ns)   --->   "%buf_19 = fmul i32 %buf_9, i32 %a_read" [../saxpy.cpp:37]   --->   Operation 296 'fmul' 'buf_19' <Predicate = true> <Delay = 5.70> <CoreInst = "FMul_maxdsp">   --->   Core 86 'FMul_maxdsp' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_20 : Operation 297 [1/1] (7.30ns)   --->   "%gmem_addr_10_req = writereq i1 @_ssdm_op_WriteReq.m_axi.i32P, i32 %gmem_addr_10, i32, i32 %gmem_addr_10_read" [../saxpy.cpp:47]   --->   Operation 297 'writereq' 'gmem_addr_10_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 21 <SV = 20> <Delay = 7.30>
+ST_21 : Operation 298 [1/1] (0.00ns)   --->   "%ybuf_1 = bitcast i32 %gmem_addr_11_read" [../saxpy.cpp:32]   --->   Operation 298 'bitcast' 'ybuf_1' <Predicate = true> <Delay = 0.00>
+ST_21 : Operation 299 [1/1] (7.30ns)   --->   "%gmem_addr_12_read = read i32 @_ssdm_op_Read.m_axi.i32P, i32 %gmem_addr_12, i1 %gmem_load_12_req, i32 %gmem_addr_11_read" [../saxpy.cpp:32]   --->   Operation 299 'read' 'gmem_addr_12_read' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_21 : Operation 300 [1/7] (7.30ns)   --->   "%gmem_load_14_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_14, i32, i1 %gmem_load_13_req" [../saxpy.cpp:32]   --->   Operation 300 'readreq' 'gmem_load_14_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_21 : Operation 301 [2/7] (7.30ns)   --->   "%gmem_load_15_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_15, i32, i1 %gmem_load_14_req" [../saxpy.cpp:32]   --->   Operation 301 'readreq' 'gmem_load_15_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_21 : Operation 302 [3/7] (7.30ns)   --->   "%gmem_load_16_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_16, i32, i1 %gmem_load_15_req" [../saxpy.cpp:32]   --->   Operation 302 'readreq' 'gmem_load_16_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_21 : Operation 303 [4/7] (7.30ns)   --->   "%gmem_load_17_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_17, i32, i1 %gmem_load_16_req" [../saxpy.cpp:32]   --->   Operation 303 'readreq' 'gmem_load_17_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_21 : Operation 304 [5/7] (7.30ns)   --->   "%gmem_load_18_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_18, i32, i1 %gmem_load_17_req" [../saxpy.cpp:32]   --->   Operation 304 'readreq' 'gmem_load_18_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_21 : Operation 305 [6/7] (7.30ns)   --->   "%gmem_load_19_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_19, i32, i1 %gmem_load_18_req" [../saxpy.cpp:32]   --->   Operation 305 'readreq' 'gmem_load_19_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_21 : Operation 306 [4/5] (7.25ns)   --->   "%ybuf_19 = fadd i32 %ybuf, i32 %buf_10" [../saxpy.cpp:42]   --->   Operation 306 'fadd' 'ybuf_19' <Predicate = true> <Delay = 7.25> <CoreInst = "FAddSub_fulldsp">   --->   Core 74 'FAddSub_fulldsp' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_21 : Operation 307 [5/5] (7.25ns)   --->   "%ybuf_10 = fadd i32 %ybuf_1, i32 %buf_11" [../saxpy.cpp:42]   --->   Operation 307 'fadd' 'ybuf_10' <Predicate = true> <Delay = 7.25> <CoreInst = "FAddSub_fulldsp">   --->   Core 74 'FAddSub_fulldsp' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_21 : Operation 308 [1/4] (5.70ns)   --->   "%buf_12 = fmul i32 %buf_2, i32 %a_read" [../saxpy.cpp:37]   --->   Operation 308 'fmul' 'buf_12' <Predicate = true> <Delay = 5.70> <CoreInst = "FMul_maxdsp">   --->   Core 86 'FMul_maxdsp' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_21 : Operation 309 [1/4] (5.70ns)   --->   "%buf_13 = fmul i32 %buf_3, i32 %a_read" [../saxpy.cpp:37]   --->   Operation 309 'fmul' 'buf_13' <Predicate = true> <Delay = 5.70> <CoreInst = "FMul_maxdsp">   --->   Core 86 'FMul_maxdsp' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_21 : Operation 310 [1/4] (5.70ns)   --->   "%buf_14 = fmul i32 %buf_4, i32 %a_read" [../saxpy.cpp:37]   --->   Operation 310 'fmul' 'buf_14' <Predicate = true> <Delay = 5.70> <CoreInst = "FMul_maxdsp">   --->   Core 86 'FMul_maxdsp' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_21 : Operation 311 [1/4] (5.70ns)   --->   "%buf_15 = fmul i32 %buf_5, i32 %a_read" [../saxpy.cpp:37]   --->   Operation 311 'fmul' 'buf_15' <Predicate = true> <Delay = 5.70> <CoreInst = "FMul_maxdsp">   --->   Core 86 'FMul_maxdsp' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_21 : Operation 312 [1/4] (5.70ns)   --->   "%buf_16 = fmul i32 %buf_6, i32 %a_read" [../saxpy.cpp:37]   --->   Operation 312 'fmul' 'buf_16' <Predicate = true> <Delay = 5.70> <CoreInst = "FMul_maxdsp">   --->   Core 86 'FMul_maxdsp' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_21 : Operation 313 [1/4] (5.70ns)   --->   "%buf_17 = fmul i32 %buf_7, i32 %a_read" [../saxpy.cpp:37]   --->   Operation 313 'fmul' 'buf_17' <Predicate = true> <Delay = 5.70> <CoreInst = "FMul_maxdsp">   --->   Core 86 'FMul_maxdsp' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_21 : Operation 314 [1/4] (5.70ns)   --->   "%buf_18 = fmul i32 %buf_8, i32 %a_read" [../saxpy.cpp:37]   --->   Operation 314 'fmul' 'buf_18' <Predicate = true> <Delay = 5.70> <CoreInst = "FMul_maxdsp">   --->   Core 86 'FMul_maxdsp' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_21 : Operation 315 [1/4] (5.70ns)   --->   "%buf_19 = fmul i32 %buf_9, i32 %a_read" [../saxpy.cpp:37]   --->   Operation 315 'fmul' 'buf_19' <Predicate = true> <Delay = 5.70> <CoreInst = "FMul_maxdsp">   --->   Core 86 'FMul_maxdsp' <Latency = 3> <II = 1> <Delay = 5.70> <FuncUnit> <Opcode : 'fmul'> <InPorts = 2> <OutPorts = 1>
+ST_21 : Operation 316 [1/1] (7.30ns)   --->   "%gmem_addr_11_req = writereq i1 @_ssdm_op_WriteReq.m_axi.i32P, i32 %gmem_addr_11, i32, i1 %gmem_addr_10_req, i32 %gmem_addr_11_read" [../saxpy.cpp:47]   --->   Operation 316 'writereq' 'gmem_addr_11_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 22 <SV = 21> <Delay = 7.30>
+ST_22 : Operation 317 [1/1] (0.00ns)   --->   "%ybuf_2 = bitcast i32 %gmem_addr_12_read" [../saxpy.cpp:32]   --->   Operation 317 'bitcast' 'ybuf_2' <Predicate = true> <Delay = 0.00>
+ST_22 : Operation 318 [1/1] (7.30ns)   --->   "%gmem_addr_13_read = read i32 @_ssdm_op_Read.m_axi.i32P, i32 %gmem_addr_13, i1 %gmem_load_13_req, i32 %gmem_addr_12_read" [../saxpy.cpp:32]   --->   Operation 318 'read' 'gmem_addr_13_read' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_22 : Operation 319 [1/7] (7.30ns)   --->   "%gmem_load_15_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_15, i32, i1 %gmem_load_14_req" [../saxpy.cpp:32]   --->   Operation 319 'readreq' 'gmem_load_15_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_22 : Operation 320 [2/7] (7.30ns)   --->   "%gmem_load_16_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_16, i32, i1 %gmem_load_15_req" [../saxpy.cpp:32]   --->   Operation 320 'readreq' 'gmem_load_16_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_22 : Operation 321 [3/7] (7.30ns)   --->   "%gmem_load_17_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_17, i32, i1 %gmem_load_16_req" [../saxpy.cpp:32]   --->   Operation 321 'readreq' 'gmem_load_17_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_22 : Operation 322 [4/7] (7.30ns)   --->   "%gmem_load_18_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_18, i32, i1 %gmem_load_17_req" [../saxpy.cpp:32]   --->   Operation 322 'readreq' 'gmem_load_18_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_22 : Operation 323 [5/7] (7.30ns)   --->   "%gmem_load_19_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_19, i32, i1 %gmem_load_18_req" [../saxpy.cpp:32]   --->   Operation 323 'readreq' 'gmem_load_19_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_22 : Operation 324 [3/5] (7.25ns)   --->   "%ybuf_19 = fadd i32 %ybuf, i32 %buf_10" [../saxpy.cpp:42]   --->   Operation 324 'fadd' 'ybuf_19' <Predicate = true> <Delay = 7.25> <CoreInst = "FAddSub_fulldsp">   --->   Core 74 'FAddSub_fulldsp' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_22 : Operation 325 [4/5] (7.25ns)   --->   "%ybuf_10 = fadd i32 %ybuf_1, i32 %buf_11" [../saxpy.cpp:42]   --->   Operation 325 'fadd' 'ybuf_10' <Predicate = true> <Delay = 7.25> <CoreInst = "FAddSub_fulldsp">   --->   Core 74 'FAddSub_fulldsp' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_22 : Operation 326 [5/5] (7.25ns)   --->   "%ybuf_11 = fadd i32 %ybuf_2, i32 %buf_12" [../saxpy.cpp:42]   --->   Operation 326 'fadd' 'ybuf_11' <Predicate = true> <Delay = 7.25> <CoreInst = "FAddSub_fulldsp">   --->   Core 74 'FAddSub_fulldsp' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_22 : Operation 327 [1/1] (7.30ns)   --->   "%gmem_addr_12_req = writereq i1 @_ssdm_op_WriteReq.m_axi.i32P, i32 %gmem_addr_12, i32, i1 %gmem_addr_11_req, i32 %gmem_addr_12_read" [../saxpy.cpp:47]   --->   Operation 327 'writereq' 'gmem_addr_12_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 23 <SV = 22> <Delay = 7.30>
+ST_23 : Operation 328 [1/1] (0.00ns)   --->   "%ybuf_3 = bitcast i32 %gmem_addr_13_read" [../saxpy.cpp:32]   --->   Operation 328 'bitcast' 'ybuf_3' <Predicate = true> <Delay = 0.00>
+ST_23 : Operation 329 [1/1] (7.30ns)   --->   "%gmem_addr_14_read = read i32 @_ssdm_op_Read.m_axi.i32P, i32 %gmem_addr_14, i1 %gmem_load_14_req, i32 %gmem_addr_13_read" [../saxpy.cpp:32]   --->   Operation 329 'read' 'gmem_addr_14_read' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_23 : Operation 330 [1/7] (7.30ns)   --->   "%gmem_load_16_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_16, i32, i1 %gmem_load_15_req" [../saxpy.cpp:32]   --->   Operation 330 'readreq' 'gmem_load_16_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_23 : Operation 331 [2/7] (7.30ns)   --->   "%gmem_load_17_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_17, i32, i1 %gmem_load_16_req" [../saxpy.cpp:32]   --->   Operation 331 'readreq' 'gmem_load_17_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_23 : Operation 332 [3/7] (7.30ns)   --->   "%gmem_load_18_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_18, i32, i1 %gmem_load_17_req" [../saxpy.cpp:32]   --->   Operation 332 'readreq' 'gmem_load_18_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_23 : Operation 333 [4/7] (7.30ns)   --->   "%gmem_load_19_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_19, i32, i1 %gmem_load_18_req" [../saxpy.cpp:32]   --->   Operation 333 'readreq' 'gmem_load_19_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_23 : Operation 334 [2/5] (7.25ns)   --->   "%ybuf_19 = fadd i32 %ybuf, i32 %buf_10" [../saxpy.cpp:42]   --->   Operation 334 'fadd' 'ybuf_19' <Predicate = true> <Delay = 7.25> <CoreInst = "FAddSub_fulldsp">   --->   Core 74 'FAddSub_fulldsp' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_23 : Operation 335 [3/5] (7.25ns)   --->   "%ybuf_10 = fadd i32 %ybuf_1, i32 %buf_11" [../saxpy.cpp:42]   --->   Operation 335 'fadd' 'ybuf_10' <Predicate = true> <Delay = 7.25> <CoreInst = "FAddSub_fulldsp">   --->   Core 74 'FAddSub_fulldsp' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_23 : Operation 336 [4/5] (7.25ns)   --->   "%ybuf_11 = fadd i32 %ybuf_2, i32 %buf_12" [../saxpy.cpp:42]   --->   Operation 336 'fadd' 'ybuf_11' <Predicate = true> <Delay = 7.25> <CoreInst = "FAddSub_fulldsp">   --->   Core 74 'FAddSub_fulldsp' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_23 : Operation 337 [5/5] (7.25ns)   --->   "%ybuf_12 = fadd i32 %ybuf_3, i32 %buf_13" [../saxpy.cpp:42]   --->   Operation 337 'fadd' 'ybuf_12' <Predicate = true> <Delay = 7.25> <CoreInst = "FAddSub_fulldsp">   --->   Core 74 'FAddSub_fulldsp' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_23 : Operation 338 [1/1] (7.30ns)   --->   "%gmem_addr_13_req = writereq i1 @_ssdm_op_WriteReq.m_axi.i32P, i32 %gmem_addr_13, i32, i1 %gmem_addr_12_req, i32 %gmem_addr_13_read" [../saxpy.cpp:47]   --->   Operation 338 'writereq' 'gmem_addr_13_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 24 <SV = 23> <Delay = 7.30>
+ST_24 : Operation 339 [1/1] (0.00ns)   --->   "%ybuf_4 = bitcast i32 %gmem_addr_14_read" [../saxpy.cpp:32]   --->   Operation 339 'bitcast' 'ybuf_4' <Predicate = true> <Delay = 0.00>
+ST_24 : Operation 340 [1/1] (7.30ns)   --->   "%gmem_addr_15_read = read i32 @_ssdm_op_Read.m_axi.i32P, i32 %gmem_addr_15, i1 %gmem_load_15_req, i32 %gmem_addr_14_read" [../saxpy.cpp:32]   --->   Operation 340 'read' 'gmem_addr_15_read' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_24 : Operation 341 [1/7] (7.30ns)   --->   "%gmem_load_17_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_17, i32, i1 %gmem_load_16_req" [../saxpy.cpp:32]   --->   Operation 341 'readreq' 'gmem_load_17_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_24 : Operation 342 [2/7] (7.30ns)   --->   "%gmem_load_18_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_18, i32, i1 %gmem_load_17_req" [../saxpy.cpp:32]   --->   Operation 342 'readreq' 'gmem_load_18_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_24 : Operation 343 [3/7] (7.30ns)   --->   "%gmem_load_19_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_19, i32, i1 %gmem_load_18_req" [../saxpy.cpp:32]   --->   Operation 343 'readreq' 'gmem_load_19_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_24 : Operation 344 [1/5] (7.25ns)   --->   "%ybuf_19 = fadd i32 %ybuf, i32 %buf_10" [../saxpy.cpp:42]   --->   Operation 344 'fadd' 'ybuf_19' <Predicate = true> <Delay = 7.25> <CoreInst = "FAddSub_fulldsp">   --->   Core 74 'FAddSub_fulldsp' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_24 : Operation 345 [2/5] (7.25ns)   --->   "%ybuf_10 = fadd i32 %ybuf_1, i32 %buf_11" [../saxpy.cpp:42]   --->   Operation 345 'fadd' 'ybuf_10' <Predicate = true> <Delay = 7.25> <CoreInst = "FAddSub_fulldsp">   --->   Core 74 'FAddSub_fulldsp' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_24 : Operation 346 [3/5] (7.25ns)   --->   "%ybuf_11 = fadd i32 %ybuf_2, i32 %buf_12" [../saxpy.cpp:42]   --->   Operation 346 'fadd' 'ybuf_11' <Predicate = true> <Delay = 7.25> <CoreInst = "FAddSub_fulldsp">   --->   Core 74 'FAddSub_fulldsp' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_24 : Operation 347 [4/5] (7.25ns)   --->   "%ybuf_12 = fadd i32 %ybuf_3, i32 %buf_13" [../saxpy.cpp:42]   --->   Operation 347 'fadd' 'ybuf_12' <Predicate = true> <Delay = 7.25> <CoreInst = "FAddSub_fulldsp">   --->   Core 74 'FAddSub_fulldsp' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_24 : Operation 348 [5/5] (7.25ns)   --->   "%ybuf_13 = fadd i32 %ybuf_4, i32 %buf_14" [../saxpy.cpp:42]   --->   Operation 348 'fadd' 'ybuf_13' <Predicate = true> <Delay = 7.25> <CoreInst = "FAddSub_fulldsp">   --->   Core 74 'FAddSub_fulldsp' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_24 : Operation 349 [1/1] (7.30ns)   --->   "%gmem_addr_14_req = writereq i1 @_ssdm_op_WriteReq.m_axi.i32P, i32 %gmem_addr_14, i32, i1 %gmem_addr_13_req, i32 %gmem_addr_14_read" [../saxpy.cpp:47]   --->   Operation 349 'writereq' 'gmem_addr_14_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 25 <SV = 24> <Delay = 7.30>
+ST_25 : Operation 350 [1/1] (0.00ns)   --->   "%ybuf_5 = bitcast i32 %gmem_addr_15_read" [../saxpy.cpp:32]   --->   Operation 350 'bitcast' 'ybuf_5' <Predicate = true> <Delay = 0.00>
+ST_25 : Operation 351 [1/1] (7.30ns)   --->   "%gmem_addr_16_read = read i32 @_ssdm_op_Read.m_axi.i32P, i32 %gmem_addr_16, i1 %gmem_load_16_req, i32 %gmem_addr_15_read" [../saxpy.cpp:32]   --->   Operation 351 'read' 'gmem_addr_16_read' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_25 : Operation 352 [1/7] (7.30ns)   --->   "%gmem_load_18_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_18, i32, i1 %gmem_load_17_req" [../saxpy.cpp:32]   --->   Operation 352 'readreq' 'gmem_load_18_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_25 : Operation 353 [2/7] (7.30ns)   --->   "%gmem_load_19_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_19, i32, i1 %gmem_load_18_req" [../saxpy.cpp:32]   --->   Operation 353 'readreq' 'gmem_load_19_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_25 : Operation 354 [1/5] (7.25ns)   --->   "%ybuf_10 = fadd i32 %ybuf_1, i32 %buf_11" [../saxpy.cpp:42]   --->   Operation 354 'fadd' 'ybuf_10' <Predicate = true> <Delay = 7.25> <CoreInst = "FAddSub_fulldsp">   --->   Core 74 'FAddSub_fulldsp' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_25 : Operation 355 [2/5] (7.25ns)   --->   "%ybuf_11 = fadd i32 %ybuf_2, i32 %buf_12" [../saxpy.cpp:42]   --->   Operation 355 'fadd' 'ybuf_11' <Predicate = true> <Delay = 7.25> <CoreInst = "FAddSub_fulldsp">   --->   Core 74 'FAddSub_fulldsp' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_25 : Operation 356 [3/5] (7.25ns)   --->   "%ybuf_12 = fadd i32 %ybuf_3, i32 %buf_13" [../saxpy.cpp:42]   --->   Operation 356 'fadd' 'ybuf_12' <Predicate = true> <Delay = 7.25> <CoreInst = "FAddSub_fulldsp">   --->   Core 74 'FAddSub_fulldsp' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_25 : Operation 357 [4/5] (7.25ns)   --->   "%ybuf_13 = fadd i32 %ybuf_4, i32 %buf_14" [../saxpy.cpp:42]   --->   Operation 357 'fadd' 'ybuf_13' <Predicate = true> <Delay = 7.25> <CoreInst = "FAddSub_fulldsp">   --->   Core 74 'FAddSub_fulldsp' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_25 : Operation 358 [5/5] (7.25ns)   --->   "%ybuf_14 = fadd i32 %ybuf_5, i32 %buf_15" [../saxpy.cpp:42]   --->   Operation 358 'fadd' 'ybuf_14' <Predicate = true> <Delay = 7.25> <CoreInst = "FAddSub_fulldsp">   --->   Core 74 'FAddSub_fulldsp' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_25 : Operation 359 [1/1] (7.30ns)   --->   "%gmem_addr_15_req = writereq i1 @_ssdm_op_WriteReq.m_axi.i32P, i32 %gmem_addr_15, i32, i1 %gmem_addr_14_req, i32 %gmem_addr_15_read" [../saxpy.cpp:47]   --->   Operation 359 'writereq' 'gmem_addr_15_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 26 <SV = 25> <Delay = 7.30>
+ST_26 : Operation 360 [1/1] (0.00ns)   --->   "%ybuf_6 = bitcast i32 %gmem_addr_16_read" [../saxpy.cpp:32]   --->   Operation 360 'bitcast' 'ybuf_6' <Predicate = true> <Delay = 0.00>
+ST_26 : Operation 361 [1/1] (7.30ns)   --->   "%gmem_addr_17_read = read i32 @_ssdm_op_Read.m_axi.i32P, i32 %gmem_addr_17, i1 %gmem_load_17_req, i32 %gmem_addr_16_read" [../saxpy.cpp:32]   --->   Operation 361 'read' 'gmem_addr_17_read' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_26 : Operation 362 [1/7] (7.30ns)   --->   "%gmem_load_19_req = readreq i1 @_ssdm_op_ReadReq.m_axi.i32P, i32 %gmem_addr_19, i32, i1 %gmem_load_18_req" [../saxpy.cpp:32]   --->   Operation 362 'readreq' 'gmem_load_19_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_26 : Operation 363 [1/1] (0.00ns)   --->   "%bitcast_ln47 = bitcast i32 %ybuf_19" [../saxpy.cpp:47]   --->   Operation 363 'bitcast' 'bitcast_ln47' <Predicate = true> <Delay = 0.00>
+ST_26 : Operation 364 [1/5] (7.25ns)   --->   "%ybuf_11 = fadd i32 %ybuf_2, i32 %buf_12" [../saxpy.cpp:42]   --->   Operation 364 'fadd' 'ybuf_11' <Predicate = true> <Delay = 7.25> <CoreInst = "FAddSub_fulldsp">   --->   Core 74 'FAddSub_fulldsp' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_26 : Operation 365 [2/5] (7.25ns)   --->   "%ybuf_12 = fadd i32 %ybuf_3, i32 %buf_13" [../saxpy.cpp:42]   --->   Operation 365 'fadd' 'ybuf_12' <Predicate = true> <Delay = 7.25> <CoreInst = "FAddSub_fulldsp">   --->   Core 74 'FAddSub_fulldsp' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_26 : Operation 366 [3/5] (7.25ns)   --->   "%ybuf_13 = fadd i32 %ybuf_4, i32 %buf_14" [../saxpy.cpp:42]   --->   Operation 366 'fadd' 'ybuf_13' <Predicate = true> <Delay = 7.25> <CoreInst = "FAddSub_fulldsp">   --->   Core 74 'FAddSub_fulldsp' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_26 : Operation 367 [4/5] (7.25ns)   --->   "%ybuf_14 = fadd i32 %ybuf_5, i32 %buf_15" [../saxpy.cpp:42]   --->   Operation 367 'fadd' 'ybuf_14' <Predicate = true> <Delay = 7.25> <CoreInst = "FAddSub_fulldsp">   --->   Core 74 'FAddSub_fulldsp' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_26 : Operation 368 [5/5] (7.25ns)   --->   "%ybuf_15 = fadd i32 %ybuf_6, i32 %buf_16" [../saxpy.cpp:42]   --->   Operation 368 'fadd' 'ybuf_15' <Predicate = true> <Delay = 7.25> <CoreInst = "FAddSub_fulldsp">   --->   Core 74 'FAddSub_fulldsp' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_26 : Operation 369 [1/1] (7.30ns)   --->   "%write_ln47 = write void @_ssdm_op_Write.m_axi.i32P, i32 %gmem_addr_10, i32 %bitcast_ln47, i4, i1 %gmem_addr_10_req, i1 %gmem_load_19_req, i1 %gmem_load_18_req, i1 %gmem_load_17_req, i1 %gmem_load_16_req, i1 %gmem_load_15_req, i1 %gmem_load_14_req, i1 %gmem_load_13_req, i1 %gmem_load_12_req, i1 %gmem_load_11_req" [../saxpy.cpp:47]   --->   Operation 369 'write' 'write_ln47' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_26 : Operation 370 [1/1] (7.30ns)   --->   "%gmem_addr_16_req = writereq i1 @_ssdm_op_WriteReq.m_axi.i32P, i32 %gmem_addr_16, i32, i1 %gmem_addr_15_req, i32 %gmem_addr_16_read" [../saxpy.cpp:47]   --->   Operation 370 'writereq' 'gmem_addr_16_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 27 <SV = 26> <Delay = 7.30>
+ST_27 : Operation 371 [1/1] (0.00ns)   --->   "%ybuf_7 = bitcast i32 %gmem_addr_17_read" [../saxpy.cpp:32]   --->   Operation 371 'bitcast' 'ybuf_7' <Predicate = true> <Delay = 0.00>
+ST_27 : Operation 372 [1/1] (7.30ns)   --->   "%gmem_addr_18_read = read i32 @_ssdm_op_Read.m_axi.i32P, i32 %gmem_addr_18, i1 %gmem_load_18_req, i32 %gmem_addr_17_read" [../saxpy.cpp:32]   --->   Operation 372 'read' 'gmem_addr_18_read' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_27 : Operation 373 [1/1] (0.00ns)   --->   "%bitcast_ln47_1 = bitcast i32 %ybuf_10" [../saxpy.cpp:47]   --->   Operation 373 'bitcast' 'bitcast_ln47_1' <Predicate = true> <Delay = 0.00>
+ST_27 : Operation 374 [1/5] (7.25ns)   --->   "%ybuf_12 = fadd i32 %ybuf_3, i32 %buf_13" [../saxpy.cpp:42]   --->   Operation 374 'fadd' 'ybuf_12' <Predicate = true> <Delay = 7.25> <CoreInst = "FAddSub_fulldsp">   --->   Core 74 'FAddSub_fulldsp' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_27 : Operation 375 [2/5] (7.25ns)   --->   "%ybuf_13 = fadd i32 %ybuf_4, i32 %buf_14" [../saxpy.cpp:42]   --->   Operation 375 'fadd' 'ybuf_13' <Predicate = true> <Delay = 7.25> <CoreInst = "FAddSub_fulldsp">   --->   Core 74 'FAddSub_fulldsp' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_27 : Operation 376 [3/5] (7.25ns)   --->   "%ybuf_14 = fadd i32 %ybuf_5, i32 %buf_15" [../saxpy.cpp:42]   --->   Operation 376 'fadd' 'ybuf_14' <Predicate = true> <Delay = 7.25> <CoreInst = "FAddSub_fulldsp">   --->   Core 74 'FAddSub_fulldsp' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_27 : Operation 377 [4/5] (7.25ns)   --->   "%ybuf_15 = fadd i32 %ybuf_6, i32 %buf_16" [../saxpy.cpp:42]   --->   Operation 377 'fadd' 'ybuf_15' <Predicate = true> <Delay = 7.25> <CoreInst = "FAddSub_fulldsp">   --->   Core 74 'FAddSub_fulldsp' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_27 : Operation 378 [5/5] (7.25ns)   --->   "%ybuf_16 = fadd i32 %ybuf_7, i32 %buf_17" [../saxpy.cpp:42]   --->   Operation 378 'fadd' 'ybuf_16' <Predicate = true> <Delay = 7.25> <CoreInst = "FAddSub_fulldsp">   --->   Core 74 'FAddSub_fulldsp' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_27 : Operation 379 [5/5] (7.30ns)   --->   "%gmem_addr_10_resp = writeresp i1 @_ssdm_op_WriteResp.m_axi.i32P, i32 %gmem_addr_10, void %write_ln47" [../saxpy.cpp:47]   --->   Operation 379 'writeresp' 'gmem_addr_10_resp' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_27 : Operation 380 [1/1] (7.30ns)   --->   "%write_ln47 = write void @_ssdm_op_Write.m_axi.i32P, i32 %gmem_addr_11, i32 %bitcast_ln47_1, i4, i1 %gmem_addr_11_req, void %write_ln47" [../saxpy.cpp:47]   --->   Operation 380 'write' 'write_ln47' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_27 : Operation 381 [1/1] (7.30ns)   --->   "%gmem_addr_17_req = writereq i1 @_ssdm_op_WriteReq.m_axi.i32P, i32 %gmem_addr_17, i32, i1 %gmem_addr_16_req, i32 %gmem_addr_17_read" [../saxpy.cpp:47]   --->   Operation 381 'writereq' 'gmem_addr_17_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 28 <SV = 27> <Delay = 7.30>
+ST_28 : Operation 382 [1/1] (0.00ns)   --->   "%ybuf_8 = bitcast i32 %gmem_addr_18_read" [../saxpy.cpp:32]   --->   Operation 382 'bitcast' 'ybuf_8' <Predicate = true> <Delay = 0.00>
+ST_28 : Operation 383 [1/1] (7.30ns)   --->   "%gmem_addr_19_read = read i32 @_ssdm_op_Read.m_axi.i32P, i32 %gmem_addr_19, i1 %gmem_load_19_req, i32 %gmem_addr_18_read" [../saxpy.cpp:32]   --->   Operation 383 'read' 'gmem_addr_19_read' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_28 : Operation 384 [1/1] (0.00ns)   --->   "%bitcast_ln47_2 = bitcast i32 %ybuf_11" [../saxpy.cpp:47]   --->   Operation 384 'bitcast' 'bitcast_ln47_2' <Predicate = true> <Delay = 0.00>
+ST_28 : Operation 385 [1/5] (7.25ns)   --->   "%ybuf_13 = fadd i32 %ybuf_4, i32 %buf_14" [../saxpy.cpp:42]   --->   Operation 385 'fadd' 'ybuf_13' <Predicate = true> <Delay = 7.25> <CoreInst = "FAddSub_fulldsp">   --->   Core 74 'FAddSub_fulldsp' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_28 : Operation 386 [2/5] (7.25ns)   --->   "%ybuf_14 = fadd i32 %ybuf_5, i32 %buf_15" [../saxpy.cpp:42]   --->   Operation 386 'fadd' 'ybuf_14' <Predicate = true> <Delay = 7.25> <CoreInst = "FAddSub_fulldsp">   --->   Core 74 'FAddSub_fulldsp' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_28 : Operation 387 [3/5] (7.25ns)   --->   "%ybuf_15 = fadd i32 %ybuf_6, i32 %buf_16" [../saxpy.cpp:42]   --->   Operation 387 'fadd' 'ybuf_15' <Predicate = true> <Delay = 7.25> <CoreInst = "FAddSub_fulldsp">   --->   Core 74 'FAddSub_fulldsp' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_28 : Operation 388 [4/5] (7.25ns)   --->   "%ybuf_16 = fadd i32 %ybuf_7, i32 %buf_17" [../saxpy.cpp:42]   --->   Operation 388 'fadd' 'ybuf_16' <Predicate = true> <Delay = 7.25> <CoreInst = "FAddSub_fulldsp">   --->   Core 74 'FAddSub_fulldsp' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_28 : Operation 389 [5/5] (7.25ns)   --->   "%ybuf_17 = fadd i32 %ybuf_8, i32 %buf_18" [../saxpy.cpp:42]   --->   Operation 389 'fadd' 'ybuf_17' <Predicate = true> <Delay = 7.25> <CoreInst = "FAddSub_fulldsp">   --->   Core 74 'FAddSub_fulldsp' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_28 : Operation 390 [4/5] (7.30ns)   --->   "%gmem_addr_10_resp = writeresp i1 @_ssdm_op_WriteResp.m_axi.i32P, i32 %gmem_addr_10, void %write_ln47" [../saxpy.cpp:47]   --->   Operation 390 'writeresp' 'gmem_addr_10_resp' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_28 : Operation 391 [5/5] (7.30ns)   --->   "%gmem_addr_11_resp = writeresp i1 @_ssdm_op_WriteResp.m_axi.i32P, i32 %gmem_addr_11, void %write_ln47, i1 %gmem_addr_10_resp" [../saxpy.cpp:47]   --->   Operation 391 'writeresp' 'gmem_addr_11_resp' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_28 : Operation 392 [1/1] (7.30ns)   --->   "%write_ln47 = write void @_ssdm_op_Write.m_axi.i32P, i32 %gmem_addr_12, i32 %bitcast_ln47_2, i4, i1 %gmem_addr_12_req, void %write_ln47" [../saxpy.cpp:47]   --->   Operation 392 'write' 'write_ln47' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_28 : Operation 393 [1/1] (7.30ns)   --->   "%gmem_addr_18_req = writereq i1 @_ssdm_op_WriteReq.m_axi.i32P, i32 %gmem_addr_18, i32, i1 %gmem_addr_17_req, i32 %gmem_addr_18_read" [../saxpy.cpp:47]   --->   Operation 393 'writereq' 'gmem_addr_18_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 29 <SV = 28> <Delay = 7.30>
+ST_29 : Operation 394 [1/1] (0.00ns)   --->   "%ybuf_9 = bitcast i32 %gmem_addr_19_read" [../saxpy.cpp:32]   --->   Operation 394 'bitcast' 'ybuf_9' <Predicate = true> <Delay = 0.00>
+ST_29 : Operation 395 [1/1] (0.00ns)   --->   "%bitcast_ln47_3 = bitcast i32 %ybuf_12" [../saxpy.cpp:47]   --->   Operation 395 'bitcast' 'bitcast_ln47_3' <Predicate = true> <Delay = 0.00>
+ST_29 : Operation 396 [1/5] (7.25ns)   --->   "%ybuf_14 = fadd i32 %ybuf_5, i32 %buf_15" [../saxpy.cpp:42]   --->   Operation 396 'fadd' 'ybuf_14' <Predicate = true> <Delay = 7.25> <CoreInst = "FAddSub_fulldsp">   --->   Core 74 'FAddSub_fulldsp' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_29 : Operation 397 [2/5] (7.25ns)   --->   "%ybuf_15 = fadd i32 %ybuf_6, i32 %buf_16" [../saxpy.cpp:42]   --->   Operation 397 'fadd' 'ybuf_15' <Predicate = true> <Delay = 7.25> <CoreInst = "FAddSub_fulldsp">   --->   Core 74 'FAddSub_fulldsp' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_29 : Operation 398 [3/5] (7.25ns)   --->   "%ybuf_16 = fadd i32 %ybuf_7, i32 %buf_17" [../saxpy.cpp:42]   --->   Operation 398 'fadd' 'ybuf_16' <Predicate = true> <Delay = 7.25> <CoreInst = "FAddSub_fulldsp">   --->   Core 74 'FAddSub_fulldsp' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_29 : Operation 399 [4/5] (7.25ns)   --->   "%ybuf_17 = fadd i32 %ybuf_8, i32 %buf_18" [../saxpy.cpp:42]   --->   Operation 399 'fadd' 'ybuf_17' <Predicate = true> <Delay = 7.25> <CoreInst = "FAddSub_fulldsp">   --->   Core 74 'FAddSub_fulldsp' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_29 : Operation 400 [5/5] (7.25ns)   --->   "%ybuf_18 = fadd i32 %ybuf_9, i32 %buf_19" [../saxpy.cpp:42]   --->   Operation 400 'fadd' 'ybuf_18' <Predicate = true> <Delay = 7.25> <CoreInst = "FAddSub_fulldsp">   --->   Core 74 'FAddSub_fulldsp' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_29 : Operation 401 [3/5] (7.30ns)   --->   "%gmem_addr_10_resp = writeresp i1 @_ssdm_op_WriteResp.m_axi.i32P, i32 %gmem_addr_10, void %write_ln47" [../saxpy.cpp:47]   --->   Operation 401 'writeresp' 'gmem_addr_10_resp' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_29 : Operation 402 [4/5] (7.30ns)   --->   "%gmem_addr_11_resp = writeresp i1 @_ssdm_op_WriteResp.m_axi.i32P, i32 %gmem_addr_11, void %write_ln47, i1 %gmem_addr_10_resp" [../saxpy.cpp:47]   --->   Operation 402 'writeresp' 'gmem_addr_11_resp' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_29 : Operation 403 [5/5] (7.30ns)   --->   "%gmem_addr_12_resp = writeresp i1 @_ssdm_op_WriteResp.m_axi.i32P, i32 %gmem_addr_12, void %write_ln47, i1 %gmem_addr_11_resp" [../saxpy.cpp:47]   --->   Operation 403 'writeresp' 'gmem_addr_12_resp' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_29 : Operation 404 [1/1] (7.30ns)   --->   "%write_ln47 = write void @_ssdm_op_Write.m_axi.i32P, i32 %gmem_addr_13, i32 %bitcast_ln47_3, i4, i1 %gmem_addr_13_req, void %write_ln47" [../saxpy.cpp:47]   --->   Operation 404 'write' 'write_ln47' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_29 : Operation 405 [1/1] (7.30ns)   --->   "%gmem_addr_19_req = writereq i1 @_ssdm_op_WriteReq.m_axi.i32P, i32 %gmem_addr_19, i32, i1 %gmem_addr_18_req, i32 %gmem_addr_19_read" [../saxpy.cpp:47]   --->   Operation 405 'writereq' 'gmem_addr_19_req' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 30 <SV = 29> <Delay = 7.30>
+ST_30 : Operation 406 [1/1] (0.00ns)   --->   "%bitcast_ln47_4 = bitcast i32 %ybuf_13" [../saxpy.cpp:47]   --->   Operation 406 'bitcast' 'bitcast_ln47_4' <Predicate = true> <Delay = 0.00>
+ST_30 : Operation 407 [1/5] (7.25ns)   --->   "%ybuf_15 = fadd i32 %ybuf_6, i32 %buf_16" [../saxpy.cpp:42]   --->   Operation 407 'fadd' 'ybuf_15' <Predicate = true> <Delay = 7.25> <CoreInst = "FAddSub_fulldsp">   --->   Core 74 'FAddSub_fulldsp' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_30 : Operation 408 [2/5] (7.25ns)   --->   "%ybuf_16 = fadd i32 %ybuf_7, i32 %buf_17" [../saxpy.cpp:42]   --->   Operation 408 'fadd' 'ybuf_16' <Predicate = true> <Delay = 7.25> <CoreInst = "FAddSub_fulldsp">   --->   Core 74 'FAddSub_fulldsp' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_30 : Operation 409 [3/5] (7.25ns)   --->   "%ybuf_17 = fadd i32 %ybuf_8, i32 %buf_18" [../saxpy.cpp:42]   --->   Operation 409 'fadd' 'ybuf_17' <Predicate = true> <Delay = 7.25> <CoreInst = "FAddSub_fulldsp">   --->   Core 74 'FAddSub_fulldsp' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_30 : Operation 410 [4/5] (7.25ns)   --->   "%ybuf_18 = fadd i32 %ybuf_9, i32 %buf_19" [../saxpy.cpp:42]   --->   Operation 410 'fadd' 'ybuf_18' <Predicate = true> <Delay = 7.25> <CoreInst = "FAddSub_fulldsp">   --->   Core 74 'FAddSub_fulldsp' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_30 : Operation 411 [2/5] (7.30ns)   --->   "%gmem_addr_10_resp = writeresp i1 @_ssdm_op_WriteResp.m_axi.i32P, i32 %gmem_addr_10, void %write_ln47" [../saxpy.cpp:47]   --->   Operation 411 'writeresp' 'gmem_addr_10_resp' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_30 : Operation 412 [3/5] (7.30ns)   --->   "%gmem_addr_11_resp = writeresp i1 @_ssdm_op_WriteResp.m_axi.i32P, i32 %gmem_addr_11, void %write_ln47, i1 %gmem_addr_10_resp" [../saxpy.cpp:47]   --->   Operation 412 'writeresp' 'gmem_addr_11_resp' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_30 : Operation 413 [4/5] (7.30ns)   --->   "%gmem_addr_12_resp = writeresp i1 @_ssdm_op_WriteResp.m_axi.i32P, i32 %gmem_addr_12, void %write_ln47, i1 %gmem_addr_11_resp" [../saxpy.cpp:47]   --->   Operation 413 'writeresp' 'gmem_addr_12_resp' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_30 : Operation 414 [5/5] (7.30ns)   --->   "%gmem_addr_13_resp = writeresp i1 @_ssdm_op_WriteResp.m_axi.i32P, i32 %gmem_addr_13, void %write_ln47, i1 %gmem_addr_12_resp" [../saxpy.cpp:47]   --->   Operation 414 'writeresp' 'gmem_addr_13_resp' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_30 : Operation 415 [1/1] (7.30ns)   --->   "%write_ln47 = write void @_ssdm_op_Write.m_axi.i32P, i32 %gmem_addr_14, i32 %bitcast_ln47_4, i4, i1 %gmem_addr_14_req, void %write_ln47" [../saxpy.cpp:47]   --->   Operation 415 'write' 'write_ln47' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 31 <SV = 30> <Delay = 7.30>
+ST_31 : Operation 416 [1/1] (0.00ns)   --->   "%bitcast_ln47_5 = bitcast i32 %ybuf_14" [../saxpy.cpp:47]   --->   Operation 416 'bitcast' 'bitcast_ln47_5' <Predicate = true> <Delay = 0.00>
+ST_31 : Operation 417 [1/5] (7.25ns)   --->   "%ybuf_16 = fadd i32 %ybuf_7, i32 %buf_17" [../saxpy.cpp:42]   --->   Operation 417 'fadd' 'ybuf_16' <Predicate = true> <Delay = 7.25> <CoreInst = "FAddSub_fulldsp">   --->   Core 74 'FAddSub_fulldsp' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_31 : Operation 418 [2/5] (7.25ns)   --->   "%ybuf_17 = fadd i32 %ybuf_8, i32 %buf_18" [../saxpy.cpp:42]   --->   Operation 418 'fadd' 'ybuf_17' <Predicate = true> <Delay = 7.25> <CoreInst = "FAddSub_fulldsp">   --->   Core 74 'FAddSub_fulldsp' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_31 : Operation 419 [3/5] (7.25ns)   --->   "%ybuf_18 = fadd i32 %ybuf_9, i32 %buf_19" [../saxpy.cpp:42]   --->   Operation 419 'fadd' 'ybuf_18' <Predicate = true> <Delay = 7.25> <CoreInst = "FAddSub_fulldsp">   --->   Core 74 'FAddSub_fulldsp' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_31 : Operation 420 [1/5] (7.30ns)   --->   "%gmem_addr_10_resp = writeresp i1 @_ssdm_op_WriteResp.m_axi.i32P, i32 %gmem_addr_10, void %write_ln47" [../saxpy.cpp:47]   --->   Operation 420 'writeresp' 'gmem_addr_10_resp' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_31 : Operation 421 [2/5] (7.30ns)   --->   "%gmem_addr_11_resp = writeresp i1 @_ssdm_op_WriteResp.m_axi.i32P, i32 %gmem_addr_11, void %write_ln47, i1 %gmem_addr_10_resp" [../saxpy.cpp:47]   --->   Operation 421 'writeresp' 'gmem_addr_11_resp' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_31 : Operation 422 [3/5] (7.30ns)   --->   "%gmem_addr_12_resp = writeresp i1 @_ssdm_op_WriteResp.m_axi.i32P, i32 %gmem_addr_12, void %write_ln47, i1 %gmem_addr_11_resp" [../saxpy.cpp:47]   --->   Operation 422 'writeresp' 'gmem_addr_12_resp' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_31 : Operation 423 [4/5] (7.30ns)   --->   "%gmem_addr_13_resp = writeresp i1 @_ssdm_op_WriteResp.m_axi.i32P, i32 %gmem_addr_13, void %write_ln47, i1 %gmem_addr_12_resp" [../saxpy.cpp:47]   --->   Operation 423 'writeresp' 'gmem_addr_13_resp' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_31 : Operation 424 [5/5] (7.30ns)   --->   "%gmem_addr_14_resp = writeresp i1 @_ssdm_op_WriteResp.m_axi.i32P, i32 %gmem_addr_14, void %write_ln47, i1 %gmem_addr_13_resp" [../saxpy.cpp:47]   --->   Operation 424 'writeresp' 'gmem_addr_14_resp' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_31 : Operation 425 [1/1] (7.30ns)   --->   "%write_ln47 = write void @_ssdm_op_Write.m_axi.i32P, i32 %gmem_addr_15, i32 %bitcast_ln47_5, i4, i1 %gmem_addr_15_req, void %write_ln47" [../saxpy.cpp:47]   --->   Operation 425 'write' 'write_ln47' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 32 <SV = 31> <Delay = 7.30>
+ST_32 : Operation 426 [1/1] (0.00ns)   --->   "%bitcast_ln47_6 = bitcast i32 %ybuf_15" [../saxpy.cpp:47]   --->   Operation 426 'bitcast' 'bitcast_ln47_6' <Predicate = true> <Delay = 0.00>
+ST_32 : Operation 427 [1/5] (7.25ns)   --->   "%ybuf_17 = fadd i32 %ybuf_8, i32 %buf_18" [../saxpy.cpp:42]   --->   Operation 427 'fadd' 'ybuf_17' <Predicate = true> <Delay = 7.25> <CoreInst = "FAddSub_fulldsp">   --->   Core 74 'FAddSub_fulldsp' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_32 : Operation 428 [2/5] (7.25ns)   --->   "%ybuf_18 = fadd i32 %ybuf_9, i32 %buf_19" [../saxpy.cpp:42]   --->   Operation 428 'fadd' 'ybuf_18' <Predicate = true> <Delay = 7.25> <CoreInst = "FAddSub_fulldsp">   --->   Core 74 'FAddSub_fulldsp' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_32 : Operation 429 [1/5] (7.30ns)   --->   "%gmem_addr_11_resp = writeresp i1 @_ssdm_op_WriteResp.m_axi.i32P, i32 %gmem_addr_11, void %write_ln47, i1 %gmem_addr_10_resp" [../saxpy.cpp:47]   --->   Operation 429 'writeresp' 'gmem_addr_11_resp' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_32 : Operation 430 [2/5] (7.30ns)   --->   "%gmem_addr_12_resp = writeresp i1 @_ssdm_op_WriteResp.m_axi.i32P, i32 %gmem_addr_12, void %write_ln47, i1 %gmem_addr_11_resp" [../saxpy.cpp:47]   --->   Operation 430 'writeresp' 'gmem_addr_12_resp' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_32 : Operation 431 [3/5] (7.30ns)   --->   "%gmem_addr_13_resp = writeresp i1 @_ssdm_op_WriteResp.m_axi.i32P, i32 %gmem_addr_13, void %write_ln47, i1 %gmem_addr_12_resp" [../saxpy.cpp:47]   --->   Operation 431 'writeresp' 'gmem_addr_13_resp' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_32 : Operation 432 [4/5] (7.30ns)   --->   "%gmem_addr_14_resp = writeresp i1 @_ssdm_op_WriteResp.m_axi.i32P, i32 %gmem_addr_14, void %write_ln47, i1 %gmem_addr_13_resp" [../saxpy.cpp:47]   --->   Operation 432 'writeresp' 'gmem_addr_14_resp' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_32 : Operation 433 [5/5] (7.30ns)   --->   "%gmem_addr_15_resp = writeresp i1 @_ssdm_op_WriteResp.m_axi.i32P, i32 %gmem_addr_15, void %write_ln47, i1 %gmem_addr_14_resp" [../saxpy.cpp:47]   --->   Operation 433 'writeresp' 'gmem_addr_15_resp' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_32 : Operation 434 [1/1] (7.30ns)   --->   "%write_ln47 = write void @_ssdm_op_Write.m_axi.i32P, i32 %gmem_addr_16, i32 %bitcast_ln47_6, i4, i1 %gmem_addr_16_req, void %write_ln47" [../saxpy.cpp:47]   --->   Operation 434 'write' 'write_ln47' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 33 <SV = 32> <Delay = 7.30>
+ST_33 : Operation 435 [1/1] (0.00ns)   --->   "%bitcast_ln47_7 = bitcast i32 %ybuf_16" [../saxpy.cpp:47]   --->   Operation 435 'bitcast' 'bitcast_ln47_7' <Predicate = true> <Delay = 0.00>
+ST_33 : Operation 436 [1/5] (7.25ns)   --->   "%ybuf_18 = fadd i32 %ybuf_9, i32 %buf_19" [../saxpy.cpp:42]   --->   Operation 436 'fadd' 'ybuf_18' <Predicate = true> <Delay = 7.25> <CoreInst = "FAddSub_fulldsp">   --->   Core 74 'FAddSub_fulldsp' <Latency = 4> <II = 1> <Delay = 7.25> <FuncUnit> <Opcode : 'fadd' 'fsub'> <InPorts = 2> <OutPorts = 1>
+ST_33 : Operation 437 [1/5] (7.30ns)   --->   "%gmem_addr_12_resp = writeresp i1 @_ssdm_op_WriteResp.m_axi.i32P, i32 %gmem_addr_12, void %write_ln47, i1 %gmem_addr_11_resp" [../saxpy.cpp:47]   --->   Operation 437 'writeresp' 'gmem_addr_12_resp' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_33 : Operation 438 [2/5] (7.30ns)   --->   "%gmem_addr_13_resp = writeresp i1 @_ssdm_op_WriteResp.m_axi.i32P, i32 %gmem_addr_13, void %write_ln47, i1 %gmem_addr_12_resp" [../saxpy.cpp:47]   --->   Operation 438 'writeresp' 'gmem_addr_13_resp' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_33 : Operation 439 [3/5] (7.30ns)   --->   "%gmem_addr_14_resp = writeresp i1 @_ssdm_op_WriteResp.m_axi.i32P, i32 %gmem_addr_14, void %write_ln47, i1 %gmem_addr_13_resp" [../saxpy.cpp:47]   --->   Operation 439 'writeresp' 'gmem_addr_14_resp' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_33 : Operation 440 [4/5] (7.30ns)   --->   "%gmem_addr_15_resp = writeresp i1 @_ssdm_op_WriteResp.m_axi.i32P, i32 %gmem_addr_15, void %write_ln47, i1 %gmem_addr_14_resp" [../saxpy.cpp:47]   --->   Operation 440 'writeresp' 'gmem_addr_15_resp' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_33 : Operation 441 [5/5] (7.30ns)   --->   "%gmem_addr_16_resp = writeresp i1 @_ssdm_op_WriteResp.m_axi.i32P, i32 %gmem_addr_16, void %write_ln47, i1 %gmem_addr_15_resp" [../saxpy.cpp:47]   --->   Operation 441 'writeresp' 'gmem_addr_16_resp' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_33 : Operation 442 [1/1] (7.30ns)   --->   "%write_ln47 = write void @_ssdm_op_Write.m_axi.i32P, i32 %gmem_addr_17, i32 %bitcast_ln47_7, i4, i1 %gmem_addr_17_req, void %write_ln47" [../saxpy.cpp:47]   --->   Operation 442 'write' 'write_ln47' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 34 <SV = 33> <Delay = 7.30>
+ST_34 : Operation 443 [1/1] (0.00ns)   --->   "%bitcast_ln47_8 = bitcast i32 %ybuf_17" [../saxpy.cpp:47]   --->   Operation 443 'bitcast' 'bitcast_ln47_8' <Predicate = true> <Delay = 0.00>
+ST_34 : Operation 444 [1/5] (7.30ns)   --->   "%gmem_addr_13_resp = writeresp i1 @_ssdm_op_WriteResp.m_axi.i32P, i32 %gmem_addr_13, void %write_ln47, i1 %gmem_addr_12_resp" [../saxpy.cpp:47]   --->   Operation 444 'writeresp' 'gmem_addr_13_resp' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_34 : Operation 445 [2/5] (7.30ns)   --->   "%gmem_addr_14_resp = writeresp i1 @_ssdm_op_WriteResp.m_axi.i32P, i32 %gmem_addr_14, void %write_ln47, i1 %gmem_addr_13_resp" [../saxpy.cpp:47]   --->   Operation 445 'writeresp' 'gmem_addr_14_resp' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_34 : Operation 446 [3/5] (7.30ns)   --->   "%gmem_addr_15_resp = writeresp i1 @_ssdm_op_WriteResp.m_axi.i32P, i32 %gmem_addr_15, void %write_ln47, i1 %gmem_addr_14_resp" [../saxpy.cpp:47]   --->   Operation 446 'writeresp' 'gmem_addr_15_resp' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_34 : Operation 447 [4/5] (7.30ns)   --->   "%gmem_addr_16_resp = writeresp i1 @_ssdm_op_WriteResp.m_axi.i32P, i32 %gmem_addr_16, void %write_ln47, i1 %gmem_addr_15_resp" [../saxpy.cpp:47]   --->   Operation 447 'writeresp' 'gmem_addr_16_resp' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_34 : Operation 448 [5/5] (7.30ns)   --->   "%gmem_addr_17_resp = writeresp i1 @_ssdm_op_WriteResp.m_axi.i32P, i32 %gmem_addr_17, void %write_ln47, i1 %gmem_addr_16_resp" [../saxpy.cpp:47]   --->   Operation 448 'writeresp' 'gmem_addr_17_resp' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_34 : Operation 449 [1/1] (7.30ns)   --->   "%write_ln47 = write void @_ssdm_op_Write.m_axi.i32P, i32 %gmem_addr_18, i32 %bitcast_ln47_8, i4, i1 %gmem_addr_18_req, void %write_ln47" [../saxpy.cpp:47]   --->   Operation 449 'write' 'write_ln47' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 35 <SV = 34> <Delay = 7.30>
+ST_35 : Operation 450 [1/1] (0.00ns)   --->   "%bitcast_ln47_9 = bitcast i32 %ybuf_18" [../saxpy.cpp:47]   --->   Operation 450 'bitcast' 'bitcast_ln47_9' <Predicate = true> <Delay = 0.00>
+ST_35 : Operation 451 [1/5] (7.30ns)   --->   "%gmem_addr_14_resp = writeresp i1 @_ssdm_op_WriteResp.m_axi.i32P, i32 %gmem_addr_14, void %write_ln47, i1 %gmem_addr_13_resp" [../saxpy.cpp:47]   --->   Operation 451 'writeresp' 'gmem_addr_14_resp' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_35 : Operation 452 [2/5] (7.30ns)   --->   "%gmem_addr_15_resp = writeresp i1 @_ssdm_op_WriteResp.m_axi.i32P, i32 %gmem_addr_15, void %write_ln47, i1 %gmem_addr_14_resp" [../saxpy.cpp:47]   --->   Operation 452 'writeresp' 'gmem_addr_15_resp' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_35 : Operation 453 [3/5] (7.30ns)   --->   "%gmem_addr_16_resp = writeresp i1 @_ssdm_op_WriteResp.m_axi.i32P, i32 %gmem_addr_16, void %write_ln47, i1 %gmem_addr_15_resp" [../saxpy.cpp:47]   --->   Operation 453 'writeresp' 'gmem_addr_16_resp' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_35 : Operation 454 [4/5] (7.30ns)   --->   "%gmem_addr_17_resp = writeresp i1 @_ssdm_op_WriteResp.m_axi.i32P, i32 %gmem_addr_17, void %write_ln47, i1 %gmem_addr_16_resp" [../saxpy.cpp:47]   --->   Operation 454 'writeresp' 'gmem_addr_17_resp' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_35 : Operation 455 [5/5] (7.30ns)   --->   "%gmem_addr_18_resp = writeresp i1 @_ssdm_op_WriteResp.m_axi.i32P, i32 %gmem_addr_18, void %write_ln47, i1 %gmem_addr_17_resp" [../saxpy.cpp:47]   --->   Operation 455 'writeresp' 'gmem_addr_18_resp' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_35 : Operation 456 [1/1] (7.30ns)   --->   "%write_ln47 = write void @_ssdm_op_Write.m_axi.i32P, i32 %gmem_addr_19, i32 %bitcast_ln47_9, i4, i1 %gmem_addr_19_req, void %write_ln47" [../saxpy.cpp:47]   --->   Operation 456 'write' 'write_ln47' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 36 <SV = 35> <Delay = 7.30>
+ST_36 : Operation 457 [1/5] (7.30ns)   --->   "%gmem_addr_15_resp = writeresp i1 @_ssdm_op_WriteResp.m_axi.i32P, i32 %gmem_addr_15, void %write_ln47, i1 %gmem_addr_14_resp" [../saxpy.cpp:47]   --->   Operation 457 'writeresp' 'gmem_addr_15_resp' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_36 : Operation 458 [2/5] (7.30ns)   --->   "%gmem_addr_16_resp = writeresp i1 @_ssdm_op_WriteResp.m_axi.i32P, i32 %gmem_addr_16, void %write_ln47, i1 %gmem_addr_15_resp" [../saxpy.cpp:47]   --->   Operation 458 'writeresp' 'gmem_addr_16_resp' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_36 : Operation 459 [3/5] (7.30ns)   --->   "%gmem_addr_17_resp = writeresp i1 @_ssdm_op_WriteResp.m_axi.i32P, i32 %gmem_addr_17, void %write_ln47, i1 %gmem_addr_16_resp" [../saxpy.cpp:47]   --->   Operation 459 'writeresp' 'gmem_addr_17_resp' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_36 : Operation 460 [4/5] (7.30ns)   --->   "%gmem_addr_18_resp = writeresp i1 @_ssdm_op_WriteResp.m_axi.i32P, i32 %gmem_addr_18, void %write_ln47, i1 %gmem_addr_17_resp" [../saxpy.cpp:47]   --->   Operation 460 'writeresp' 'gmem_addr_18_resp' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_36 : Operation 461 [5/5] (7.30ns)   --->   "%gmem_addr_19_resp = writeresp i1 @_ssdm_op_WriteResp.m_axi.i32P, i32 %gmem_addr_19, void %write_ln47, i1 %gmem_addr_18_resp" [../saxpy.cpp:47]   --->   Operation 461 'writeresp' 'gmem_addr_19_resp' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 37 <SV = 36> <Delay = 7.30>
+ST_37 : Operation 462 [1/5] (7.30ns)   --->   "%gmem_addr_16_resp = writeresp i1 @_ssdm_op_WriteResp.m_axi.i32P, i32 %gmem_addr_16, void %write_ln47, i1 %gmem_addr_15_resp" [../saxpy.cpp:47]   --->   Operation 462 'writeresp' 'gmem_addr_16_resp' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_37 : Operation 463 [2/5] (7.30ns)   --->   "%gmem_addr_17_resp = writeresp i1 @_ssdm_op_WriteResp.m_axi.i32P, i32 %gmem_addr_17, void %write_ln47, i1 %gmem_addr_16_resp" [../saxpy.cpp:47]   --->   Operation 463 'writeresp' 'gmem_addr_17_resp' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_37 : Operation 464 [3/5] (7.30ns)   --->   "%gmem_addr_18_resp = writeresp i1 @_ssdm_op_WriteResp.m_axi.i32P, i32 %gmem_addr_18, void %write_ln47, i1 %gmem_addr_17_resp" [../saxpy.cpp:47]   --->   Operation 464 'writeresp' 'gmem_addr_18_resp' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_37 : Operation 465 [4/5] (7.30ns)   --->   "%gmem_addr_19_resp = writeresp i1 @_ssdm_op_WriteResp.m_axi.i32P, i32 %gmem_addr_19, void %write_ln47, i1 %gmem_addr_18_resp" [../saxpy.cpp:47]   --->   Operation 465 'writeresp' 'gmem_addr_19_resp' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 38 <SV = 37> <Delay = 7.30>
+ST_38 : Operation 466 [1/5] (7.30ns)   --->   "%gmem_addr_17_resp = writeresp i1 @_ssdm_op_WriteResp.m_axi.i32P, i32 %gmem_addr_17, void %write_ln47, i1 %gmem_addr_16_resp" [../saxpy.cpp:47]   --->   Operation 466 'writeresp' 'gmem_addr_17_resp' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_38 : Operation 467 [2/5] (7.30ns)   --->   "%gmem_addr_18_resp = writeresp i1 @_ssdm_op_WriteResp.m_axi.i32P, i32 %gmem_addr_18, void %write_ln47, i1 %gmem_addr_17_resp" [../saxpy.cpp:47]   --->   Operation 467 'writeresp' 'gmem_addr_18_resp' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_38 : Operation 468 [3/5] (7.30ns)   --->   "%gmem_addr_19_resp = writeresp i1 @_ssdm_op_WriteResp.m_axi.i32P, i32 %gmem_addr_19, void %write_ln47, i1 %gmem_addr_18_resp" [../saxpy.cpp:47]   --->   Operation 468 'writeresp' 'gmem_addr_19_resp' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 39 <SV = 38> <Delay = 7.30>
+ST_39 : Operation 469 [1/5] (7.30ns)   --->   "%gmem_addr_18_resp = writeresp i1 @_ssdm_op_WriteResp.m_axi.i32P, i32 %gmem_addr_18, void %write_ln47, i1 %gmem_addr_17_resp" [../saxpy.cpp:47]   --->   Operation 469 'writeresp' 'gmem_addr_18_resp' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_39 : Operation 470 [2/5] (7.30ns)   --->   "%gmem_addr_19_resp = writeresp i1 @_ssdm_op_WriteResp.m_axi.i32P, i32 %gmem_addr_19, void %write_ln47, i1 %gmem_addr_18_resp" [../saxpy.cpp:47]   --->   Operation 470 'writeresp' 'gmem_addr_19_resp' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 40 <SV = 39> <Delay = 7.30>
+ST_40 : Operation 471 [1/1] (0.00ns)   --->   "%specinterface_ln0 = specinterface void @_ssdm_op_SpecInterface, i32 %gmem, void @empty, i32, i32, void @empty_0, i32, i32, void @empty_0, void @empty_0, void @empty_0, i32, i32, i32, i32, void @empty_0, void @empty_0"   --->   Operation 471 'specinterface' 'specinterface_ln0' <Predicate = true> <Delay = 0.00>
+ST_40 : Operation 472 [1/5] (7.30ns)   --->   "%gmem_addr_19_resp = writeresp i1 @_ssdm_op_WriteResp.m_axi.i32P, i32 %gmem_addr_19, void %write_ln47, i1 %gmem_addr_18_resp" [../saxpy.cpp:47]   --->   Operation 472 'writeresp' 'gmem_addr_19_resp' <Predicate = true> <Delay = 7.30> <CoreInst = "m_axi">   --->   Core 55 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_40 : Operation 473 [1/1] (0.00ns)   --->   "%ret_ln0 = ret"   --->   Operation 473 'ret' 'ret_ln0' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 2.7ns.
+
+ <State 1>: 7.3ns
+The critical path consists of the following:
+	wire read on port 'x' (../saxpy.cpp:27) [8]  (0 ns)
+	'getelementptr' operation ('gmem_addr', ../saxpy.cpp:27) [11]  (0 ns)
+	bus request on port 'gmem' (../saxpy.cpp:27) [12]  (7.3 ns)
+
+ <State 2>: 7.3ns
+The critical path consists of the following:
+	bus request on port 'gmem' (../saxpy.cpp:27) [12]  (7.3 ns)
+
+ <State 3>: 7.3ns
+The critical path consists of the following:
+	bus request on port 'gmem' (../saxpy.cpp:27) [12]  (7.3 ns)
+
+ <State 4>: 7.3ns
+The critical path consists of the following:
+	bus request on port 'gmem' (../saxpy.cpp:27) [12]  (7.3 ns)
+
+ <State 5>: 7.3ns
+The critical path consists of the following:
+	bus request on port 'gmem' (../saxpy.cpp:27) [12]  (7.3 ns)
+
+ <State 6>: 7.3ns
+The critical path consists of the following:
+	bus request on port 'gmem' (../saxpy.cpp:27) [12]  (7.3 ns)
+
+ <State 7>: 7.3ns
+The critical path consists of the following:
+	bus request on port 'gmem' (../saxpy.cpp:27) [12]  (7.3 ns)
+
+ <State 8>: 7.3ns
+The critical path consists of the following:
+	bus read on port 'gmem' (../saxpy.cpp:27) [13]  (7.3 ns)
+
+ <State 9>: 7.3ns
+The critical path consists of the following:
+	bus read on port 'gmem' (../saxpy.cpp:27) [20]  (7.3 ns)
+
+ <State 10>: 7.3ns
+The critical path consists of the following:
+	bus read on port 'gmem' (../saxpy.cpp:27) [27]  (7.3 ns)
+
+ <State 11>: 7.3ns
+The critical path consists of the following:
+	bus read on port 'gmem' (../saxpy.cpp:27) [34]  (7.3 ns)
+
+ <State 12>: 7.3ns
+The critical path consists of the following:
+	bus read on port 'gmem' (../saxpy.cpp:27) [41]  (7.3 ns)
+
+ <State 13>: 7.3ns
+The critical path consists of the following:
+	bus read on port 'gmem' (../saxpy.cpp:27) [48]  (7.3 ns)
+
+ <State 14>: 7.3ns
+The critical path consists of the following:
+	bus read on port 'gmem' (../saxpy.cpp:27) [55]  (7.3 ns)
+
+ <State 15>: 7.3ns
+The critical path consists of the following:
+	bus read on port 'gmem' (../saxpy.cpp:27) [62]  (7.3 ns)
+
+ <State 16>: 7.3ns
+The critical path consists of the following:
+	bus read on port 'gmem' (../saxpy.cpp:27) [69]  (7.3 ns)
+
+ <State 17>: 7.3ns
+The critical path consists of the following:
+	bus read on port 'gmem' (../saxpy.cpp:27) [76]  (7.3 ns)
+
+ <State 18>: 7.3ns
+The critical path consists of the following:
+	bus request on port 'gmem' (../saxpy.cpp:32) [88]  (7.3 ns)
+
+ <State 19>: 7.3ns
+The critical path consists of the following:
+	bus read on port 'gmem' (../saxpy.cpp:32) [82]  (7.3 ns)
+
+ <State 20>: 7.3ns
+The critical path consists of the following:
+	bus read on port 'gmem' (../saxpy.cpp:32) [89]  (7.3 ns)
+
+ <State 21>: 7.3ns
+The critical path consists of the following:
+	bus read on port 'gmem' (../saxpy.cpp:32) [96]  (7.3 ns)
+
+ <State 22>: 7.3ns
+The critical path consists of the following:
+	bus read on port 'gmem' (../saxpy.cpp:32) [103]  (7.3 ns)
+
+ <State 23>: 7.3ns
+The critical path consists of the following:
+	bus read on port 'gmem' (../saxpy.cpp:32) [110]  (7.3 ns)
+
+ <State 24>: 7.3ns
+The critical path consists of the following:
+	bus read on port 'gmem' (../saxpy.cpp:32) [117]  (7.3 ns)
+
+ <State 25>: 7.3ns
+The critical path consists of the following:
+	bus read on port 'gmem' (../saxpy.cpp:32) [124]  (7.3 ns)
+
+ <State 26>: 7.3ns
+The critical path consists of the following:
+	bus read on port 'gmem' (../saxpy.cpp:32) [131]  (7.3 ns)
+
+ <State 27>: 7.3ns
+The critical path consists of the following:
+	bus read on port 'gmem' (../saxpy.cpp:32) [138]  (7.3 ns)
+
+ <State 28>: 7.3ns
+The critical path consists of the following:
+	bus read on port 'gmem' (../saxpy.cpp:32) [145]  (7.3 ns)
+
+ <State 29>: 7.3ns
+The critical path consists of the following:
+	bus access on port 'gmem' (../saxpy.cpp:47) [179]  (7.3 ns)
+
+ <State 30>: 7.3ns
+The critical path consists of the following:
+	bus access on port 'gmem' (../saxpy.cpp:47) [179]  (7.3 ns)
+
+ <State 31>: 7.3ns
+The critical path consists of the following:
+	bus access on port 'gmem' (../saxpy.cpp:47) [179]  (7.3 ns)
+
+ <State 32>: 7.3ns
+The critical path consists of the following:
+	bus access on port 'gmem' (../saxpy.cpp:47) [182]  (7.3 ns)
+
+ <State 33>: 7.3ns
+The critical path consists of the following:
+	bus access on port 'gmem' (../saxpy.cpp:47) [185]  (7.3 ns)
+
+ <State 34>: 7.3ns
+The critical path consists of the following:
+	bus access on port 'gmem' (../saxpy.cpp:47) [188]  (7.3 ns)
+
+ <State 35>: 7.3ns
+The critical path consists of the following:
+	bus access on port 'gmem' (../saxpy.cpp:47) [191]  (7.3 ns)
+
+ <State 36>: 7.3ns
+The critical path consists of the following:
+	bus access on port 'gmem' (../saxpy.cpp:47) [194]  (7.3 ns)
+
+ <State 37>: 7.3ns
+The critical path consists of the following:
+	bus access on port 'gmem' (../saxpy.cpp:47) [197]  (7.3 ns)
+
+ <State 38>: 7.3ns
+The critical path consists of the following:
+	bus access on port 'gmem' (../saxpy.cpp:47) [200]  (7.3 ns)
+
+ <State 39>: 7.3ns
+The critical path consists of the following:
+	bus access on port 'gmem' (../saxpy.cpp:47) [203]  (7.3 ns)
+
+ <State 40>: 7.3ns
+The critical path consists of the following:
+	bus access on port 'gmem' (../saxpy.cpp:47) [206]  (7.3 ns)
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+	State 9
+	State 10
+	State 11
+	State 12
+	State 13
+	State 14
+	State 15
+	State 16
+	State 17
+	State 18
+	State 19
+	State 20
+	State 21
+	State 22
+	State 23
+	State 24
+	State 25
+	State 26
+	State 27
+	State 28
+	State 29
+	State 30
+	State 31
+	State 32
+	State 33
+	State 34
+	State 35
+	State 36
+	State 37
+	State 38
+	State 39
+	State 40
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

@@ -1,0 +1,121 @@
+#-----------------------------------------------------------
+# xsim v2020.1.1 (64-bit)
+# SW Build 2960000 on Wed Aug  5 22:57:20 MDT 2020
+# IP Build 2956692 on Thu Aug  6 01:41:30 MDT 2020
+# Start of session at: Thu Mar 31 00:34:31 2022
+# Process ID: 25392
+# Current directory: C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/sim/verilog
+# Command line: xsim.exe -source {xsim.dir/saxpy/xsim_script.tcl}
+# Log file: C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/sim/verilog/xsim.log
+# Journal file: C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/sim/verilog\xsim.jou
+#-----------------------------------------------------------
+start_gui
+source xsim.dir/saxpy/xsim_script.tcl
+# set_param project.enableReportConfiguration 0
+# load_feature core
+# current_fileset
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2020.1/data/ip'.
+# xsim {saxpy} -view {{saxpy_dataflow_ana.wcfg}} -tclbatch {saxpy.tcl} -protoinst {saxpy.protoinst}
+Vivado Simulator 2020.1.1
+INFO: [Wavedata 42-565] Reading protoinst file saxpy.protoinst
+INFO: [Wavedata 42-564]   Found protocol instance at /apatb_saxpy_top/AESL_inst_saxpy//AESL_inst_saxpy_activity
+INFO: [Wavedata 42-564]   Found protocol instance at /apatb_saxpy_top/AESL_inst_saxpy/Block_split1_proc_U0/Block_split1_proc_U0_activity
+Time resolution is 1 ps
+open_wave_config saxpy_dataflow_ana.wcfg
+source saxpy.tcl
+## log_wave [get_objects -filter {type == in_port || type == out_port || type == inout_port || type == port} /apatb_saxpy_top/AESL_inst_saxpy/*]
+## set designtopgroup [add_wave_group "Design Top Signals"]
+## set cinoutgroup [add_wave_group "C InOuts" -into $designtopgroup]
+## set x__y_group [add_wave_group x__y(axi_master) -into $cinoutgroup]
+## set rdata_group [add_wave_group "Read Channel" -into $x__y_group]
+## set wdata_group [add_wave_group "Write Channel" -into $x__y_group]
+## set ctrl_group [add_wave_group "Handshakes" -into $x__y_group]
+## add_wave /apatb_saxpy_top/AESL_inst_saxpy/m_axi_gmem_BUSER -into $wdata_group -radix hex
+## add_wave /apatb_saxpy_top/AESL_inst_saxpy/m_axi_gmem_BID -into $wdata_group -radix hex
+## add_wave /apatb_saxpy_top/AESL_inst_saxpy/m_axi_gmem_BRESP -into $wdata_group -radix hex
+## add_wave /apatb_saxpy_top/AESL_inst_saxpy/m_axi_gmem_BREADY -into $ctrl_group -color #ffff00 -radix hex
+## add_wave /apatb_saxpy_top/AESL_inst_saxpy/m_axi_gmem_BVALID -into $ctrl_group -color #ffff00 -radix hex
+## add_wave /apatb_saxpy_top/AESL_inst_saxpy/m_axi_gmem_RRESP -into $rdata_group -radix hex
+## add_wave /apatb_saxpy_top/AESL_inst_saxpy/m_axi_gmem_RUSER -into $rdata_group -radix hex
+## add_wave /apatb_saxpy_top/AESL_inst_saxpy/m_axi_gmem_RID -into $rdata_group -radix hex
+## add_wave /apatb_saxpy_top/AESL_inst_saxpy/m_axi_gmem_RLAST -into $ctrl_group -color #ffff00 -radix hex
+## add_wave /apatb_saxpy_top/AESL_inst_saxpy/m_axi_gmem_RDATA -into $rdata_group -radix hex
+## add_wave /apatb_saxpy_top/AESL_inst_saxpy/m_axi_gmem_RREADY -into $ctrl_group -color #ffff00 -radix hex
+## add_wave /apatb_saxpy_top/AESL_inst_saxpy/m_axi_gmem_RVALID -into $ctrl_group -color #ffff00 -radix hex
+## add_wave /apatb_saxpy_top/AESL_inst_saxpy/m_axi_gmem_ARUSER -into $rdata_group -radix hex
+## add_wave /apatb_saxpy_top/AESL_inst_saxpy/m_axi_gmem_ARREGION -into $rdata_group -radix hex
+## add_wave /apatb_saxpy_top/AESL_inst_saxpy/m_axi_gmem_ARQOS -into $rdata_group -radix hex
+## add_wave /apatb_saxpy_top/AESL_inst_saxpy/m_axi_gmem_ARPROT -into $rdata_group -radix hex
+## add_wave /apatb_saxpy_top/AESL_inst_saxpy/m_axi_gmem_ARCACHE -into $rdata_group -radix hex
+## add_wave /apatb_saxpy_top/AESL_inst_saxpy/m_axi_gmem_ARLOCK -into $rdata_group -radix hex
+## add_wave /apatb_saxpy_top/AESL_inst_saxpy/m_axi_gmem_ARBURST -into $rdata_group -radix hex
+## add_wave /apatb_saxpy_top/AESL_inst_saxpy/m_axi_gmem_ARSIZE -into $rdata_group -radix hex
+## add_wave /apatb_saxpy_top/AESL_inst_saxpy/m_axi_gmem_ARLEN -into $rdata_group -radix hex
+## add_wave /apatb_saxpy_top/AESL_inst_saxpy/m_axi_gmem_ARID -into $rdata_group -radix hex
+## add_wave /apatb_saxpy_top/AESL_inst_saxpy/m_axi_gmem_ARADDR -into $rdata_group -radix hex
+## add_wave /apatb_saxpy_top/AESL_inst_saxpy/m_axi_gmem_ARREADY -into $ctrl_group -color #ffff00 -radix hex
+## add_wave /apatb_saxpy_top/AESL_inst_saxpy/m_axi_gmem_ARVALID -into $ctrl_group -color #ffff00 -radix hex
+## add_wave /apatb_saxpy_top/AESL_inst_saxpy/m_axi_gmem_WUSER -into $wdata_group -radix hex
+## add_wave /apatb_saxpy_top/AESL_inst_saxpy/m_axi_gmem_WID -into $wdata_group -radix hex
+## add_wave /apatb_saxpy_top/AESL_inst_saxpy/m_axi_gmem_WLAST -into $ctrl_group -color #ffff00 -radix hex
+## add_wave /apatb_saxpy_top/AESL_inst_saxpy/m_axi_gmem_WSTRB -into $wdata_group -radix hex
+## add_wave /apatb_saxpy_top/AESL_inst_saxpy/m_axi_gmem_WDATA -into $wdata_group -radix hex
+## add_wave /apatb_saxpy_top/AESL_inst_saxpy/m_axi_gmem_WREADY -into $ctrl_group -color #ffff00 -radix hex
+## add_wave /apatb_saxpy_top/AESL_inst_saxpy/m_axi_gmem_WVALID -into $ctrl_group -color #ffff00 -radix hex
+## add_wave /apatb_saxpy_top/AESL_inst_saxpy/m_axi_gmem_AWUSER -into $wdata_group -radix hex
+## add_wave /apatb_saxpy_top/AESL_inst_saxpy/m_axi_gmem_AWREGION -into $wdata_group -radix hex
+## add_wave /apatb_saxpy_top/AESL_inst_saxpy/m_axi_gmem_AWQOS -into $wdata_group -radix hex
+## add_wave /apatb_saxpy_top/AESL_inst_saxpy/m_axi_gmem_AWPROT -into $wdata_group -radix hex
+## add_wave /apatb_saxpy_top/AESL_inst_saxpy/m_axi_gmem_AWCACHE -into $wdata_group -radix hex
+## add_wave /apatb_saxpy_top/AESL_inst_saxpy/m_axi_gmem_AWLOCK -into $wdata_group -radix hex
+## add_wave /apatb_saxpy_top/AESL_inst_saxpy/m_axi_gmem_AWBURST -into $wdata_group -radix hex
+## add_wave /apatb_saxpy_top/AESL_inst_saxpy/m_axi_gmem_AWSIZE -into $wdata_group -radix hex
+## add_wave /apatb_saxpy_top/AESL_inst_saxpy/m_axi_gmem_AWLEN -into $wdata_group -radix hex
+## add_wave /apatb_saxpy_top/AESL_inst_saxpy/m_axi_gmem_AWID -into $wdata_group -radix hex
+## add_wave /apatb_saxpy_top/AESL_inst_saxpy/m_axi_gmem_AWADDR -into $wdata_group -radix hex
+## add_wave /apatb_saxpy_top/AESL_inst_saxpy/m_axi_gmem_AWREADY -into $ctrl_group -color #ffff00 -radix hex
+## add_wave /apatb_saxpy_top/AESL_inst_saxpy/m_axi_gmem_AWVALID -into $ctrl_group -color #ffff00 -radix hex
+## set x__y__a__return_group [add_wave_group x__y__a__return(axi_slave) -into $cinoutgroup]
+## add_wave /apatb_saxpy_top/AESL_inst_saxpy/interrupt -into $x__y__a__return_group -color #ffff00 -radix hex
+## add_wave /apatb_saxpy_top/AESL_inst_saxpy/s_axi_control_BRESP -into $x__y__a__return_group -radix hex
+## add_wave /apatb_saxpy_top/AESL_inst_saxpy/s_axi_control_BREADY -into $x__y__a__return_group -color #ffff00 -radix hex
+## add_wave /apatb_saxpy_top/AESL_inst_saxpy/s_axi_control_BVALID -into $x__y__a__return_group -color #ffff00 -radix hex
+## add_wave /apatb_saxpy_top/AESL_inst_saxpy/s_axi_control_RRESP -into $x__y__a__return_group -radix hex
+## add_wave /apatb_saxpy_top/AESL_inst_saxpy/s_axi_control_RDATA -into $x__y__a__return_group -radix hex
+## add_wave /apatb_saxpy_top/AESL_inst_saxpy/s_axi_control_RREADY -into $x__y__a__return_group -color #ffff00 -radix hex
+## add_wave /apatb_saxpy_top/AESL_inst_saxpy/s_axi_control_RVALID -into $x__y__a__return_group -color #ffff00 -radix hex
+## add_wave /apatb_saxpy_top/AESL_inst_saxpy/s_axi_control_ARREADY -into $x__y__a__return_group -color #ffff00 -radix hex
+## add_wave /apatb_saxpy_top/AESL_inst_saxpy/s_axi_control_ARVALID -into $x__y__a__return_group -color #ffff00 -radix hex
+## add_wave /apatb_saxpy_top/AESL_inst_saxpy/s_axi_control_ARADDR -into $x__y__a__return_group -radix hex
+## add_wave /apatb_saxpy_top/AESL_inst_saxpy/s_axi_control_WSTRB -into $x__y__a__return_group -radix hex
+## add_wave /apatb_saxpy_top/AESL_inst_saxpy/s_axi_control_WDATA -into $x__y__a__return_group -radix hex
+## add_wave /apatb_saxpy_top/AESL_inst_saxpy/s_axi_control_WREADY -into $x__y__a__return_group -color #ffff00 -radix hex
+## add_wave /apatb_saxpy_top/AESL_inst_saxpy/s_axi_control_WVALID -into $x__y__a__return_group -color #ffff00 -radix hex
+## add_wave /apatb_saxpy_top/AESL_inst_saxpy/s_axi_control_AWREADY -into $x__y__a__return_group -color #ffff00 -radix hex
+## add_wave /apatb_saxpy_top/AESL_inst_saxpy/s_axi_control_AWVALID -into $x__y__a__return_group -color #ffff00 -radix hex
+## add_wave /apatb_saxpy_top/AESL_inst_saxpy/s_axi_control_AWADDR -into $x__y__a__return_group -radix hex
+## set resetgroup [add_wave_group "Reset" -into $designtopgroup]
+## add_wave /apatb_saxpy_top/AESL_inst_saxpy/ap_rst_n -into $resetgroup
+## set clockgroup [add_wave_group "Clock" -into $designtopgroup]
+## add_wave /apatb_saxpy_top/AESL_inst_saxpy/ap_clk -into $clockgroup
+## save_wave_config saxpy.wcfg
+## run all
+////////////////////////////////////////////////////////////////////////////////////
+// Inter-Transaction Progress: Completed Transaction / Total Transaction
+// Intra-Transaction Progress: Measured Latency / Latency Estimation * 100%
+//
+// RTL Simulation : "Inter-Transaction Progress" ["Intra-Transaction Progress"] @ "Simulation Time"
+////////////////////////////////////////////////////////////////////////////////////
+// RTL Simulation : 0 / 1 [0.00%] @ "1125000"
+Warning: OPMODE Input Warning : The OPMODE 0110X0X with CARRYINSEL  000 to DSP48E1 instance is invalid.
+Time: 2035 ns  Iteration: 11  Process: /apatb_saxpy_top/AESL_inst_saxpy/Block_split1_proc_U0/fadd_32ns_32ns_32_5_full_dsp_1_U1/saxpy_ap_fadd_3_full_dsp_32_u/U0/i_synth/addsub_op/ADDSUB/dsp/OP/dsp48e1_body/ALIGN_ADD/DSP2/i_no_versal_es1_workaround/DSP/prcs_opmode_drc  File: C:/Xilinx/Vivado/2020.1/data/vhdl/src/unisims/primitive/DSP48E1.vhd
+// RTL Simulation : 1 / 1 [100.00%] @ "2285000"
+////////////////////////////////////////////////////////////////////////////////////
+$finish called at time : 2325 ns : File "C:/Users/JEONWOONGBAE/AppData/Roaming/Xilinx/Vitis/lab4_saxpy/solution1/sim/verilog/saxpy.autotb.v" Line 440
+xsim: Time (s): cpu = 00:00:13 ; elapsed = 00:00:08 . Memory (MB): peak = 1198.484 ; gain = 0.000
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+exit
+INFO: [Common 17-206] Exiting xsim at Thu Mar 31 00:35:37 2022...

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vivadoHLSLog:LogRoot xmlns:vivadoHLSLog="www.xilinx.com/vivadoHLSLog">
+  <errorLogs>
+    <logs>
+      <synLog/>
+      <simLog/>
+      <mgLog/>
+      <packageLog/>
+      <csimLog/>
+    </logs>
+  </errorLogs>
+  <warningLogs>
+    <logs>
+      <synLog>
+        <logs message="WARNING: [RTGEN 206-101] Design contains AXI ports. Reset is fixed to synchronous and active low." projectName="lab4_saxpy" solutionName="solution1" date="2022-03-31T04:00:18.206+0900" type="Warning"/>
+        <logs message="WARNING: [SYN 201-103] Legalizing function name 'Block_.split1_proc' to 'Block_split1_proc'." projectName="lab4_saxpy" solutionName="solution1" date="2022-03-31T04:00:16.617+0900" type="Warning"/>
+        <logs message="WARNING: [HLS 200-786] Detected dataflow-on-top in function  'saxpy'  with default interface mode 'ap_ctrl_hs'. Overlapped execution of successive kernel calls will not happen unless interface mode 'ap_ctrl_chain' is used (or 'ap_ctrl_none' for a purely data-driven design).&#xD;&#xA;Resolution: For help on HLS 200-786 see www.xilinx.com/html_docs/xilinx2020_1/hls-guidance/200-786.html" projectName="lab4_saxpy" solutionName="solution1" date="2022-03-31T04:00:16.220+0900" type="Warning"/>
+        <logs message="WARNING: [HLS 207-1602] Unsupported interface port data type in '#pragma HLS interface m_axi': ../saxpy.cpp:7:34" projectName="lab4_saxpy" solutionName="solution1" date="2022-03-31T04:00:15.507+0900" type="Warning"/>
+        <logs message="WARNING: [HLS 200-471] Dataflow form checks found 4 issue(s) in file ../saxpy.cpp&#xD;&#xA;Resolution: For help on HLS 200-471 see www.xilinx.com/html_docs/xilinx2020_1/hls-guidance/200-471.html" projectName="lab4_saxpy" solutionName="solution1" date="2022-03-31T04:00:12.081+0900" type="Warning"/>
+        <logs message="WARNING: [HLS 214-169] There are a total of 6 such instances of non-canonical statements in the dataflow region: ../saxpy.cpp:17:2&#xD;&#xA;Resolution: For help on HLS 214-169 see www.xilinx.com/html_docs/xilinx2020_1/hls-guidance/214-169.html" projectName="lab4_saxpy" solutionName="solution1" date="2022-03-31T04:00:11.702+0900" type="Warning"/>
+        <logs message="WARNING: [HLS 214-114] Since the only kind of statements allowed in a canonical dataflow region are variable declarations and function calls, the compiler may not be able to correctly handle the region: ../saxpy.cpp:30:2&#xD;&#xA;Resolution: For help on HLS 214-114 see www.xilinx.com/html_docs/xilinx2020_1/hls-guidance/214-114.html" projectName="lab4_saxpy" solutionName="solution1" date="2022-03-31T04:00:11.683+0900" type="Warning"/>
+        <logs message="WARNING: [HLS 214-114] Since the only kind of statements allowed in a canonical dataflow region are variable declarations and function calls, the compiler may not be able to correctly handle the region: ../saxpy.cpp:25:2&#xD;&#xA;Resolution: For help on HLS 214-114 see www.xilinx.com/html_docs/xilinx2020_1/hls-guidance/214-114.html" projectName="lab4_saxpy" solutionName="solution1" date="2022-03-31T04:00:11.674+0900" type="Warning"/>
+        <logs message="WARNING: [HLS 214-114] Since the only kind of statements allowed in a canonical dataflow region are variable declarations and function calls, the compiler may not be able to correctly handle the region: ../saxpy.cpp:22:2&#xD;&#xA;Resolution: For help on HLS 214-114 see www.xilinx.com/html_docs/xilinx2020_1/hls-guidance/214-114.html" projectName="lab4_saxpy" solutionName="solution1" date="2022-03-31T04:00:11.665+0900" type="Warning"/>
+      </synLog>
+      <simLog/>
+      <mgLog/>
+      <packageLog/>
+      <csimLog/>
+    </logs>
+  </warningLogs>
+</vivadoHLSLog:LogRoot>

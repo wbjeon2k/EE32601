@@ -1,0 +1,5 @@
+   Build using "C:/Xilinx/Vitis/2020.1/tps/win64/msys64/mingw64/bin/g++"
+   Compiling saxpy.cpp_pre.cpp.tb.cpp
+   Compiling apatb_saxpy.cpp
+   Compiling saxpy_test.cpp_pre.cpp.tb.cpp
+   Generating cosim.tv.exe
